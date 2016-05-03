@@ -65,6 +65,7 @@ author:
   avatar           : "bio-photo.jpg"
   bio              : "我想吃苹果"
   location         : "广州天河"
+  phone            : "15918721858"
   email            : monkey19911021@gmail.com
   uri              :
   bitbucket        :
@@ -89,6 +90,8 @@ author:
   weibo            :
   xing             :
   youtube          :
+  weixin           : virtualmonkey
+  qq               : 457870936
 
 
 # Reading Files

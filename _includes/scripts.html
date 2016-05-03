@@ -2,3 +2,14 @@
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+</script>

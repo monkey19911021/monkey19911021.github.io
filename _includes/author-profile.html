@@ -31,6 +31,16 @@
       {% if author.email %}
         <li><a href="mailto:{{ author.email }}"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].email_label }}</a></li>
       {% endif %}
+      {% if author.phone %}
+        <li><a href="tel:{{ author.phone }}"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> {{ author.phone }}</a></li>
+      {% endif %}
+      {% if author.weixin %}
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].wechat_label }}</a></li>
+        <li><img src="{{ "weiixin.jpg" | prepend: "/images/" | prepend: base_path }}" id="wx_img"  hidden></li>
+      {% endif %}
+      {% if author.qq %}
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={{ author.qq }}&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].qq_label }}</a></li>
+      {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
       {% endif %}
@@ -100,3 +110,4 @@
     </ul>
   </div>
 </div>
+
