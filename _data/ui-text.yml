@@ -37,8 +37,8 @@ en-UK:
 # --------------
 zh-cn:
   page                  : "页码"
-  pagination_previous   : "上一页"
-  pagination_next       : "下一页"
+  pagination_previous   : "上一章"
+  pagination_next       : "下一章"
   breadcrumb_home_label : "首页"
   breadcrumb_separator  : "/"
   toc_label             : "在这一页"
