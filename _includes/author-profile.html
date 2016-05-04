@@ -36,7 +36,7 @@
       {% endif %}
       {% if author.weixin %}
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].wechat_label }}</a></li>
-        <li><img src="{{ "weiixin.jpg" | prepend: "/images/" | prepend: base_path }}" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="{{ "weiixin.jpg" | prepend: "/images/" | prepend: base_path }}" id="wx_img"  hidden></li>
       {% endif %}
       {% if author.qq %}
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={{ author.qq }}&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].qq_label }}</a></li>

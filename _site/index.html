@@ -121,6 +121,9 @@
             
             <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
           
+            
+            <li class="masthead__menu-item"><a href="/tags">标签分类</a></li>
+          
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
@@ -169,7 +172,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -338,6 +341,10 @@ iOS的异常有两种：
     }else{
       wxImg.setAttribute("hidden", true);
     }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
   }
 </script>
     <!-- start custom footer snippets -->

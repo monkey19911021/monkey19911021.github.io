@@ -3,8 +3,8 @@ main:
   - title: "About"
     url: /aboutme
 
-  #- title: "Sample Posts"
-    #url: https://mmistakes.github.io/minimal-mistakes/year-archive/
+  - title: "标签分类"
+    url: /tags
 
   #- title: "Sample Pages"
     #url: https://mmistakes.github.io/minimal-mistakes/page-archive/
