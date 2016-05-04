@@ -10,7 +10,7 @@ locale                   : "zh-cn"
 title                    : "MK in Apple"
 title_separator          : "-"
 name                     : "MKApple"
-description              : "An amazing website."
+description              : "MK的技术博客."
 url                      : # "https://monkey19911021.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
@@ -18,9 +18,9 @@ teaser                   : # filename of teaser fallback teaser image placed in 
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "facebook", "google-plus", custom"
+  provider               : "disqus"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "mkapplecn"
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
@@ -35,10 +35,10 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : M0nk1y_
 facebook:
-  username               :
-  app_id                 :
+  username               : liujhapple
+  app_id                 : M0nk1y
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
 # For specifying social profiles
@@ -85,7 +85,7 @@ author:
   stackoverflow    :
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : M0nk1y_
   vine             :
   weibo            :
   xing             :
@@ -207,3 +207,17 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+    
+# posts
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
