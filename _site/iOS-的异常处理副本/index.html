@@ -65,6 +65,8 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-05-04T00:00:00+08:00">
   
+    <link rel="next" href="/%E5%9F%BA%E4%BA%8EXcode7%E7%9A%84framework%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" title="基于xcode7的framework开发技术">
+  
   
     <link rel="prev" href="/iOS-%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title="`ios`的异常处理">
   
@@ -130,6 +132,9 @@
             
             <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
           
+            
+            <li class="masthead__menu-item"><a href="/tags">标签分类</a></li>
+          
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
@@ -180,7 +185,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -309,10 +314,11 @@
   <nav class="pagination">
     
       <a href="/iOS-%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="pagination--pager" title="ios的异常处理
-">上一页</a>
+">上一章</a>
     
     
-      <a href="#" class="pagination--pager disabled">下一页</a>
+      <a href="/%E5%9F%BA%E4%BA%8EXcode7%E7%9A%84framework%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" class="pagination--pager" title="基于xcode7的framework开发技术
+">下一章</a>
     
   </nav>
 
@@ -337,6 +343,43 @@
         <h4 class="page__related-title">你也许喜欢以下</h4>
       
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/%E5%9F%BA%E4%BA%8EXcode7%E7%9A%84framework%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">基于xcode7的framework开发技术
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  2 秒钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     目录
+
+  1.  静态库和动态库    
+      1.1  什么是静态库
+      1.2  什么是动态库
+      1.3  选择哪种库
+    
+  
+  2.  制作动态库    
+      2.1  选择framework项目
+      2.2  创建通用集合
+      2....</p>
+    </article>
+  </a>
+</div>
         
           
 
@@ -445,6 +488,10 @@ iOS的异常有两种：
     }else{
       wxImg.setAttribute("hidden", true);
     }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
   }
 </script>
     <!-- start custom footer snippets -->
