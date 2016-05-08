@@ -3,8 +3,20 @@ main:
   - title: "About"
     url: /aboutme
 
-  - title: "标签分类"
+  - title: "标签"
     url: /tags
+    
+  - title: "类别"
+    url: /category
+    
+  # - title: "按年份"
+    # url: /year
+    
+  # - title: "按月份"
+    # url: /month
+    
+  # - title: "按日期"
+    # url: /day
 
   #- title: "Sample Pages"
     #url: https://mmistakes.github.io/minimal-mistakes/page-archive/
