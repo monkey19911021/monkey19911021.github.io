@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/%25E5%259F%25BA%25E4%25BA%258EXcode7%25E7%259A%2584framework%25E5%25BC%2580%25E5%258F%2591%25E6%258A%2580%25E6%259C%25AF/</loc>
+<loc>/160504Framework</loc>
 <lastmod>2016-05-04T00:00:00+08:00</lastmod>
 </url>
 <url>
-<loc>/objective-c/exception/iOS-%25E7%259A%2584%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586/</loc>
+<loc>/160504exception</loc>
 <lastmod>2016-05-04T00:00:00+08:00</lastmod>
 </url>
 <url>

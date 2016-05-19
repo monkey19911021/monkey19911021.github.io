@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-05-07T12:29:15+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>基于xcode7的framework开发技术</title><link href="/%E5%9F%BA%E4%BA%8EXcode7%E7%9A%84framework%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" rel="alternate" type="text/html" title="基于xcode7的framework开发技术" /><published>2016-05-04T00:00:00+08:00</published><updated>2016-05-04T00:00:00+08:00</updated><id>/基于Xcode7的framework开发技术</id><content type="html" xml:base="/%E5%9F%BA%E4%BA%8EXcode7%E7%9A%84framework%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">&lt;aside class=&quot;sidebar__right&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-05-19T11:16:38+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>基于xcode7的framework开发技术</title><link href="/160504Framework" rel="alternate" type="text/html" title="基于xcode7的framework开发技术" /><published>2016-05-04T00:00:00+08:00</published><updated>2016-05-04T00:00:00+08:00</updated><id>/基于Xcode7的framework开发技术</id><content type="html" xml:base="/160504Framework">&lt;aside class=&quot;sidebar__right&quot;&gt;
 &lt;nav class=&quot;toc&quot;&gt;
     &lt;header&gt;&lt;h4 class=&quot;nav__title&quot;&gt;&lt;i class=&quot;fa fa-gears&quot;&gt;&lt;/i&gt; 目录&lt;/h4&gt;&lt;/header&gt;
 &lt;ul class=&quot;toc__menu&quot; id=&quot;markdown-toc&quot;&gt;
@@ -234,7 +234,25 @@ rm -r &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k
 
 &lt;p&gt;OK，现在只要修改库的编译类型以及app的useStaticFramework就可以让app项目加载动态库或者静态库了。&lt;/p&gt;
 
-&lt;p&gt;*具体代码参考Demo&lt;/p&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><summary>目录
+&lt;p&gt;*具体代码参考Demo&lt;/p&gt;
+
+&lt;!-- 多说评论框 start --&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;160504Framework&quot; data-title=&quot;基于Xcode7的Framework开发技术&quot; data-url=&quot;http://mkapple.cn/160504Framework&quot;&gt;&lt;/div&gt;
+&lt;!-- 多说评论框 end --&gt;
+&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&quot;mkapple&quot;};
+	(function() {
+		var ds = document.createElement(&#39;script&#39;);
+		ds.type = &#39;text/javascript&#39;;ds.async = true;
+		ds.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;//static.duoshuo.com/embed.js&#39;;
+		ds.charset = &#39;UTF-8&#39;;
+		(document.getElementsByTagName(&#39;head&#39;)[0] 
+		 || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+	})();
+	&lt;/script&gt;
+
+&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="Framework" /><summary>目录
 
   1.  静态库和动态库    
       1.1  什么是静态库
@@ -299,7 +317,7 @@ Build Phases ——&amp;gt; + ——&amp;gt; New Run Script Phase
 
 
 
-添加如下脚本代码：</summary></entry><entry><title>ios的异常处理</title><link href="/objective-c/exception/iOS-%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="alternate" type="text/html" title="`ios`的异常处理" /><published>2016-05-04T00:00:00+08:00</published><updated>2016-05-04T00:00:00+08:00</updated><id>/objective-c/exception/`iOS`的异常处理</id><content type="html" xml:base="/objective-c/exception/iOS-%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">&lt;h2 id=&quot;ios&quot;&gt;iOS异常说明：&lt;/h2&gt;
+添加如下脚本代码：</summary></entry><entry><title>ios的异常处理</title><link href="/160504exception" rel="alternate" type="text/html" title="`ios`的异常处理" /><published>2016-05-04T00:00:00+08:00</published><updated>2016-05-04T00:00:00+08:00</updated><id>/`iOS`的异常处理</id><content type="html" xml:base="/160504exception">&lt;h2 id=&quot;ios&quot;&gt;iOS异常说明：&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;iOS的异常有两种：&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -325,7 +343,25 @@ Build Phases ——&amp;gt; + ——&amp;gt; New Run Script Phase
 
 &lt;p&gt;之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。&lt;/p&gt;
 
-&lt;p&gt;Demo: &lt;a href=&quot;https://github.com/monkey19911021/MKExceptionHandlerDemo&quot;&gt;MKExceptionHandlerDemo&lt;/a&gt;&lt;/p&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="Exception" /><category term="SignalHandler" /><summary>iOS异常说明：
+&lt;p&gt;Demo: &lt;a href=&quot;https://github.com/monkey19911021/MKExceptionHandlerDemo&quot;&gt;MKExceptionHandlerDemo&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- 多说评论框 start --&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;160504exception&quot; data-title=&quot;iOS 的异常处理&quot; data-url=&quot;http://mkapple.cn/160504exception&quot;&gt;&lt;/div&gt;
+&lt;!-- 多说评论框 end --&gt;
+&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&quot;mkapple&quot;};
+	(function() {
+		var ds = document.createElement(&#39;script&#39;);
+		ds.type = &#39;text/javascript&#39;;ds.async = true;
+		ds.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;//static.duoshuo.com/embed.js&#39;;
+		ds.charset = &#39;UTF-8&#39;;
+		(document.getElementsByTagName(&#39;head&#39;)[0] 
+		 || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+	})();
+	&lt;/script&gt;
+
+&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="Exception" /><category term="SignalHandler" /><summary>iOS异常说明：
 iOS的异常有两种：
 
 
