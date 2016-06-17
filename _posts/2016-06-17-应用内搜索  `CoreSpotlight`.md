@@ -22,24 +22,24 @@ tags: [CoreSpotlight]
 ~~~objc
 NSMutableArray<CSSearchableItem *> *array = @[].mutableCopy;
     
-    //创建 SearchableItemAttributeSet
-    CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType: @"views"];
-    set.title = @"打开MKApple";
-    set.contentDescription = @"在应用里打开MKApple的网站";
-    set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@"fielIcon"]);
+//创建 SearchableItemAttributeSet
+CSSearchableItemAttributeSet *set = [[CSSearchableItemAttributeSet alloc] initWithItemContentType: @"views"];
+set.title = @"打开MKApple";
+set.contentDescription = @"在应用里打开MKApple的网站";
+set.thumbnailData = UIImagePNGRepresentation([UIImage imageNamed:@"fielIcon"]);
     
-    //创建 SearchableItem
-    /*
-     uniqueIdentifier: 搜索项唯一标识符
-     domainIdentifier: 搜索项的域标识，用于批量操作搜索项
-     */
-    CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@"MKUnique" domainIdentifier:@"MKDomain" attributeSet:set];
-    [array addObject:item];
+//创建 SearchableItem
+/*
+ uniqueIdentifier: 搜索项唯一标识符
+ domainIdentifier: 搜索项的域标识，用于批量操作搜索项
+*/
+CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@"MKUnique" domainIdentifier:@"MKDomain" attributeSet:set];
+[array addObject:item];
     
-    //更新搜索项
-    [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:array completionHandler:^(NSError * _Nullable error) {
+//更新搜索项
+[[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:array completionHandler:^(NSError * _Nullable error) {
         
-    }];
+}];
 ~~~
 
 
@@ -70,6 +70,24 @@ NSMutableArray<CSSearchableItem *> *array = @[].mutableCopy;
     
     return YES;
 }
+~~~
+
+### 4. 删除搜索项
+~~~objc
+//通过 uniqueIdentifier 删除
+[[CSSearchableIndex defaultSearchableIndex] deleteSearchableItemsWithIdentifiers:@[@"MKUnique"] completionHandler:^(NSError * _Nullable error) {
+        
+}];
+    
+//通过 domainIdentifier 删除
+[[CSSearchableIndex defaultSearchableIndex] deleteSearchableItemsWithDomainIdentifiers:@[@"MKDomain"] completionHandler:^(NSError * _Nullable error) {
+        
+}];
+    
+//删除本应用所有的索引
+[[CSSearchableIndex defaultSearchableIndex] deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) {
+        
+}];
 ~~~
 
 

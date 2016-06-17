@@ -269,24 +269,24 @@
 
 <div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">CSSearchableItem</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">@[].</span><span class="n">mutableCopy</span><span class="p">;</span>
     
-    <span class="c1">//创建 SearchableItemAttributeSet
-</span>    <span class="n">CSSearchableItemAttributeSet</span> <span class="o">*</span><span class="n">set</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItemAttributeSet</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithItemContentType</span><span class="p">:</span> <span class="s">@"views"</span><span class="p">];</span>
-    <span class="n">set</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">@"打开MKApple"</span><span class="p">;</span>
-    <span class="n">set</span><span class="p">.</span><span class="n">contentDescription</span> <span class="o">=</span> <span class="s">@"在应用里打开MKApple的网站"</span><span class="p">;</span>
-    <span class="n">set</span><span class="p">.</span><span class="n">thumbnailData</span> <span class="o">=</span> <span class="n">UIImagePNGRepresentation</span><span class="p">([</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"fielIcon"</span><span class="p">]);</span>
+<span class="c1">//创建 SearchableItemAttributeSet
+</span><span class="n">CSSearchableItemAttributeSet</span> <span class="o">*</span><span class="n">set</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItemAttributeSet</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithItemContentType</span><span class="p">:</span> <span class="s">@"views"</span><span class="p">];</span>
+<span class="n">set</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">@"打开MKApple"</span><span class="p">;</span>
+<span class="n">set</span><span class="p">.</span><span class="n">contentDescription</span> <span class="o">=</span> <span class="s">@"在应用里打开MKApple的网站"</span><span class="p">;</span>
+<span class="n">set</span><span class="p">.</span><span class="n">thumbnailData</span> <span class="o">=</span> <span class="n">UIImagePNGRepresentation</span><span class="p">([</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"fielIcon"</span><span class="p">]);</span>
     
-    <span class="c1">//创建 SearchableItem
-</span>    <span class="cm">/*
-     uniqueIdentifier: 搜索项唯一标识符
-     domainIdentifier: 搜索项的域标识，用于批量操作搜索项
-     */</span>
-    <span class="n">CSSearchableItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItem</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithUniqueIdentifier</span><span class="p">:</span><span class="s">@"MKUnique"</span> <span class="nf">domainIdentifier</span><span class="p">:</span><span class="s">@"MKDomain"</span> <span class="nf">attributeSet</span><span class="p">:</span><span class="n">set</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">array</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">item</span><span class="p">];</span>
+<span class="c1">//创建 SearchableItem
+</span><span class="cm">/*
+ uniqueIdentifier: 搜索项唯一标识符
+ domainIdentifier: 搜索项的域标识，用于批量操作搜索项
+*/</span>
+<span class="n">CSSearchableItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItem</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithUniqueIdentifier</span><span class="p">:</span><span class="s">@"MKUnique"</span> <span class="nf">domainIdentifier</span><span class="p">:</span><span class="s">@"MKDomain"</span> <span class="nf">attributeSet</span><span class="p">:</span><span class="n">set</span><span class="p">];</span>
+<span class="p">[</span><span class="n">array</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">item</span><span class="p">];</span>
     
-    <span class="c1">//更新搜索项
-</span>    <span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">indexSearchableItems</span><span class="p">:</span><span class="n">array</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//更新搜索项
+</span><span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">indexSearchableItems</span><span class="p">:</span><span class="n">array</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
         
-    <span class="p">}];</span>
+<span class="p">}];</span>
 </code></pre>
 </div>
 
@@ -316,6 +316,24 @@
     
     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
 <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="section-3">4. 删除搜索项</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//通过 uniqueIdentifier 删除
+</span><span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">deleteSearchableItemsWithIdentifiers</span><span class="p">:@[</span><span class="s">@"MKUnique"</span><span class="p">]</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        
+<span class="p">}];</span>
+    
+<span class="c1">//通过 domainIdentifier 删除
+</span><span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">deleteSearchableItemsWithDomainIdentifiers</span><span class="p">:@[</span><span class="s">@"MKDomain"</span><span class="p">]</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        
+<span class="p">}];</span>
+    
+<span class="c1">//删除本应用所有的索引
+</span><span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">deleteAllSearchableItemsWithCompletionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        
+<span class="p">}];</span>
 </code></pre>
 </div>
 
