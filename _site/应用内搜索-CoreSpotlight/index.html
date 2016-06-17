@@ -19,7 +19,7 @@
 
 
 
-<title>ios 的异常处理 - MK in Apple</title>
+<title>应用内搜索  corespotlight - MK in Apple</title>
 
 
 
@@ -29,18 +29,18 @@
 
 <meta property="og:locale" content="zh-cn">
 <meta property="og:site_name" content="MK in Apple">
-<meta property="og:title" content="ios 的异常处理">
+<meta property="og:title" content="应用内搜索  corespotlight">
 
 
 
 
-  <meta property="og:description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
+  <meta property="og:description" content="permalink: /2016/06/17/CoreSpotlightcategories: [Objective-C, iOS API]tags: [CoreSpotlight]—">
 
 
 
   <meta name="twitter:site" content="@M0nk1y_">
-  <meta name="twitter:title" content="ios 的异常处理">
-  <meta name="twitter:description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
+  <meta name="twitter:title" content="应用内搜索  corespotlight">
+  <meta name="twitter:description" content="permalink: /2016/06/17/CoreSpotlightcategories: [Objective-C, iOS API]tags: [CoreSpotlight]—">
   <meta name="twitter:url" content="">
 
   
@@ -63,10 +63,10 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2016-05-04T00:00:00+08:00">
+  <meta property="article:published_time" content="2016-06-17T00:00:00+08:00">
   
-    <link rel="next" href="/160504Framework" title="基于 xcode7 的 framework 开发技术">
   
+    <link rel="prev" href="/160504Framework" title="基于 xcode7 的 framework 开发技术">
   
 
 
@@ -229,15 +229,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="ios 的异常处理">
-    <meta itemprop="description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
-    <meta itemprop="datePublished" content="May 04, 2016">
+    <meta itemprop="headline" content="应用内搜索  corespotlight">
+    <meta itemprop="description" content="permalink: /2016/06/17/CoreSpotlightcategories: [Objective-C, iOS API]tags: [CoreSpotlight]—">
+    <meta itemprop="datePublished" content="June 17, 2016">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline"><code class="highlighter-rouge">ios</code> 的异常处理
+          <h1 class="page__title" itemprop="headline">应用内搜索  <code class="highlighter-rouge">corespotlight</code>
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -250,36 +250,34 @@
       
 
       <section class="page__content" itemprop="text">
-        <h2 id="ios">iOS异常说明：</h2>
-<p><strong>iOS的异常有两种：</strong></p>
+        <hr />
+<p>permalink: /2016/06/17/CoreSpotlight
+categories: [Objective-C, iOS API]
+tags: [CoreSpotlight]
+—
+<img src="/images/CoreSpotlight/corespotlight.png" alt="截图1" /></p>
 
-<ol>
-  <li>
-    <p>普通异常，能够被NSException捕获的异常<br />
-对于普通异常我们可以使用NSException来捕获并且进行处理。</p>
-  </li>
-  <li>
-    <p>信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。<br />
-对于信号机制异常，需要用信号处理函数: <code class="highlighter-rouge">void	(*signal(int, void (*)(int)))(int);</code><br /></p>
-    <ol>
-      <li>为某信号注册处理函数：<code class="highlighter-rouge">signal(SIGABRT, SignalHandler);</code>  为信号SIGABRT注册一个SignalHandler处理方法。<br /></li>
-      <li>实现SignalHandler方法：<code class="highlighter-rouge">void SignalHandler(int signal){//实现方法}；</code></li>
-    </ol>
-  </li>
-</ol>
-
-<h2 id="uncaughtexceptionhandler">UncaughtExceptionHandler使用方法：</h2>
-<p>在项目的<code class="highlighter-rouge">AppDelegate.m</code>文件的import进<code class="highlighter-rouge">UncaughtExceptionHandler.h</code>
-然后在方法：<code class="highlighter-rouge">- (BOOL)application: didFinishLaunchingWithOptions；</code>里设置全局异常监控方法：<code class="highlighter-rouge">InstallUncaughtExceptionHandler();</code></p>
-
-<p>每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。</p>
-
-<p>之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。</p>
-
-<p>Demo: <a href="https://github.com/monkey19911021/MKExceptionHandlerDemo">MKExceptionHandlerDemo</a></p>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">CSSearchableItem</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">@[].</span><span class="n">mutableCopy</span><span class="p">;</span>
+    
+    <span class="c1">//创建 SearchableItemAttributeSet
+</span>    <span class="n">CSSearchableItemAttributeSet</span> <span class="o">*</span><span class="n">set</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItemAttributeSet</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithItemContentType</span><span class="p">:</span> <span class="s">@"views"</span><span class="p">];</span>
+    <span class="n">set</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">@"打开MKApple"</span><span class="p">;</span>
+    <span class="n">set</span><span class="p">.</span><span class="n">contentDescription</span> <span class="o">=</span> <span class="s">@"在应用里打开MKApple的网站"</span><span class="p">;</span>
+    <span class="n">set</span><span class="p">.</span><span class="n">thumbnailData</span> <span class="o">=</span> <span class="n">UIImagePNGRepresentation</span><span class="p">([</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"fielIcon"</span><span class="p">]);</span>
+    
+    <span class="c1">//创建 SearchableItem
+</span>    <span class="n">CSSearchableItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CSSearchableItem</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithUniqueIdentifier</span><span class="p">:</span><span class="s">@"MKUnique"</span> <span class="nf">domainIdentifier</span><span class="p">:</span><span class="s">@"MKDomain"</span> <span class="nf">attributeSet</span><span class="p">:</span><span class="n">set</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">array</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">item</span><span class="p">];</span>
+    
+    <span class="c1">//更新搜索项
+</span>    <span class="p">[[</span><span class="n">CSSearchableIndex</span> <span class="nf">defaultSearchableIndex</span><span class="p">]</span> <span class="nf">indexSearchableItems</span><span class="p">:</span><span class="n">array</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        
+    <span class="p">}];</span>
+</code></pre>
+</div>
 
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="160504exception" data-title="iOS 的异常处理" data-url="http://mkapple.cn/160504exception"></div>
+<div class="ds-thread" data-thread-key="CoreSpotlight" data-title="iOS 的异常处理" data-url="http://mkapple.cn/2016/06/17/CoreSpotlight"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -307,7 +305,7 @@ var duoshuoQuery = {short_name:"mkapple"};
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-05-04T00:00:00+08:00">May 04, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-06-17T00:00:00+08:00">June 17, 2016</time></p>
         
       </footer>
 
@@ -318,13 +316,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/160504exception" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=/%E5%BA%94%E7%94%A8%E5%86%85%E6%90%9C%E7%B4%A2-CoreSpotlight/" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/160504exception" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/%E5%BA%94%E7%94%A8%E5%86%85%E6%90%9C%E7%B4%A2-CoreSpotlight/" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/160504exception" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/%E5%BA%94%E7%94%A8%E5%86%85%E6%90%9C%E7%B4%A2-CoreSpotlight/" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/160504exception" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/%E5%BA%94%E7%94%A8%E5%86%85%E6%90%9C%E7%B4%A2-CoreSpotlight/" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -332,11 +330,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">上一章</a>
-    
-    
       <a href="/160504Framework" class="pagination--pager" title="基于 xcode7 的 framework 开发技术
-">下一章</a>
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
     
   </nav>
 
@@ -359,33 +357,6 @@ var duoshuoQuery = {short_name:"mkapple"};
 
 <div class="grid__item">
   
-    <a href="/2016/06/17/CoreSpotlight">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">应用内搜索  <code class="highlighter-rouge">corespotlight</code>
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">
-
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
     <a href="/160504Framework">
   
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
@@ -396,7 +367,7 @@ var duoshuoQuery = {short_name:"mkapple"};
         <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  2 秒钟阅读
+  1 分钟阅读
 </p>
       
       <p class="archive__item-excerpt" itemprop="description">
@@ -413,6 +384,40 @@ var duoshuoQuery = {short_name:"mkapple"};
       2.1  选择framework项目
       2.2  创建通用集合
       2....</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/160504exception">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 的异常处理
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">iOS异常说明：
+iOS的异常有两种：
+
+
+  
+    普通异常，能够被NSException捕获的异常
+对于普通异常我们可以使用NSException来捕获并且进行处理。
+  
+  
+    信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。
+对于信号机制异常，需要...</p>
     </article>
   </a>
 </div>

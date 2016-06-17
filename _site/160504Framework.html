@@ -19,7 +19,7 @@
 
 
 
-<title>基于xcode7的framework开发技术 - MK in Apple</title>
+<title>基于 xcode7 的 framework 开发技术 - MK in Apple</title>
 
 
 
@@ -29,7 +29,7 @@
 
 <meta property="og:locale" content="zh-cn">
 <meta property="og:site_name" content="MK in Apple">
-<meta property="og:title" content="基于xcode7的framework开发技术">
+<meta property="og:title" content="基于 xcode7 的 framework 开发技术">
 
 
 
@@ -39,7 +39,7 @@
 
 
   <meta name="twitter:site" content="@M0nk1y_">
-  <meta name="twitter:title" content="基于xcode7的framework开发技术">
+  <meta name="twitter:title" content="基于 xcode7 的 framework 开发技术">
   <meta name="twitter:description" content="     目录  1.  静态库和动态库          1.1  什么是静态库      1.2  什么是动态库      1.3  选择哪种库        2.  制作动态库          2.1  选择framework项目      2.2  创建通用集合      2.3  添加项目依赖      2.4  添加运行脚本        1.  静态库和动态库  Static Library （.a）  Dynamic Library (.dylib)  Static Framework (.framework)  Dynamic Framework (.framework)1.1  什么是静态库程序编译一般需经预处理、编译、汇编和链接几个步骤。在我们的应用中，有一些公共代码是需要反复使用，就把这些代码编译为“库”文件；在链接步骤中，连接器将从库文件取得所需的代码，复制到生成的可执行文件中。这种库称为静态库，其特点是可执行文件中包含了库代码的一份完整拷贝；缺点就是被多次使用就会有多份冗余拷贝。1.2  什么是动态库动态库功能跟静态库类似，也是为了代码复用。静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的复本，因此节省了很多内存。1.3  选择哪种库由于Appstore不支持上传包含动态库的app（其原因百度之），所以我们在开发app之前我们需要考虑好，app上架到哪里，动态更新功能是否必不可少。如果只上架到AppStore则只能是用静态库；如果只上架到本地服务器则可以使用动态库和静态库；如果不但要上架到而且还要上架到本地服务器让它具有动态更新功能的，则这个库则需要做得想静态库一样的动态库，我们只需要为静态库做一点小改动则可以变成动态库。2.  制作动态库2.1  选择framework项目framework一般用于开发动态库命名为：FrameworkTest2.2  创建通用集合命名为项目名+Aggregate：FrameworkTestAggregate2.3  添加项目依赖Build Phases ——&gt; Target Dependencies ——&gt; +选择本项目2.4  添加运行脚本Build Phases ——&gt; + ——&gt; New Run Script Phase添加如下脚本代码：">
   <meta name="twitter:url" content="">
 
@@ -65,8 +65,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-05-04T00:00:00+08:00">
   
+    <link rel="next" href="/2016/06/17/CoreSpotlight" title="应用内搜索  `corespotlight`">
   
-    <link rel="prev" href="/160504exception" title="`ios`的异常处理">
+  
+    <link rel="prev" href="/160504exception" title="`ios` 的异常处理">
   
 
 
@@ -229,7 +231,7 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="基于xcode7的framework开发技术">
+    <meta itemprop="headline" content="基于 xcode7 的 framework 开发技术">
     <meta itemprop="description" content="     目录  1.  静态库和动态库          1.1  什么是静态库      1.2  什么是动态库      1.3  选择哪种库        2.  制作动态库          2.1  选择framework项目      2.2  创建通用集合      2.3  添加项目依赖      2.4  添加运行脚本        1.  静态库和动态库  Static Library （.a）  Dynamic Library (.dylib)  Static Framework (.framework)  Dynamic Framework (.framework)1.1  什么是静态库程序编译一般需经预处理、编译、汇编和链接几个步骤。在我们的应用中，有一些公共代码是需要反复使用，就把这些代码编译为“库”文件；在链接步骤中，连接器将从库文件取得所需的代码，复制到生成的可执行文件中。这种库称为静态库，其特点是可执行文件中包含了库代码的一份完整拷贝；缺点就是被多次使用就会有多份冗余拷贝。1.2  什么是动态库动态库功能跟静态库类似，也是为了代码复用。静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的复本，因此节省了很多内存。1.3  选择哪种库由于Appstore不支持上传包含动态库的app（其原因百度之），所以我们在开发app之前我们需要考虑好，app上架到哪里，动态更新功能是否必不可少。如果只上架到AppStore则只能是用静态库；如果只上架到本地服务器则可以使用动态库和静态库；如果不但要上架到而且还要上架到本地服务器让它具有动态更新功能的，则这个库则需要做得想静态库一样的动态库，我们只需要为静态库做一点小改动则可以变成动态库。2.  制作动态库2.1  选择framework项目framework一般用于开发动态库命名为：FrameworkTest2.2  创建通用集合命名为项目名+Aggregate：FrameworkTestAggregate2.3  添加项目依赖Build Phases ——&gt; Target Dependencies ——&gt; +选择本项目2.4  添加运行脚本Build Phases ——&gt; + ——&gt; New Run Script Phase添加如下脚本代码：">
     <meta itemprop="datePublished" content="May 04, 2016">
     
@@ -237,7 +239,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">基于xcode7的framework开发技术
+          <h1 class="page__title" itemprop="headline">基于 xcode7 的 framework 开发技术
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -542,11 +544,12 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/160504exception" class="pagination--pager" title="ios的异常处理
+      <a href="/160504exception" class="pagination--pager" title="ios 的异常处理
 ">上一章</a>
     
     
-      <a href="#" class="pagination--pager disabled">下一章</a>
+      <a href="/2016/06/17/CoreSpotlight" class="pagination--pager" title="应用内搜索  corespotlight
+">下一章</a>
     
   </nav>
 
@@ -569,11 +572,38 @@ var duoshuoQuery = {short_name:"mkapple"};
 
 <div class="grid__item">
   
+    <a href="/2016/06/17/CoreSpotlight">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用内搜索  <code class="highlighter-rouge">corespotlight</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
     <a href="/160504exception">
   
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       
-      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code>的异常处理
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 的异常处理
 </h2>
       
         <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -635,6 +665,18 @@ iOS的异常有两种：
 
 
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 
 
 
