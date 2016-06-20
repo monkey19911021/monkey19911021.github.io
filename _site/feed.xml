@@ -1,4 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-17T11:44:15+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用内搜索  corespotlight</title><link href="/2016/06/17/CoreSpotlight" rel="alternate" type="text/html" title="应用内搜索  `corespotlight`" /><published>2016-06-17T00:00:00+08:00</published><updated>2016-06-17T00:00:00+08:00</updated><id>/2016/06/17/应用内搜索  `CoreSpotlight`</id><content type="html" xml:base="/2016/06/17/CoreSpotlight">&lt;p&gt;&lt;img src=&quot;/images/CoreSpotlight/corespotlight.png&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-20T18:27:28+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用扩展—— today extension</title><link href="/2016/06/20/TodayExtension" rel="alternate" type="text/html" title="应用扩展—— `today extension`" /><published>2016-06-20T00:00:00+08:00</published><updated>2016-06-20T00:00:00+08:00</updated><id>/2016/06/20/应用扩展—— `Today Extension`</id><content type="html" xml:base="/2016/06/20/TodayExtension">&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img0.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;今日面板&lt;/h2&gt;
+&lt;p&gt;      今日面板属于一个应用的扩展，但是该扩展跟该应用是两个独立的程序。OK，来做一个任务列表（ToDoList）来熟悉 Today Extension 的开发吧。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;1. 创建一个任务列表：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img1.png&quot; alt=&quot;截图2&quot; /&gt;
+&lt;br /&gt;
+一个基本的 tableView ，具有点击右上角添加新元素、左滑 tableViewCell 删除元素的，so easy。&lt;/p&gt;
+
+&lt;h3 id=&quot;today-extension-&quot;&gt;2. 创建 Today Extension 扩展&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img2.png&quot; alt=&quot;截图3&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img3.png&quot; alt=&quot;截图4&quot; /&gt;
+&lt;br /&gt;
+下一步，命名，完成。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;会弹出这样一个框：
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img4.png&quot; alt=&quot;截图5&quot; /&gt;
+&lt;br /&gt;
+选择激活（Activate）
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;修改运行时执行的主应用
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img5.png&quot; alt=&quot;截图6&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;在 Run 一项里选择运行时执行的主应用：&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img6.png&quot; alt=&quot;截图7&quot; /&gt;
+&lt;br /&gt;
+勾上 Debug executable &lt;br /&gt; 
+&lt;img src=&quot;/images/MKTodayExtension/img7.png&quot; alt=&quot;截图8&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;修改在今日面板显示的标题：
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img8.png&quot; alt=&quot;截图9&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;运行扩展看看：
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img9.png&quot; alt=&quot;截图10&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tableview&quot;&gt;3. 在扩展中创建 tableView&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img10.png&quot; alt=&quot;截图11&quot; /&gt;
+&lt;br /&gt;
+如同平常一样，塞一个 tableView 到 sb 里面，接着注意了，在扩展想要修改显示的视图大小需要在 viewControll 里设置 &lt;code class=&quot;highlighter-rouge&quot;&gt;preferredContentSize&lt;/code&gt; 属性：&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preferredContentSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CGSizeMake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;todoList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;4. 扩展使用主应用的共享数据&lt;/h3&gt;
+&lt;p&gt;由于扩展和主应用是相互独立的程序，所以需要主应用共享出数据给扩展使用，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;App Group&lt;/code&gt;来解决问题。
+&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;TARGETS&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;主应用&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Capabilities&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;App Group&lt;/code&gt;
+&lt;br /&gt;
+点击开启
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img11.png&quot; alt=&quot;截图12&quot; /&gt;
+&lt;br /&gt;
+输入：group.BundleID
+&lt;br /&gt;
+&lt;br /&gt;
+主应用同步数据到 group&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updateTodoSnapshot&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithSuiteName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GROUP_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;todoList&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;forKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TODO_LIST_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;//更新今日面板信息，NotificationCenter framework
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NCWidgetController&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;widgetController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setHasContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;forWidgetWithBundleIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;com.donlinks.MKTodyExtension.MKTodayTarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当 group 数据更新了，扩展会调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;NCWidgetProviding&lt;/code&gt; 协议，实现该协议的两个方法&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;widgetPerformUpdateWithCompletionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NCUpdateResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;completionHandler&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NCUpdateResultNewData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIEdgeInsets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;widgetMarginInsetsForProposedMarginInsets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIEdgeInsets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;defaultMarginInsets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIEdgeInsetsMake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;第一个方法是系统通知扩展要更新时，扩展调用的方法；第二个方法返回一个内补大小，如果不实现，默认情况视图左侧会有一定的缩进。
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;扩展获取同步数据&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithSuiteName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GROUP_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;todoList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;objectForKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TODO_LIST_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;OK, 演示一遍：
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img12.gif&quot; alt=&quot;截图13&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;5. 扩展调起主应用&lt;/h3&gt;
+&lt;p&gt;首先，给主应用注册一个 URL Scheme
+&lt;img src=&quot;/images/MKTodayExtension/img13.png&quot; alt=&quot;截图14&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击今日面板时打开主应用&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tableView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UITableView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tableView&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;didSelectRowAtIndexPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSIndexPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;indexPath&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tableView&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deselectRowAtIndexPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indexPath&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;animated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;todoList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indexPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEqualToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;添加ToDo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@&quot;new_item&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initWithSuiteName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GROUP_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;NSArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infoDic&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;objectForKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TODO_LIST_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        
+        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stringWithFormat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;%@&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;indexOfObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;MKToday://&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stringByAppendingString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;//打开主应用
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extensionContext&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;openURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSURL&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;URLWithString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;演示：
+&lt;br /&gt;
+&lt;img src=&quot;/images/MKTodayExtension/img14.gif&quot; alt=&quot;截图15&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;OK, 打完收工，Demo在此：&lt;a href=&quot;https://github.com/monkey19911021/MKTodyExtension&quot;&gt;MKTodyExtension&lt;/a&gt;
+&lt;br /&gt;
+P.S. 喜欢就分享或者点个赞呗&lt;/p&gt;
+
+&lt;!-- 多说评论框 start --&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;TodayExtension&quot; data-title=&quot;iOS 的异常处理&quot; data-url=&quot;http://mkapple.cn/2016/06/20/TodayExtension&quot;&gt;&lt;/div&gt;
+&lt;!-- 多说评论框 end --&gt;
+&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&quot;mkapple&quot;};
+	(function() {
+		var ds = document.createElement(&#39;script&#39;);
+		ds.type = &#39;text/javascript&#39;;ds.async = true;
+		ds.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;//static.duoshuo.com/embed.js&#39;;
+		ds.charset = &#39;UTF-8&#39;;
+		(document.getElementsByTagName(&#39;head&#39;)[0] 
+		 || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+	})();
+	&lt;/script&gt;
+
+&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="TodayExtension" /><category term="ToDoList" /><summary></summary></entry><entry><title>应用内搜索 ——corespotlight</title><link href="/2016/06/17/CoreSpotlight" rel="alternate" type="text/html" title="应用内搜索 ——`corespotlight`" /><published>2016-06-17T00:00:00+08:00</published><updated>2016-06-17T00:00:00+08:00</updated><id>/2016/06/17/应用内搜索 ——`CoreSpotlight`</id><content type="html" xml:base="/2016/06/17/CoreSpotlight">&lt;p&gt;&lt;img src=&quot;/images/CoreSpotlight/corespotlight.png&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;frameworkbr&quot;&gt;1. 先将framework导入：&lt;br /&gt;&lt;/h3&gt;
 &lt;p&gt;工程 -&amp;gt; Build Phases -&amp;gt; Link Binary With Libraries-&amp;gt;&lt;img src=&quot;/images/CoreSpotlight/image2.png&quot; alt=&quot;截图2&quot; /&gt;
