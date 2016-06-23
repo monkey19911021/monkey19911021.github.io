@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-20T18:27:59+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用扩展—— today extension</title><link href="/2016/06/20/TodayExtension" rel="alternate" type="text/html" title="应用扩展—— `today extension`" /><published>2016-06-20T00:00:00+08:00</published><updated>2016-06-20T00:00:00+08:00</updated><id>/2016/06/20/应用扩展—— `Today Extension`</id><content type="html" xml:base="/2016/06/20/TodayExtension">&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img0.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-23T15:13:36+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用扩展—— share extension</title><link href="/2016/06/23/ShareExtension" rel="alternate" type="text/html" title="应用扩展—— `share extension`" /><published>2016-06-23T00:00:00+08:00</published><updated>2016-06-23T00:00:00+08:00</updated><id>/2016/06/23/应用扩展—— `Share Extension`</id><content type="html" xml:base="/2016/06/23/ShareExtension">&lt;p&gt;&lt;img src=&quot;/images/ShareExtension/img1.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;1. 先来介绍几个概念&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;App Extension：&lt;/strong&gt; 扩展&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Containing app：&lt;/strong&gt; 提供扩展的应用称之为容器应用&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Host app：&lt;/strong&gt; 调用扩展的应用称之为载体应用&lt;/p&gt;
+
+&lt;p&gt;容器应用可以同时是载体应用，即容器容器应用也可以调用自身的扩展。
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img6.png&quot; alt=&quot;截图6&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2. 创建分享扩展&lt;/h2&gt;
+&lt;p&gt;关于如何创建一个扩展请参考&lt;a href=&quot;http://mkapple.cn/2016/06/20/TodayExtension&quot;&gt;这里&lt;/a&gt;的第二步骤, 我们要创建的是 Share Extension 。
+&lt;br /&gt;	
+P.S. 说实话，分享扩展这东西除了在社交应用或者一些特别应用之外没啥用处了
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img2.png&quot; alt=&quot;截图2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;创建完后，我们运行扩展。然后用 Safari 打开：http://mkapple.cn。点击 Safari 的分享按钮。发现扩展出现在分享选择栏里了。
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img3.png&quot; alt=&quot;截图3&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img4.png&quot; alt=&quot;截图4&quot; /&gt;
+&lt;br /&gt;
+可以发现苹果已经为你做好了一个基本的分享界面了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;3. 设置分享的数据类型&lt;/h2&gt;
+&lt;p&gt;在扩展的 Info.plist 文件中找到 NSExtension 属性，该属性结构如下：
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img5.png&quot; alt=&quot;截图5&quot; /&gt;
+&lt;br /&gt;
+各规则属性可以参考&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/SystemExtensionKeys.html#//apple_ref/doc/uid/TP40014212-SW11&quot;&gt;官方文档&lt;/a&gt;，限制分享的图片、视频、网站地址的数量。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;4. 验证用户输入&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SLComposeServiceViewController&lt;/code&gt; —— 默认提供的标准化分享界面，提供以下属性和方法：
+&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;NSString *contentText&lt;/code&gt; —— 分享文本编辑框的内容&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;NSNumber *charactersRemaining&lt;/code&gt; —— 设置剩下输入的内容字数&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;- (BOOL)isContentValid&lt;/code&gt; —— 文本框内容改变时调用，返回 NO 则 Post 按钮禁用&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;例：&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BOOL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isContentValid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSInteger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textLength&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contentText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;charactersRemaining&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxCharactersAllowed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textLength&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;charactersRemaining&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;integerValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;5. 提交分享&lt;/h2&gt;
+&lt;p&gt;提交分享会调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;- (void)didSelectPost&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;didSelectPost&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//上传分享数据
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;uploadData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;//提交分享请求
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extensionContext&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completeRequestReturningItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:@[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;6. 取消分享&lt;/h2&gt;
+&lt;p&gt;取消分享会调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;- (void)didSelectCancel&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;didSelectCancel&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;errorWithDomain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;MK&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;userInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@&quot;用户取消&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;//取消分享请求
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extensionContext&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cancelRequestWithError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;7. 上传数据前的提取数据&lt;/h2&gt;
+&lt;p&gt;介绍几个属性和方法：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UIViewController&lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;extensionContext&lt;/code&gt;，类是  &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionContext_Class/index.html#//apple_ref/occ/cl/NSExtensionContext&quot;&gt;NSExtensionContext&lt;/a&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NSExtensionContext &lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;inputItems&lt;/code&gt;，元素类型是&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionItem_Class/index.html#//apple_ref/occ/cl/NSExtensionItem&quot;&gt;NSExtensionItem&lt;/a&gt; 的数组，但实际上只有一个元素。
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NSExtensionItem&lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;attachments&lt;/code&gt; 元素类型是 &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSItemProvider_Class/index.html#//apple_ref/occ/cl/NSItemProvider&quot;&gt;NSItemProvider&lt;/a&gt; 的数组，分享的图片、视频、URL 都封装在这个对象中。
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NSItemProvider&lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;registeredTypeIdentifiers&lt;/code&gt; 元素类型是 NSString 的数组，但实际也只有一个类型，表示封装的数据的类型，格式为 &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/UniformTypeIdentifier.html#//apple_ref/doc/uid/TP40008195-CH60&quot;&gt;Uniform Type Identifier&lt;/a&gt;， 简称UTI，&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259&quot;&gt;详细列表&lt;/a&gt;，UIT 类型的常量 &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/MobileCoreServices/Reference/UTTypeRef/index.html#//apple_ref/doc/constant_group/UTI_Text_Types&quot;&gt;UTType Reference&lt;/a&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例：&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//提取数据
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetchItemDataAtBackground&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//后台执行
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dispatch_async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dispatch_get_global_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DISPATCH_QUEUE_PRIORITY_DEFAULT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        
+        &lt;span class=&quot;n&quot;&gt;NSArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSExtensionItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extensionContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inputItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;//实际上只有一个 NSExtensionItem 对象
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;NSExtensionItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;NSArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSItemProvider&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;providerArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;//输出 userInfo 或者 attachments 就可以看到 dataType 对应的字符串是啥了
+&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;//NSLog(@&quot;userInfo: %@&quot;, item.userInfo);
+&lt;/span&gt;        
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSItemProvider&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;provider&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;providerArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//实际上一个NSItemProvider里也只有一种数据类型
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;provider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;registeredTypeIdentifiers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEqualToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;public.image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
+                
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;provider&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadItemForTypeIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIImage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachImageArray&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;
+                
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEqualToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;public.plain-text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
+                
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;provider&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadItemForTypeIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plainStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachStringArray&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plainStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;
+                
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEqualToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;public.url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
+                
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;provider&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadItemForTypeIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachURLArray&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;
+                
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;8. 上传数据&lt;/h2&gt;
+&lt;p&gt;首先，当点击 post 发布之后，扩展就被终止了，但是上传任务仍然在后台工作，它的图片、视频等数据缓存在哪呢，这时就需要容器应用提供一个缓存容器了，这时，就需要 group 了。
+&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;TARGETS&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;主应用&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Capabilities&lt;/code&gt; ——&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;App Group&lt;/code&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-objc highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;configName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@&quot;com.donlinks.MKShareExtension.BackgroundSessionConfig&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;NSURLSessionConfiguration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sessionConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSURLSessionConfiguration&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;backgroundSessionConfigurationWithIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sessionConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sharedContainerIdentifier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@&quot;group.MKShareExtension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;NSURLSession&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shareSession&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSURLSession&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sessionWithConfiguration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我把数据封装成 JSON 并上传到 &lt;a href=&quot;http://requestb.in/&quot;&gt;requestb.in&lt;/a&gt; 。该网站不是 https 的，需要在扩展的 Info.plist 加上允许所有网络请求：
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img8.png&quot; alt=&quot;截图8&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSAppTransportSecurity&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSAllowsArbitraryLoads&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+演示：
+&lt;br /&gt;
+&lt;img src=&quot;/images/ShareExtension/img6.gif&quot; alt=&quot;截图6&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;上传完成后到 requestb.in 可以看到
+&lt;img src=&quot;/images/ShareExtension/img7.png&quot; alt=&quot;截图7&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Demo: &lt;a href=&quot;https://github.com/monkey19911021/MKShareExtension&quot;&gt;MKShareExtension&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;P.S. 喜欢就分享或者点个赞呗&lt;/p&gt;
+
+&lt;!-- 多说评论框 start --&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;ShareExtension&quot; data-title=&quot;ShareExtension&quot; data-url=&quot;http://mkapple.cn/2016/06/23/ShareExtension&quot;&gt;&lt;/div&gt;
+&lt;!-- 多说评论框 end --&gt;
+&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&quot;mkapple&quot;};
+	(function() {
+		var ds = document.createElement(&#39;script&#39;);
+		ds.type = &#39;text/javascript&#39;;ds.async = true;
+		ds.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;//static.duoshuo.com/embed.js&#39;;
+		ds.charset = &#39;UTF-8&#39;;
+		(document.getElementsByTagName(&#39;head&#39;)[0] 
+		 || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+	})();
+	&lt;/script&gt;
+
+&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="ShareExtension" /><category term="Extension" /><summary></summary></entry><entry><title>应用扩展—— today extension</title><link href="/2016/06/20/TodayExtension" rel="alternate" type="text/html" title="应用扩展—— `today extension`" /><published>2016-06-20T00:00:00+08:00</published><updated>2016-06-20T00:00:00+08:00</updated><id>/2016/06/20/应用扩展—— `Today Extension`</id><content type="html" xml:base="/2016/06/20/TodayExtension">&lt;p&gt;&lt;img src=&quot;/images/MKTodayExtension/img0.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;今日面板&lt;/h2&gt;
 &lt;p&gt;      今日面板属于一个应用的扩展，但是该扩展跟该应用是两个独立的程序。OK，来做一个任务列表（ToDoList）来熟悉 Today Extension 的开发吧。&lt;/p&gt;
@@ -143,11 +345,19 @@
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;OK, 打完收工，Demo在此：&lt;a href=&quot;https://github.com/monkey19911021/MKTodyExtension&quot;&gt;MKTodyExtension&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;参考链接：
 &lt;br /&gt;
-P.S. 喜欢就分享或者点个赞呗&lt;/p&gt;
+&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/NotificationCenter/Reference/NotificationCenter_Framework/index.html&quot;&gt;苹果官方文档&lt;/a&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://www.cocoachina.com/ios/20140904/9527.html&quot;&gt;App Extension编程指南&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;P.S. 喜欢就分享或者点个赞呗&lt;/p&gt;
 
 &lt;!-- 多说评论框 start --&gt;
-&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;TodayExtension&quot; data-title=&quot;iOS 的异常处理&quot; data-url=&quot;http://mkapple.cn/2016/06/20/TodayExtension&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;TodayExtension&quot; data-title=&quot;TodayExtension&quot; data-url=&quot;http://mkapple.cn/2016/06/20/TodayExtension&quot;&gt;&lt;/div&gt;
 &lt;!-- 多说评论框 end --&gt;
 &lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
@@ -162,7 +372,7 @@ var duoshuoQuery = {short_name:&quot;mkapple&quot;};
 	})();
 	&lt;/script&gt;
 
-&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="TodayExtension" /><category term="ToDoList" /><summary></summary></entry><entry><title>应用内搜索 ——corespotlight</title><link href="/2016/06/17/CoreSpotlight" rel="alternate" type="text/html" title="应用内搜索 ——`corespotlight`" /><published>2016-06-17T00:00:00+08:00</published><updated>2016-06-17T00:00:00+08:00</updated><id>/2016/06/17/应用内搜索 ——`CoreSpotlight`</id><content type="html" xml:base="/2016/06/17/CoreSpotlight">&lt;p&gt;&lt;img src=&quot;/images/CoreSpotlight/corespotlight.png&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+&lt;!-- 多说公共JS代码 end --&gt;</content><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><category term="TodayExtension" /><category term="Extension" /><summary></summary></entry><entry><title>应用内搜索 ——corespotlight</title><link href="/2016/06/17/CoreSpotlight" rel="alternate" type="text/html" title="应用内搜索 ——`corespotlight`" /><published>2016-06-17T00:00:00+08:00</published><updated>2016-06-17T00:00:00+08:00</updated><id>/2016/06/17/应用内搜索 ——`CoreSpotlight`</id><content type="html" xml:base="/2016/06/17/CoreSpotlight">&lt;p&gt;&lt;img src=&quot;/images/CoreSpotlight/corespotlight.png&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;frameworkbr&quot;&gt;1. 先将framework导入：&lt;br /&gt;&lt;/h3&gt;
 &lt;p&gt;工程 -&amp;gt; Build Phases -&amp;gt; Link Binary With Libraries-&amp;gt;&lt;img src=&quot;/images/CoreSpotlight/image2.png&quot; alt=&quot;截图2&quot; /&gt;
@@ -249,7 +459,7 @@ var duoshuoQuery = {short_name:&quot;mkapple&quot;};
 &lt;/div&gt;
 
 &lt;!-- 多说评论框 start --&gt;
-&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;CoreSpotlight&quot; data-title=&quot;iOS 的异常处理&quot; data-url=&quot;http://mkapple.cn/2016/06/17/CoreSpotlight&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;CoreSpotlight&quot; data-title=&quot;CoreSpotlight&quot; data-url=&quot;http://mkapple.cn/2016/06/17/CoreSpotlight&quot;&gt;&lt;/div&gt;
 &lt;!-- 多说评论框 end --&gt;
 &lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;

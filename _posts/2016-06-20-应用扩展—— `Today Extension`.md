@@ -1,7 +1,7 @@
 ---
 permalink: /2016/06/20/TodayExtension
 categories: [Objective-C, Extension]
-tags: [TodayExtension, ToDoList]
+tags: [TodayExtension, Extension]
 ---
 ![截图1]({{ site.url }}/images/MKTodayExtension/img0.PNG)
 
@@ -150,11 +150,18 @@ OK, 演示一遍：
 
 OK, 打完收工，Demo在此：[MKTodyExtension](https://github.com/monkey19911021/MKTodyExtension)
 <br>
+
+参考链接：
+<br>
+[苹果官方文档](https://developer.apple.com/library/ios/documentation/NotificationCenter/Reference/NotificationCenter_Framework/index.html)
+<br>
+[App Extension编程指南](http://www.cocoachina.com/ios/20140904/9527.html)
+<br>
+
 P.S. 喜欢就分享或者点个赞呗
 
-
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="TodayExtension" data-title="iOS 的异常处理" data-url="http://mkapple.cn/2016/06/20/TodayExtension"></div>
+<div class="ds-thread" data-thread-key="TodayExtension" data-title="TodayExtension" data-url="http://mkapple.cn/2016/06/20/TodayExtension"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

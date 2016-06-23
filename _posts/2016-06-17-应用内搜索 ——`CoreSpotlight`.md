@@ -92,7 +92,7 @@ CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@"MK
 
 
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="CoreSpotlight" data-title="iOS 的异常处理" data-url="http://mkapple.cn/2016/06/17/CoreSpotlight"></div>
+<div class="ds-thread" data-thread-key="CoreSpotlight" data-title="CoreSpotlight" data-url="http://mkapple.cn/2016/06/17/CoreSpotlight"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
