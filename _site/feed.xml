@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-23T15:13:36+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用扩展—— share extension</title><link href="/2016/06/23/ShareExtension" rel="alternate" type="text/html" title="应用扩展—— `share extension`" /><published>2016-06-23T00:00:00+08:00</published><updated>2016-06-23T00:00:00+08:00</updated><id>/2016/06/23/应用扩展—— `Share Extension`</id><content type="html" xml:base="/2016/06/23/ShareExtension">&lt;p&gt;&lt;img src=&quot;/images/ShareExtension/img1.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-06-23T15:39:30+08:00</updated><id>/</id><title>MK in Apple</title><subtitle>MK的技术博客.</subtitle><author><name>M0nk1y</name><email>monkey19911021@gmail.com</email></author><entry><title>应用扩展—— share extension</title><link href="/2016/06/23/ShareExtension" rel="alternate" type="text/html" title="应用扩展—— `share extension`" /><published>2016-06-23T00:00:00+08:00</published><updated>2016-06-23T00:00:00+08:00</updated><id>/2016/06/23/应用扩展—— `Share Extension`</id><content type="html" xml:base="/2016/06/23/ShareExtension">&lt;p&gt;&lt;img src=&quot;/images/ShareExtension/img1.PNG&quot; alt=&quot;截图1&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;1. 先来介绍几个概念&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;App Extension：&lt;/strong&gt; 扩展&lt;/p&gt;
@@ -179,7 +179,19 @@ P.S. 说实话，分享扩展这东西除了在社交应用或者一些特别应
 &lt;p&gt;上传完成后到 requestb.in 可以看到
 &lt;img src=&quot;/images/ShareExtension/img7.png&quot; alt=&quot;截图7&quot; /&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;section-8&quot;&gt;9. 自定义分享界面思路&lt;/h2&gt;
+&lt;p&gt;把 &lt;code class=&quot;highlighter-rouge&quot;&gt;SLComposeServiceViewController&lt;/code&gt; 改为 &lt;code class=&quot;highlighter-rouge&quot;&gt;UIViewController&lt;/code&gt; ，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;extensionContext&lt;/code&gt; 属性的 &lt;code class=&quot;highlighter-rouge&quot;&gt;- (void)cancelRequestWithError:&lt;/code&gt; 或者 `` 方法就可以让分享视图消失了。&lt;/p&gt;
+
 &lt;p&gt;Demo: &lt;a href=&quot;https://github.com/monkey19911021/MKShareExtension&quot;&gt;MKShareExtension&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;参考链接：
+&lt;br /&gt;
+&lt;a href=&quot;http://www.cocoachina.com/ios/20140923/9728.html&quot;&gt;CocoaChina&lt;/a&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://www.devtalking.com/articles/ios8-day-by-day-day2-sharing-extension/&quot;&gt;iOS8 分享应用扩展&lt;/a&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://www.jianshu.com/p/99d4ec43fd65&quot;&gt;简书&lt;/a&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;P.S. 喜欢就分享或者点个赞呗&lt;/p&gt;

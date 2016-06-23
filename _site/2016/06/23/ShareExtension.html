@@ -432,7 +432,19 @@ P.S. 说实话，分享扩展这东西除了在社交应用或者一些特别应
 <p>上传完成后到 requestb.in 可以看到
 <img src="/images/ShareExtension/img7.png" alt="截图7" /></p>
 
+<h2 id="section-8">9. 自定义分享界面思路</h2>
+<p>把 <code class="highlighter-rouge">SLComposeServiceViewController</code> 改为 <code class="highlighter-rouge">UIViewController</code> ，使用 <code class="highlighter-rouge">extensionContext</code> 属性的 <code class="highlighter-rouge">- (void)cancelRequestWithError:</code> 或者 `` 方法就可以让分享视图消失了。</p>
+
 <p>Demo: <a href="https://github.com/monkey19911021/MKShareExtension">MKShareExtension</a>
+<br /></p>
+
+<p>参考链接：
+<br />
+<a href="http://www.cocoachina.com/ios/20140923/9728.html">CocoaChina</a>
+<br />
+<a href="http://www.devtalking.com/articles/ios8-day-by-day-day2-sharing-extension/">iOS8 分享应用扩展</a>
+<br />
+<a href="http://www.jianshu.com/p/99d4ec43fd65">简书</a>
 <br /></p>
 
 <p>P.S. 喜欢就分享或者点个赞呗</p>

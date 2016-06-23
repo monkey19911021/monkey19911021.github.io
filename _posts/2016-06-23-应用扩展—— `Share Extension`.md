@@ -182,7 +182,19 @@ NSURLSession *shareSession = [NSURLSession sessionWithConfiguration: sessionConf
 上传完成后到 requestb.in 可以看到
 ![截图7]({{ site.url }}/images/ShareExtension/img7.png)
 
+## 9. 自定义分享界面思路
+把 `SLComposeServiceViewController` 改为 `UIViewController` ，使用 `extensionContext` 属性的 `- (void)cancelRequestWithError:` 或者 `` 方法就可以让分享视图消失了。
+
 Demo: [MKShareExtension](https://github.com/monkey19911021/MKShareExtension)
+<br>
+
+参考链接：
+<br>
+[CocoaChina](http://www.cocoachina.com/ios/20140923/9728.html)
+<br>
+[iOS8 分享应用扩展](http://www.devtalking.com/articles/ios8-day-by-day-day2-sharing-extension/)
+<br>
+[简书](http://www.jianshu.com/p/99d4ec43fd65)
 <br>
 
 P.S. 喜欢就分享或者点个赞呗
