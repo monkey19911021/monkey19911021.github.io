@@ -1,5 +1,7 @@
 ---
 permalink: /2016/06/17/CoreSpotlight
+header:
+  teaser: "CoreSpotlight/corespotlight.png"
 categories: [Objective-C, iOS API]
 tags: [CoreSpotlight]
 ---

@@ -1,7 +1,13 @@
 ---
 permalink: /2016/06/23/ShareExtension
-categories: [Objective-C, Extension]
-tags: [ShareExtension, Extension]
+header:
+  teaser: "ShareExtension/img1.PNG"
+categories:
+  - Objective-C 
+  - Extension
+tags:
+  - ShareExtension
+  - Extension
 ---
 ![截图1]({{ site.url }}/images/ShareExtension/img1.PNG)
 
@@ -102,7 +108,7 @@ P.S. 说实话，分享扩展这东西除了在社交应用或者一些特别应
 
 例：
 
-~~~objc
+```objc
 //提取数据
 - (void)fetchItemDataAtBackground
 {
@@ -144,7 +150,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
     });
 }
-~~~
+```
 
 ## 8. 上传数据
 首先，当点击 post 发布之后，扩展就被终止了，但是上传任务仍然在后台工作，它的图片、视频等数据缓存在哪呢，这时就需要容器应用提供一个缓存容器了，这时，就需要 group 了。

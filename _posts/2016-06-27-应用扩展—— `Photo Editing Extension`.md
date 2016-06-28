@@ -1,5 +1,7 @@
 ---
 permalink: /2016/06/27/PhotoEditingExtension
+header:
+  teaser: "MKPhotoExtension/img1.PNG"
 categories: [Objective-C, Extension]
 tags: [PhotoEditingExtension, Extension]
 ---
