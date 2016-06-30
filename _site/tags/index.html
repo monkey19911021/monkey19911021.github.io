@@ -1,0 +1,656 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>根据标签分类 - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="根据标签分类">
+
+
+
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="根据标签分类">
+  <meta name="twitter:description" content="MK的技术博客.">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 class="page__title">根据标签分类</h1>
+    
+    
+<!--
+# Jekyll Group-By-Array 0.1.0
+# https://github.com/mushishi78/jekyll-group-by-array
+# © 2015 Max White <mushishi78@gmail.com>
+# MIT License
+-->
+
+<!-- Initialize -->
+
+<!-- Map -->
+
+<!-- Flatten -->
+
+<!-- Uniq -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<h2 id="corespotlight" class="archive__subtitle">CoreSpotlight</h2>
+
+<div class="list__item">
+  
+    <a href="/2016/06/17/CoreSpotlight">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用内搜索 ——<code class="highlighter-rouge">corespotlight</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="exception" class="archive__subtitle">Exception</h2>
+
+<div class="list__item">
+  
+    <a href="/160504exception">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 的异常处理
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">iOS异常说明：
+iOS的异常有两种：
+
+
+  
+    普通异常，能够被NSException捕获的异常
+对于普通异常我们可以使用NSException来捕获并且进行处理。
+  
+  
+    信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。
+对于信号机制异常，需要...</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="extension" class="archive__subtitle">Extension</h2>
+
+<div class="list__item">
+  
+    <a href="/2016/06/27/PhotoEditingExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">photo editing extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<div class="list__item">
+  
+    <a href="/2016/06/23/ShareExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">share extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<div class="list__item">
+  
+    <a href="/2016/06/20/TodayExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">today extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="framework" class="archive__subtitle">Framework</h2>
+
+<div class="list__item">
+  
+    <a href="/160504Framework">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">基于 xcode7 的 framework 开发技术
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     目录
+
+  1.  静态库和动态库    
+      1.1  什么是静态库
+      1.2  什么是动态库
+      1.3  选择哪种库
+    
+  
+  2.  制作动态库    
+      2.1  选择framework项目
+      2.2  创建通用集合
+      2....</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="photoeditingextension" class="archive__subtitle">PhotoEditingExtension</h2>
+
+<div class="list__item">
+  
+    <a href="/2016/06/27/PhotoEditingExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">photo editing extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="shareextension" class="archive__subtitle">ShareExtension</h2>
+
+<div class="list__item">
+  
+    <a href="/2016/06/23/ShareExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">share extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="signalhandler" class="archive__subtitle">SignalHandler</h2>
+
+<div class="list__item">
+  
+    <a href="/160504exception">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 的异常处理
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">iOS异常说明：
+iOS的异常有两种：
+
+
+  
+    普通异常，能够被NSException捕获的异常
+对于普通异常我们可以使用NSException来捕获并且进行处理。
+  
+  
+    信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。
+对于信号机制异常，需要...</p>
+    </article>
+  </a>
+</div>
+
+<h2 id="todayextension" class="archive__subtitle">TodayExtension</h2>
+
+<div class="list__item">
+  
+    <a href="/2016/06/20/TodayExtension">
+  
+    <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">today extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+
+  </div>
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
