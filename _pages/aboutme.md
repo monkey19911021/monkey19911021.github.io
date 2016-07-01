@@ -11,3 +11,4 @@ author_profile: true
 平时喜欢浏览[CocoaChina](http://www.cocoachina.com/)，然后敲敲代码。特别喜欢手工技术活。不定期更新博客。<br><br>
 喜欢我的博客欢迎到Github：[<font color="lightblue">monkey19911021.github.io</font>](https://github.com/monkey19911021/monkey19911021.github.io)给个星，代码开源，谢谢~
 
+P.S. 。。。。王吉菲妮是我老婆
