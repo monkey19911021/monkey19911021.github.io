@@ -1,0 +1,948 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>应用扩展—— document provider extension - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="应用扩展—— document provider extension">
+
+
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="应用扩展—— document provider extension">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-07-01T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="/2016/06/27/PhotoEditingExtension" title="应用扩展—— `photo editing extension`">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+
+
+
+<!-- end SEO -->
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="应用扩展—— document provider extension">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="July 01, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">document provider extension</code>
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  3 秒钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+<p><img src="/images/MKDocumentProvider/img1.png" alt="截图1" /></p>
+
+<h2 id="section">1. 开发流程梗概</h2>
+
+<h3 id="app-app--app--">1.1. 创建一个文件编辑器 App，具有打开、导入其它 App 的文件；移动、导出、保存文件到其它 App 的 功能。</h3>
+
+<h3 id="app-document-provider-">1.2. 创建一个可以查看自己文件的 App，具有 <code class="highlighter-rouge">Document Provider</code> 扩展。</h3>
+
+<h3 id="document-provider-">1.3. 在 Document Provider 扩展里编写处理打开、导入、移动、导出文件事件的代码</h3>
+
+<h3 id="file-provider-">1.4. 在 File Provider 扩展里编写协调文件的代码。</h3>
+
+<h2 id="section-1">2. 两个关键字</h2>
+
+<h3 id="section-2">2.1 共享容器。</h3>
+<p>一个沙盒能与另一个沙盒进行文件交换只能在共享容器里进行，通过创建 App Groups 就可以获得共享容器了。</p>
+
+<h3 id="section-3">2.2 文件权限。</h3>
+<p>当需要访问不在 App 自身的沙盒或者自身共享容器里的资源时，需要申请权限访问，使用到 NSURL 的两个方法:
+<br />
+开始安全访问：<a href="https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc">- (BOOL)startAccessingSecurityScopedResource</a>
+<br />
+停止安全访问：<a href="https://developer.apple.com/reference/foundation/nsurl/1413736-stopaccessingsecurityscopedresou?language=objc">- (void)stopAccessingSecurityScopedResource</a></p>
+
+<h2 id="mktextedit">3. 文件编辑器 MKTextEdit</h2>
+<p>创建一个新 App 项目，界面如此：
+<img src="/images/MKDocumentProvider/img2.png" alt="截图2" /></p>
+
+<p>运行起来酱紫：
+<br />
+<img src="/images/MKDocumentProvider/img3.png" alt="截图3" /></p>
+
+<p>因为这个 App 需要有访问其他 App 文件的权限，所以我们得开启它的 iCloud 功能，打开 iCloud 需要提供苹果开发者账号。
+<br />
+<img src="/images/MKDocumentProvider/img4.png" alt="截图4" /></p>
+
+<h3 id="section-4">3.1 新建</h3>
+<p>新建文件并输入标题和内容后，我们可以对文件进行移动、导入和保存。移动和导入前要先保存文件，因为我们移动和导入都要提供文件的在 App 里的地址。</p>
+
+<h3 id="section-5">3.2 打开文件</h3>
+<p>需要 <a href="https://developer.apple.com/reference/uikit/uidocumentmenuviewcontroller?language=objc">UIDocumentMenuViewController</a> 打开一个菜单选项，里面默认提供 iCloud 具有 Document Provider 扩展的 App。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">displayDocumentPickerWithURIs</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">UTIs</span> <span class="p">{</span>
+    <span class="n">UIDocumentMenuViewController</span> <span class="o">*</span><span class="n">importMenu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIDocumentMenuViewController</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDocumentTypes</span><span class="p">:</span><span class="n">UTIs</span> <span class="nf">inMode</span><span class="p">:</span><span class="n">documentPickerMode</span><span class="p">];</span>
+    <span class="n">importMenu</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">presentViewController</span><span class="p">:</span><span class="n">importMenu</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="nf">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>UTI，<a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/UniformTypeIdentifier.html#//apple_ref/doc/uid/TP40008195-CH60">Uniform Type Identifier</a> 即文件类型, 在<a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259">详细列表</a>可以查询。</p>
+
+<p><code class="highlighter-rouge">documentPickerMode</code> 为 <code class="highlighter-rouge">UIDocumentPickerModeOpen</code>。</p>
+
+<p>当选择了某个菜单时时会调用代理方法：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma mark - UIDocumentMenuDelegate
+</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">documentMenu</span><span class="p">:(</span><span class="n">UIDocumentMenuViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentMenu</span> <span class="nf">didPickDocumentPicker</span><span class="p">:(</span><span class="n">UIDocumentPickerViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentPicker</span>
+<span class="p">{</span>
+    <span class="n">documentPicker</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">presentViewController</span><span class="p">:</span><span class="n">documentPicker</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="nf">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>打开一个 <a href="https://developer.apple.com/reference/uikit/uidocumentpickerviewcontroller?language=objc">UIDocumentPickerViewController</a> 控制器，以 iCloud 为例，里面提供了一系列文件选择，当选择了某个文件时，调用 UIDocumentPickerViewController 的代理方法。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">documentPicker</span><span class="p">:(</span><span class="n">UIDocumentPickerViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="nf">didPickDocumentAtURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">controller</span> <span class="nf">dismissViewControllerAnimated</span><span class="p">:</span><span class="nb">YES</span> <span class="nf">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">documentPickerMode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">UIDocumentPickerModeImport</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="p">[</span><span class="n">self</span> <span class="nf">importFile</span><span class="p">:</span> <span class="n">url</span><span class="p">];</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">UIDocumentPickerModeOpen</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="p">[</span><span class="n">self</span> <span class="nf">openFile</span><span class="p">:</span> <span class="n">url</span><span class="p">];</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">UIDocumentPickerModeExportToService</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@"保存到此位置：%@"</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">UIDocumentPickerModeMoveToService</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@"移动到此位置：%@"</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+            
+        <span class="nl">default:</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>代理返回的 url 是刚选择的文件在共享容器的位置，我们可以利用这地址对该文件进行操作了。</p>
+
+<h3 id="section-6">3.2 读取打开的文件</h3>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">openFile</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+<span class="p">{</span>
+    <span class="c1">//1.获取文件安全访问权限
+</span>    <span class="n">BOOL</span> <span class="n">accessing</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span> <span class="nf">startAccessingSecurityScopedResource</span><span class="p">];</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">accessing</span><span class="p">){</span>
+        <span class="p">[</span><span class="n">activityView</span> <span class="nf">startAnimating</span><span class="p">];</span>
+        
+        <span class="c1">//2.通过文件协调器读取文件地址
+</span>        <span class="n">NSFileCoordinator</span> <span class="o">*</span><span class="n">fileCoordinator</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSFileCoordinator</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFilePresenter</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">fileCoordinator</span> <span class="nf">coordinateReadingItemAtURL</span><span class="p">:</span><span class="n">url</span>
+                                            <span class="nf">options</span><span class="p">:</span><span class="n">NSFileCoordinatorReadingWithoutChanges</span>
+                                              <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span>
+                                         <span class="nf">byAccessor</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">newURL</span><span class="p">)</span> <span class="p">{</span>
+                                             
+                                             <span class="p">[</span><span class="n">activityView</span> <span class="nf">stopAnimating</span><span class="p">]</span><span class="err">;</span>
+                                             
+                                             <span class="c1">//3.读取文件协调器提供的新地址里的数据
+</span>                                             <span class="n">NSString</span> <span class="o">*</span><span class="n">fileName</span> <span class="o">=</span> <span class="p">[</span><span class="n">newURL</span> <span class="nf">lastPathComponent</span><span class="p">]</span><span class="err">;</span>
+                                             <span class="n">NSString</span> <span class="o">*</span><span class="n">contStr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nf">stringWithContentsOfURL</span><span class="p">:</span><span class="n">newURL</span> <span class="nf">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span><span class="err">;</span>
+                                             
+                                             <span class="c1">//4.把数据保存在本地缓存
+</span>                                             <span class="p">[</span><span class="n">self</span> <span class="nf">saveLocalCachesCont</span><span class="p">:</span><span class="n">contStr</span> <span class="nf">fileName</span><span class="p">:</span><span class="n">fileName</span><span class="p">]</span><span class="err">;</span>
+                                             
+                                             <span class="c1">//5.显示数据
+</span>                                             <span class="n">currentFileName</span> <span class="o">=</span> <span class="n">fileName</span><span class="err">;</span>
+                                             <span class="n">titleTextField</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">fileName</span><span class="err">;</span>
+                                             <span class="n">contTextView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">contStr</span><span class="err">;</span>
+                                         <span class="p">}];</span>
+        
+    <span class="p">}</span>
+    
+    <span class="c1">//6.停止安全访问权限
+</span>    <span class="p">[</span><span class="n">url</span> <span class="nf">stopAccessingSecurityScopedResource</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>文件协调器 —— <a href="https://developer.apple.com/reference/foundation/nsfilecoordinator?language=objc">NSFileCoordinator</a>，它与 File Provider extension 关联，当我们使用文件协调器读取、写入文件时都会触发 File Provider extension 的方法。等下介绍。</p>
+  </li>
+  <li>
+    <p>可以看看打开的地址为：<br />
+<code class="highlighter-rouge">file:///Users/AllenChow/Library/Developer/CoreSimulator/Devices/F7999205-1D00-4683-A2E1-EBB8B32D67BE/data/Library/Mobile%20Documents/com~apple~CloudDocs/newFile.txt</code><br />
+地址是位于 iCloud 里的。</p>
+  </li>
+</ol>
+
+<h3 id="section-7">3.3 保存打开的文件</h3>
+<p>当编辑过打开的文件后，进行保存时：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//1.通过文件协调器写入文件
+</span><span class="n">NSFileCoordinator</span> <span class="o">*</span><span class="n">fileCoorDinator</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileCoordinator</span> <span class="nf">new</span><span class="p">];</span>
+<span class="n">NSError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">[</span><span class="n">fileCoorDinator</span> <span class="nf">coordinateWritingItemAtURL</span><span class="p">:</span><span class="n">lastURL</span>
+                                    <span class="nf">options</span><span class="p">:</span><span class="n">NSFileCoordinatorWritingForReplacing</span>
+                                      <span class="nf">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span>
+                                 <span class="nf">byAccessor</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">newURL</span><span class="p">)</span> <span class="p">{</span>
+                                     
+                                     <span class="c1">//2.获取安全访问权限
+</span>                                     <span class="n">BOOL</span> <span class="n">access</span> <span class="o">=</span> <span class="p">[</span><span class="n">newURL</span> <span class="nf">startAccessingSecurityScopedResource</span><span class="p">]</span><span class="err">;</span>
+                                     
+                                     <span class="c1">//3.写入数据
+</span>                                     <span class="k">if</span><span class="p">(</span><span class="n">access</span> <span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">content</span> <span class="nf">writeToURL</span><span class="p">:</span><span class="n">newURL</span> <span class="nf">atomically</span><span class="p">:</span><span class="nb">YES</span> <span class="nf">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">]){</span>
+                                         <span class="n">NSLog</span><span class="p">(</span><span class="s">@"保存原文件成功"</span><span class="p">)</span><span class="err">;</span>
+                                     <span class="p">}</span>
+                                     
+                                     <span class="c1">//4.停止安全访问权限
+</span>                                     <span class="p">[</span><span class="n">newURL</span> <span class="nf">stopAccessingSecurityScopedResource</span><span class="p">]</span><span class="err">;</span>
+                                 <span class="p">}];</span>
+</code></pre>
+</div>
+
+<p>lastURL 是之前打开文件时 <code class="highlighter-rouge">-(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url</code> 返回的地址。我们把文件保存回这个地址。</p>
+
+<p>至此，我们已经完成了<code class="highlighter-rouge">在 App 内打开 另一个 App 的文件 ——&gt; 读取 ——&gt; 编辑 ——&gt; 保存</code>的过程了。</p>
+
+<h3 id="section-8">3.4 导入文件</h3>
+<p>跟打开文件一样，但是 <code class="highlighter-rouge">documentPickerMode</code> 为 <code class="highlighter-rouge">UIDocumentPickerModeOpen</code>。</p>
+
+<p>回调方法为：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">importFile</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">activityView</span> <span class="nf">startAnimating</span><span class="p">];</span>
+    
+    <span class="c1">//1.通过文件协调工具来得到新的文件地址，以此得到文件保护功能
+</span>    <span class="n">NSFileCoordinator</span> <span class="o">*</span><span class="n">fileCoordinator</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSFileCoordinator</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFilePresenter</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">fileCoordinator</span> <span class="nf">coordinateReadingItemAtURL</span><span class="p">:</span><span class="n">url</span> <span class="nf">options</span><span class="p">:</span><span class="n">NSFileCoordinatorReadingWithoutChanges</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">byAccessor</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">newURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">activityView</span> <span class="nf">stopAnimating</span><span class="p">]</span><span class="err">;</span>
+        
+        <span class="c1">//2.直接读取文件
+</span>        <span class="n">NSString</span> <span class="o">*</span><span class="n">fileName</span> <span class="o">=</span> <span class="p">[</span><span class="n">newURL</span> <span class="nf">lastPathComponent</span><span class="p">]</span><span class="err">;</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">contStr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nf">stringWithContentsOfURL</span><span class="p">:</span><span class="n">newURL</span> <span class="nf">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span><span class="err">;</span>
+        
+        <span class="c1">//3.把数据保存在本地缓存
+</span>        <span class="p">[</span><span class="n">self</span> <span class="nf">saveLocalCachesCont</span><span class="p">:</span><span class="n">contStr</span> <span class="nf">fileName</span><span class="p">:</span><span class="n">fileName</span><span class="p">]</span><span class="err">;</span>
+        
+        <span class="c1">//4.显示数据
+</span>        <span class="n">currentFileName</span> <span class="o">=</span> <span class="n">fileName</span><span class="err">;</span>
+        <span class="n">titleTextField</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">fileName</span><span class="err">;</span>
+        <span class="n">contTextView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">contStr</span><span class="err">;</span>
+        
+    <span class="p">}];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>我们看看导入的模式下打开文件的地址为：<br />
+<code class="highlighter-rouge">file:///Users/AllenChow/Library/Developer/CoreSimulator/Devices/F7999205-1D00-4683-A2E1-EBB8B32D67BE/data/Containers/Data/Application/82EE4511-930E-46FB-83B9-C6099C6A91A4/tmp/com.donlinks.MKTextEdit-Inbox/newFile.txt</code><br />
+地址是位置 MKTextEdit App 里的临时文件夹，说明了导入模式下文件是拷贝进来 App 的，所以我们可以直接读取文件数据。</p>
+
+<h3 id="section-9">3.5 移动和导出文件</h3>
+<p>移动和导出的处理方式一样的，只有带给 Document Provider extension 的 documentPickerMode 不一样，我们可以根据这个参数，如果是移动模式则删除 MKTextEdit App 里的文件，如果是导出模式就拷贝文件到共享容器。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">IBAction</span><span class="p">)</span><span class="nf">export</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
+    <span class="c1">//1. 保存缓存文件
+</span>    <span class="p">[</span><span class="n">self</span> <span class="nf">modify</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="n">documentPickerMode</span> <span class="o">=</span> <span class="n">UIDocumentPickerModeExportToService</span><span class="p">;</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">fileURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nf">fileURLWithPath</span><span class="p">:</span> <span class="p">[</span><span class="n">CachesFilePath</span> <span class="nf">stringByAppendingPathComponent</span><span class="p">:</span> <span class="n">currentFileName</span><span class="p">]];</span>
+    
+    <span class="c1">//2.打开文件选择器
+</span>    <span class="p">[</span><span class="n">self</span> <span class="nf">displayDocumentPickerWithURL</span><span class="p">:</span><span class="n">fileURL</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">displayDocumentPickerWithURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="p">{</span>
+    <span class="n">UIDocumentMenuViewController</span> <span class="o">*</span><span class="n">importMenu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIDocumentMenuViewController</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithURL</span><span class="p">:</span><span class="n">url</span> <span class="nf">inMode</span><span class="p">:</span><span class="n">documentPickerMode</span><span class="p">];</span>
+    <span class="n">importMenu</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">presentViewController</span><span class="p">:</span><span class="n">importMenu</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="nf">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>这次打开文件选择器提供的参数是 URL 并不是 UTI 了。</p>
+
+<h2 id="mkdocumentprovider">4. 共享容器提供方 MKDocumentProvider</h2>
+<p>当你想让自己 App 里的文件能够提供给其他 App 读取和编辑，需要做两件事：<br />
+1. 创建 Document Provider extension 和 File Provider extension<br /> 
+2. 提供共享容器，把共享的文件放到容器里。<br /></p>
+
+<h3 id="section-10">4.1 创建扩展</h3>
+<p><img src="/images/MKDocumentProvider/img5.png" alt="截图5" /></p>
+
+<p><img src="/images/MKDocumentProvider/img6.png" alt="截图6" /></p>
+
+<p><img src="/images/MKDocumentProvider/img7.png" alt="截图7" /><br />
+记得勾选 Include a File Provider extension <img src="/images/MKDocumentProvider/img8.png" alt="截图8" />, 命名，完成。会弹出这样一个询问你时候激活 Scheme 的框，选择激活（Activate）。</p>
+
+<p>创建 Document Provider extension 之后会附带一个 File Provider extension。</p>
+
+<p>修改运行扩展时执行的主应用：<br />
+<img src="/images/MKDocumentProvider/img9.png" alt="截图9" /></p>
+
+<p><img src="/images/MKDocumentProvider/img10.png" alt="截图10" /></p>
+
+<p><img src="/images/MKDocumentProvider/img11.png" alt="截图11" /></p>
+
+<h3 id="app-groups">4.2 创建 App Groups</h3>
+<p>到项目的 Capabilities 里找到 App Groups，点击开启：
+<img src="/images/MKDocumentProvider/img12.png" alt="截图12" /></p>
+
+<p>Document Provider extension 和 File Provider extension 也要开启 App Groups 并且都要用同一个 group。</p>
+
+<p>创建完 Document Provider 扩展需要的东西后，我们来运行看看效果：<br />
+<img src="/images/MKDocumentProvider/img.gif" alt="截图" /></p>
+
+<h3 id="mkdocumentprovider-">4.3 MKDocumentProvider 展示共享容器的文件</h3>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma mark - 获取共享容器文件夹路径
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storagePath</span> <span class="p">{</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">groupURL</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSFileManager</span> <span class="nf">defaultManager</span><span class="p">]</span> <span class="nf">containerURLForSecurityApplicationGroupIdentifier</span><span class="p">:</span><span class="n">APP_GROUP_ID</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">groupPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">groupURL</span> <span class="nf">path</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">_storagePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">groupPath</span> <span class="nf">stringByAppendingPathComponent</span><span class="p">:</span><span class="n">APP_FILE_NAME</span><span class="p">];</span>
+    <span class="n">NSFileManager</span> <span class="o">*</span><span class="n">fileManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileManager</span> <span class="nf">defaultManager</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">fileManager</span> <span class="nf">fileExistsAtPath</span><span class="p">:</span><span class="n">_storagePath</span><span class="p">])</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">fileManager</span> <span class="nf">createDirectoryAtPath</span><span class="p">:</span><span class="n">_storagePath</span> <span class="nf">withIntermediateDirectories</span><span class="p">:</span><span class="nb">NO</span> <span class="nf">attributes</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_storagePath</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="document-provider-extension">4.4 Document Provider extension</h3>
+<p>扩展的入口是一个 <a href="https://developer.apple.com/reference/uikit/uidocumentpickerextensionviewcontroller?language=objc">UIDocumentPickerExtensionViewController</a> 类。在3.2 打开文件的使用 UIDocumentPickerViewController 展示的就是这个界面了，我们可以自定义这个界面。</p>
+
+<p><code class="highlighter-rouge">- (void)dismissGrantingAccessToURL:(nullable NSURL *)url;</code>
+调用此方法来关闭该文档选择器的视图控制器以及所提供的授权访问的网址。每种模式都有自己所要求的URL。有关其完整的详细信息，请参阅 <a href="https://developer.apple.com/reference/uikit/uidocumentpickerextensionviewcontroller/1614391-dismissgrantingaccesstourl?language=objc">Dismissing the User Interface</a></p>
+
+<p><code class="highlighter-rouge">-(void)prepareForPresentationInMode:(UIDocumentPickerMode)mode;</code><br />
+当开始展示界面时自动调用，可以根据 mode 来做界面定制。</p>
+
+<p><code class="highlighter-rouge">NSArray&lt;NSString *&gt; *validTypes</code><br />
+当在打开和导入模式下才有值，值为 <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259">UTI</a></p>
+
+<p><code class="highlighter-rouge">NSURL *documentStorageURL</code><br />
+共享容器地址</p>
+
+<p><code class="highlighter-rouge">NSURL *originalURL</code><br />
+源文件地址，只有在移动和导入模式下才有值，访问该地址需要申请安全访问权限。</p>
+
+<h4 id="section-11">4.4.1 打开和导入</h4>
+<p>在打开和导入模式下，我们需要用户点击了文件就关闭文档选择器和返回文件地址 URL</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">didSelectRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">tableView</span> <span class="nf">deselectRowAtIndexPath</span><span class="p">:</span><span class="n">indexPath</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">documentPickerMode</span> <span class="o">==</span> <span class="n">UIDocumentPickerModeExportToService</span> <span class="o">||</span>
+       <span class="n">self</span><span class="p">.</span><span class="n">documentPickerMode</span> <span class="o">==</span> <span class="n">UIDocumentPickerModeMoveToService</span><span class="p">){</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">storagePath</span> <span class="nf">stringByAppendingPathComponent</span><span class="p">:</span> <span class="n">fileNamesArray</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="nf">row</span><span class="p">]];</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">fileURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nf">fileURLWithPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">dismissGrantingAccessToURL</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>storagePath 是共享容器文件夹路径</p>
+
+<h4 id="section-12">4.4.2 移动和导出</h4>
+<p>在移动和导出模式下，我们提供个按钮让用户确定保存的路径，当点击按钮的时候保存文件到共享容器：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">exportFile</span>
+<span class="p">{</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">originalURL</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">originalURL</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">fileName</span> <span class="o">=</span> <span class="p">[</span><span class="n">originalURL</span> <span class="nf">lastPathComponent</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">exportFilePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">storagePath</span> <span class="nf">stringByAppendingPathComponent</span><span class="p">:</span> <span class="n">fileName</span><span class="p">];</span>
+    
+    <span class="c1">//1. 获取安全访问权限
+</span>    <span class="n">BOOL</span> <span class="n">access</span> <span class="o">=</span> <span class="p">[</span><span class="n">originalURL</span> <span class="nf">startAccessingSecurityScopedResource</span><span class="p">];</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">access</span><span class="p">){</span>
+        <span class="c1">//2. 通过文件协调器访问读取该文件
+</span>        <span class="n">NSFileCoordinator</span> <span class="o">*</span><span class="n">fileCoordinator</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileCoordinator</span> <span class="nf">new</span><span class="p">];</span>
+        <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+        <span class="p">[</span><span class="n">fileCoordinator</span> <span class="nf">coordinateReadingItemAtURL</span><span class="p">:</span><span class="n">originalURL</span> <span class="nf">options</span><span class="p">:</span><span class="n">NSFileCoordinatorReadingWithoutChanges</span> <span class="nf">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span> <span class="nf">byAccessor</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">newURL</span><span class="p">)</span> <span class="p">{</span>
+            
+            <span class="c1">//3.保存文件到共享容器
+</span>            <span class="p">[</span><span class="n">self</span> <span class="nf">saveFileFromURL</span><span class="p">:</span><span class="n">newURL</span> <span class="nf">toFileURL</span><span class="p">:</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nf">fileURLWithPath</span><span class="p">:</span><span class="n">exportFilePath</span><span class="p">]]</span><span class="err">;</span>
+        <span class="p">}];</span>
+        
+    <span class="p">}</span>
+    
+    <span class="c1">//4. 停止安全访问权限
+</span>    <span class="p">[</span><span class="n">originalURL</span> <span class="nf">stopAccessingSecurityScopedResource</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="file-provider-extension">4.4 文件提供程序 File Provider extension</h3>
+<p>文件提供程序应用扩展允许在主应用程序的沙箱外使用打开和移动操作来访问文件。当 MKTextEdit 使用文件协调器 <code class="highlighter-rouge">NSFileCoordinator </code> 打开不存在 MKDocumentProvider 的文件时，我们可以使用 <code class="highlighter-rouge">- (void)startProvidingItemAtURL:(NSURL *)url completionHandler:(void (^)(NSError *))completionHandler</code> 方法来为 MKTextEdit 创建新文件：</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//文件保护，文件不存在则创建新文件
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startProvidingItemAtURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">))</span><span class="nv">completionHandler</span> <span class="p">{</span>
+    <span class="n">NSError</span><span class="o">*</span> <span class="n">error</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">__block</span> <span class="n">NSError</span><span class="o">*</span> <span class="n">fileError</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    
+    <span class="n">NSFileManager</span> <span class="o">*</span><span class="n">fileMgr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileManager</span> <span class="nf">defaultManager</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span> <span class="nf">path</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">([</span><span class="n">fileMgr</span> <span class="nf">fileExistsAtPath</span><span class="p">:</span><span class="n">filePath</span><span class="p">]){</span> <span class="c1">//1
+</span>        <span class="c1">//文件已存在，返回
+</span>        <span class="n">completionHandler</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">//文件不存在，创建新文件，并写入url
+</span>    <span class="n">NSData</span> <span class="o">*</span><span class="n">fileData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@"新建文件："</span> <span class="nf">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span> <span class="c1">//2
+</span>    
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">fileCoordinator</span> <span class="nf">coordinateWritingItemAtURL</span><span class="p">:</span><span class="n">url</span> <span class="nf">options</span><span class="p">:</span><span class="n">NSFileCoordinatorWritingForReplacing</span> <span class="nf">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span> <span class="nf">byAccessor</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">newURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">fileData</span> <span class="nf">writeToURL</span><span class="p">:</span><span class="n">newURL</span> <span class="nf">options</span><span class="p">:</span><span class="mi">0</span> <span class="nf">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">fileError</span><span class="p">]</span><span class="err">;</span> <span class="c1">//3
+</span>    <span class="p">}];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="o">!=</span><span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">completionHandler</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">completionHandler</span><span class="p">(</span><span class="n">fileError</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="section-13">5. 搞掂</h2>
+<p>Demo: <a href="https://github.com/monkey19911021/MKDocumentProvider">MKDocumentProvider</a></p>
+
+<p>演示：
+<br />
+<img src="/images/MKDocumentProvider/img13.gif" alt="截图13" />
+<br /></p>
+
+<p>参考链接：
+<br />
+<a href="http://www.cocoachina.com/ios/20141007/9835.html">CocoaChina</a><br />
+<a href="http://www.jianshu.com/p/3e3674630190">简书</a>
+<br /></p>
+
+<p>P.S. 喜欢就分享或者点个赞呗</p>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="DocumentProvider" data-title="DocumentProvider" data-url="http://mkapple.cn/2016/07/01/DocumentProvider"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mkapple"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+<!-- 多说公共JS代码 end -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-07-01T00:00:00+08:00">July 01, 2016</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=/2016/07/01/DocumentProvider" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/07/01/DocumentProvider" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=/2016/07/01/DocumentProvider" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/07/01/DocumentProvider" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="/2016/06/27/PhotoEditingExtension" class="pagination--pager" title="应用扩展—— photo editing extension
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">你也许喜欢以下</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/27/PhotoEditingExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKPhotoExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">photo editing extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/23/ShareExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/ShareExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">share extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/20/TodayExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKTodayExtension/img0.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline">应用扩展—— <code class="highlighter-rouge">today extension</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/17/CoreSpotlight">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/CoreSpotlight/corespotlight.png"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline">应用内搜索 ——<code class="highlighter-rouge">corespotlight</code>
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
