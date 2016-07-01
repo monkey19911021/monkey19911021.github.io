@@ -1,7 +1,7 @@
 ---
 permalink: /2016/07/01/DocumentProvider
 header:
-  teaser: "MKDocumentProvider/img1.PNG"
+  teaser: "MKDocumentProvider/img1.png"
 categories: [Objective-C, Extension]
 tags: [DocumentProviderExtension, Extension]
 ---
