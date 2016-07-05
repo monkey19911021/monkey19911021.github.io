@@ -7,6 +7,8 @@ tags: [PhotoEditingExtension, Extension]
 ---
 ![截图1]({{ site.url }}/images/MKPhotoExtension/img1.PNG)
 
+转载请注明出处：[http://mkapple.cn/2016/06/27/PhotoEditingExtension](http://mkapple.cn/2016/06/27/PhotoEditingExtension)
+
 ## 1. 开发流程梗概
 
 ### 1.1. 创建扩展

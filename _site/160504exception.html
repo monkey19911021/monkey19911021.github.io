@@ -34,13 +34,13 @@
 
 
 
-  <meta property="og:description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
+  <meta property="og:description" content="转载请注明出处：http://mkapple.cn/160504exception">
 
 
 
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="ios 的异常处理">
-  <meta name="twitter:description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
+  <meta name="twitter:description" content="转载请注明出处：http://mkapple.cn/160504exception">
   <meta name="twitter:url" content="">
 
   
@@ -235,7 +235,7 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="ios 的异常处理">
-    <meta itemprop="description" content="iOS异常说明：iOS的异常有两种：      普通异常，能够被NSException捕获的异常对于普通异常我们可以使用NSException来捕获并且进行处理。        信号机制异常，不能够被NSException捕获的异常，由系统向自身发出闪退信号导致程序崩溃。对于信号机制异常，需要用信号处理函数: void	(*signal(int, void (*)(int)))(int);          为某信号注册处理函数：signal(SIGABRT, SignalHandler);  为信号SIGABRT注册一个SignalHandler处理方法。      实现SignalHandler方法：void SignalHandler(int signal){//实现方法}；      UncaughtExceptionHandler使用方法：在项目的AppDelegate.m文件的import进UncaughtExceptionHandler.h然后在方法：- (BOOL)application: didFinishLaunchingWithOptions；里设置全局异常监控方法：InstallUncaughtExceptionHandler();每当异常出现就会弹出一个异常提示框告诉用户软件出现崩溃了，之后程序就会闪退了，并且会在程序的Documents文件夹里生成命名格式为：Exception+时间的异常日志。之后需要添加异常日志发送功能，这样开发者就能立即修复软件的错误。">
+    <meta itemprop="description" content="转载请注明出处：http://mkapple.cn/160504exception">
     <meta itemprop="datePublished" content="May 04, 2016">
     
 
@@ -255,7 +255,9 @@
       
 
       <section class="page__content" itemprop="text">
-        <h2 id="ios">iOS异常说明：</h2>
+        <p>转载请注明出处：<a href="http://mkapple.cn/160504exception">http://mkapple.cn/160504exception</a></p>
+
+<h2 id="ios">iOS异常说明：</h2>
 <p><strong>iOS的异常有两种：</strong></p>
 
 <ol>
@@ -364,14 +366,14 @@ var duoshuoQuery = {short_name:"mkapple"};
 
 <div class="grid__item">
   
-    <a href="/2016/06/20/TodayExtension">
+    <a href="/2016/07/05/ActionExtension">
   
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       
         <div class="archive__item-teaser">
           <img src=
             
-              "/images/MKTodayExtension/img0.PNG"
+              "/images/MKActionExtension/img1.gif"
             
             alt="">
         </div>

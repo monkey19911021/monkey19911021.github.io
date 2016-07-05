@@ -11,6 +11,8 @@ tags:
 ---
 ![截图1]({{ site.url }}/images/ShareExtension/img1.PNG)
 
+转载请注明出处：[http://mkapple.cn/2016/06/23/ShareExtension](http://mkapple.cn/2016/06/23/ShareExtension)
+
 ## 1. 先来介绍几个概念
 **App Extension：** 扩展
 
@@ -26,7 +28,9 @@ tags:
 ## 2. 创建分享扩展
 关于如何创建一个扩展请参考[这里](http://mkapple.cn/2016/06/20/TodayExtension)的第二步骤, 我们要创建的是 Share Extension 。
 <br>	
-P.S. 说实话，分享扩展这东西除了在社交应用或者一些特别应用之外没啥用处了
+
+**P.S.** 分享扩展除了用在分享之外，还可以实现 host app 拷贝文件到 containing app 的共享文件夹里。共享文件夹的用法可以参考 [MKDocumentProvider](http://mkapple.cn/2016/07/01/DocumentProvider)。
+
 <br>
 ![截图2]({{ site.url }}/images/ShareExtension/img2.png)
 

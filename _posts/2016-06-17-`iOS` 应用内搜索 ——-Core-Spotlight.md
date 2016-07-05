@@ -7,6 +7,8 @@ tags: [CoreSpotlight]
 ---
 ![截图1]({{ site.url }}/images/CoreSpotlight/corespotlight.png)
 
+转载请注明出处：[http://mkapple.cn/2016/06/17/CoreSpotlight](http://mkapple.cn/2016/06/17/CoreSpotlight)
+
 ### 1. 先将framework导入：<br>
 工程 -> Build Phases -> Link Binary With Libraries->![截图2]({{ site.url }}/images/CoreSpotlight/image2.png)
 <br>

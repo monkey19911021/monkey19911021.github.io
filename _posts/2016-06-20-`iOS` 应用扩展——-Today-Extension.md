@@ -7,6 +7,8 @@ tags: [TodayExtension, Extension]
 ---
 ![截图1]({{ site.url }}/images/MKTodayExtension/img0.PNG)
 
+转载请注明出处：[http://mkapple.cn/2016/06/20/TodayExtension](http://mkapple.cn/2016/06/20/TodayExtension)
+
 ## 今日面板
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今日面板属于一个应用的扩展，但是该扩展跟该应用是两个独立的程序。OK，来做一个任务列表（ToDoList）来熟悉 Today Extension 的开发吧。
 

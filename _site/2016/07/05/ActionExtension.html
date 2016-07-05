@@ -1,0 +1,657 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>ios 应用扩展—— Action Extension - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="ios 应用扩展—— Action Extension">
+
+
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="ios 应用扩展—— Action Extension">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-07-05T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="/2016/07/01/DocumentProvider" title="`ios` 应用扩展—— Document Provider Extension">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+  <meta name="baidu-site-verification" content="afziIIFBbd" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="ios 应用扩展—— Action Extension">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="July 05, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Action Extension
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+<p><img src="/images/MKActionExtension/img1.gif" alt="截图1" /></p>
+
+<p>转载请注明出处：<a href="http://mkapple.cn/2016/06/20/ActionExtension">http://mkapple.cn/2016/06/20/ActionExtension</a></p>
+
+<h2 id="section">1.干啥</h2>
+<p>任何场合下选择了一段英文，点击分享，使用 MKAction 打开可以翻译该文本。</p>
+
+<h2 id="ios-mkactionextension">2. 新建一个 iOS 项目，MKActionExtension</h2>
+
+<h2 id="action-extension">3. 新建 Action Extension</h2>
+<p><img src="/images/MKActionExtension/img2.png" alt="截图2" /></p>
+
+<p><img src="/images/MKActionExtension/img3.png" alt="截图3" /></p>
+
+<p>命名，完成。</p>
+
+<p>修改运行时执行的主应用
+<br />
+<img src="/images/MKActionExtension/img4.png" alt="截图4" />
+<br /></p>
+
+<p>在 Run 一项里选择运行时执行的主应用：<br />
+<img src="/images/MKActionExtension/img5.png" alt="截图5" />
+<br />
+勾上 Debug executable <br /> 
+<img src="/images/MKActionExtension/img6.png" alt="截图6" />
+<br /></p>
+
+<p>运行扩展看看：
+<br />
+<img src="/images/MKActionExtension/img7.gif" alt="截图7" />
+<br /></p>
+
+<p>默认提供了选取图片，并且显示图片的功能。</p>
+
+<h2 id="section-1">4. 获取输入数据</h2>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">loadInputItems</span>
+<span class="p">{</span>
+    <span class="c1">//1. 从扩展上下文获取 NSExtensionItem 数组
+</span>    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSExtensionItem</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">itemArray</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">extensionContext</span><span class="p">.</span><span class="n">inputItems</span><span class="p">;</span>
+    
+    <span class="c1">//2. 从 NSExtensionItem 获取 NSItemProvider 数组
+</span>    <span class="n">NSExtensionItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="n">itemArray</span><span class="p">.</span><span class="n">firstObject</span><span class="p">;</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSItemProvider</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">providerArray</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="n">attachments</span><span class="p">;</span>
+    
+    <span class="c1">//3. 加载、获取数据
+</span>    <span class="n">NSItemProvider</span> <span class="o">*</span><span class="n">itemProvider</span> <span class="o">=</span> <span class="n">providerArray</span><span class="p">.</span><span class="n">firstObject</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">([</span><span class="n">itemProvider</span> <span class="nf">hasItemConformingToTypeIdentifier</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">kUTTypePlainText</span><span class="p">]){</span>
+        <span class="p">[</span><span class="n">itemProvider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">kUTTypePlainText</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">text</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+                <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="nf">mainQueue</span><span class="p">]</span> <span class="nf">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                    <span class="n">originalTextView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="err">;</span>
+                    
+                    <span class="c1">//4. 翻译
+</span>                    <span class="p">[</span><span class="n">self</span> <span class="nf">youdaoTranslate</span><span class="p">:</span><span class="n">text</span> <span class="nf">complate</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">translateText</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">translateTextView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">translateText</span><span class="err">;</span>
+                    <span class="p">}]</span><span class="err">;</span>
+                <span class="p">}]</span><span class="err">;</span>
+            <span class="p">}</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>介绍几个属性和方法：</p>
+
+<ul>
+  <li><a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionContext_Class/index.html#//apple_ref/occ/cl/NSExtensionContext">NSExtensionContext</a>， 扩展上下文，可以获取进入扩展时的数据 ——inputItems， 元素类型为 NSExtensionItem 的数组。
+<br /></li>
+  <li><a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionItem_Class/index.html#//apple_ref/occ/cl/NSExtensionItem">NSExtensionItem</a>， 扩展数据项，包含附件数组 —— attachments，元素类型为 NSItemProvider 的数组。
+<br /></li>
+  <li><a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSItemProvider_Class/index.html#//apple_ref/occ/cl/NSItemProvider">NSItemProvider</a>，数据项的附件都封装在里面，要获取数据就要根据数据的 <a href="https://developer.apple.com/library/ios/documentation/MobileCoreServices/Reference/UTTypeRef/index.html#//apple_ref/doc/constant_group/UTI_Text_Types">UTI</a> 类型来加载获取附件。
+<br /></li>
+  <li><code class="highlighter-rouge">NSItemProvider</code> 的 <code class="highlighter-rouge">- (void)loadItemForTypeIdentifier:(NSString *)typeIdentifier options:(NSDictionary *)options completionHandler:(NSItemProviderCompletionHandler)completionHandler</code>， 根据 <a href="https://developer.apple.com/library/ios/documentation/MobileCoreServices/Reference/UTTypeRef/index.html#//apple_ref/doc/constant_group/UTI_Text_Types">UTI</a> 类型来加载获取附件，</li>
+</ul>
+
+<h2 id="section-2">5. 翻译</h2>
+
+<p>利用 <a href="http://fanyi.youdao.com/openapi?path=data-mode">有道 API</a> 提供的接口。</p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">youdaoTranslate</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">complate</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">))</span><span class="nv">complate</span><span class="p">{</span>
+    <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">shareSession</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="nf">sharedSession</span><span class="p">];</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">text</span> <span class="nf">stringByReplacingOccurrencesOfString</span><span class="p">:</span><span class="s">@" "</span> <span class="nf">withString</span><span class="p">:</span><span class="s">@"%20"</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">urlStr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nf">stringWithFormat</span><span class="p">:</span><span class="s">@"http://fanyi.youdao.com/openapi.do?keyfrom=%@&amp;key=%@&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q=%@"</span><span class="p">,</span> <span class="n">Keyfrom</span><span class="p">,</span> <span class="n">YouDaoAPIkey</span><span class="p">,</span> <span class="n">text</span><span class="p">];</span>
+    
+    <span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">shareSession</span> <span class="nf">dataTaskWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nf">URLWithString</span><span class="p">:</span> <span class="n">urlStr</span><span class="p">]</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dic</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSJSONSerialization</span> <span class="nf">JSONObjectWithData</span><span class="p">:</span><span class="n">data</span> <span class="nf">options</span><span class="p">:</span><span class="n">NSJSONReadingAllowFragments</span> <span class="nf">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span><span class="err">;</span>
+        <span class="n">NSArray</span> <span class="o">*</span><span class="n">resultArray</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="s">@"translation"</span><span class="p">]</span><span class="err">;</span>
+        
+        <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="nf">mainQueue</span><span class="p">]</span> <span class="nf">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+            <span class="n">complate</span><span class="p">(</span><span class="n">resultArray</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="err">;</span>
+        <span class="p">}]</span><span class="err">;</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="n">task</span> <span class="nf">resume</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>演示：
+滚回最顶看图 -.-</p>
+
+<p>Demo：<a href="https://github.com/monkey19911021/MKActionExtension">MKActionExtension</a>
+<br /></p>
+
+<p>P.S. 喜欢就分享或者点个赞呗</p>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="ActionExtension" data-title="ActionExtension" data-url="http://mkapple.cn/2016/07/05/ActionExtension"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mkapple"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+<!-- 多说公共JS代码 end -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-07-05T00:00:00+08:00">July 05, 2016</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=/2016/07/05/ActionExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/07/05/ActionExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=/2016/07/05/ActionExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/07/05/ActionExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="/2016/07/01/DocumentProvider" class="pagination--pager" title="ios 应用扩展—— Document Provider Extension
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">你也许喜欢以下</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/07/01/DocumentProvider">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKDocumentProvider/img1.png"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Document Provider Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  7 秒钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/27/PhotoEditingExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKPhotoExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Photo Editing Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/23/ShareExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/ShareExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Share Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/20/TodayExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKTodayExtension/img0.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Today Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+

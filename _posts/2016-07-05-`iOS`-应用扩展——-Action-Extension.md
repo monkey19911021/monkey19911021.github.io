@@ -1,169 +1,118 @@
 ---
-permalink: /2016/06/20/TodayExtension
+permalink: /2016/07/05/ActionExtension
 header:
-  teaser: "MKTodayExtension/img0.PNG"
+  teaser: "MKActionExtension/img1.gif"
 categories: [Objective-C, Extension]
-tags: [TodayExtension, Extension]
+tags: [ActionExtension, Extension]
 ---
-![截图1]({{ site.url }}/images/MKTodayExtension/img0.PNG)
+![截图1]({{ site.url }}/images/MKActionExtension/img1.gif)
 
-## 今日面板
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今日面板属于一个应用的扩展，但是该扩展跟该应用是两个独立的程序。OK，来做一个任务列表（ToDoList）来熟悉 Today Extension 的开发吧。
+转载请注明出处：[http://mkapple.cn/2016/06/20/ActionExtension](http://mkapple.cn/2016/06/20/ActionExtension)
 
-### 1. 创建一个任务列表：
-![截图2]({{ site.url }}/images/MKTodayExtension/img1.png)
-<br>
-一个基本的 tableView ，具有点击右上角添加新元素、左滑 tableViewCell 删除元素的，so easy。
+## 1.干啥
+任何场合下选择了一段英文，点击分享，使用 MKAction 打开可以翻译该文本。
 
-### 2. 创建 Today Extension 扩展
-![截图3]({{ site.url }}/images/MKTodayExtension/img2.png)
-<br>
-<br>
-![截图4]({{ site.url }}/images/MKTodayExtension/img3.png)
-<br>
-下一步，命名，完成。
-<br>
+## 2. 新建一个 iOS 项目，MKActionExtension
 
-会弹出这样一个框：
-<br>
-![截图5]({{ site.url }}/images/MKTodayExtension/img4.png)
-<br>
-选择激活（Activate）
-<br>
+## 3. 新建 Action Extension
+![截图2]({{ site.url }}/images/MKActionExtension/img2.png)
+
+![截图3]({{ site.url }}/images/MKActionExtension/img3.png)
+
+命名，完成。
 
 修改运行时执行的主应用
 <br>
-![截图6]({{ site.url }}/images/MKTodayExtension/img5.png)
+![截图4]({{ site.url }}/images/MKActionExtension/img4.png)
 <br>
 
 在 Run 一项里选择运行时执行的主应用：<br>
-![截图7]({{ site.url }}/images/MKTodayExtension/img6.png)
+![截图5]({{ site.url }}/images/MKActionExtension/img5.png)
 <br>
 勾上 Debug executable <br> 
-![截图8]({{ site.url }}/images/MKTodayExtension/img7.png)
-<br>
-
-修改在今日面板显示的标题：
-<br>
-![截图9]({{ site.url }}/images/MKTodayExtension/img8.png)
+![截图6]({{ site.url }}/images/MKActionExtension/img6.png)
 <br>
 
 运行扩展看看：
 <br>
-![截图10]({{ site.url }}/images/MKTodayExtension/img9.png)
+![截图7]({{ site.url }}/images/MKActionExtension/img7.gif)
 <br>
 
+默认提供了选取图片，并且显示图片的功能。
 
-### 3. 在扩展中创建 tableView
-![截图11]({{ site.url }}/images/MKTodayExtension/img10.png)
-<br>
-如同平常一样，塞一个 tableView 到 sb 里面，接着注意了，在扩展想要修改显示的视图大小需要在 viewControll 里设置 `preferredContentSize` 属性：
+## 4. 获取输入数据
 
 ~~~objc
-self.preferredContentSize = CGSizeMake(0, todoList.count * 44-1);
-~~~
-
-### 4. 扩展使用主应用的共享数据
-由于扩展和主应用是相互独立的程序，所以需要主应用共享出数据给扩展使用，使用`App Group`来解决问题。
-<br>
-`TARGETS` ——> `主应用` ——> `Capabilities` ——> `App Group`
-<br>
-点击开启
-<br>
-![截图12]({{ site.url }}/images/MKTodayExtension/img11.png)
-<br>
-输入：group.BundleID
-<br>
-<br>
-主应用同步数据到 group
-
-~~~objc
-- (void)updateTodoSnapshot
+- (void)loadInputItems
 {
-    NSUserDefaults *infoDic = [[NSUserDefaults alloc] initWithSuiteName: GROUP_ID];
-    [infoDic setObject:todoList forKey:TODO_LIST_ID];
-    [infoDic synchronize];
+    //1. 从扩展上下文获取 NSExtensionItem 数组
+    NSArray<NSExtensionItem *> *itemArray = self.extensionContext.inputItems;
     
-    //更新今日面板信息，NotificationCenter framework
-    [[NCWidgetController widgetController] setHasContent:YES forWidgetWithBundleIdentifier:@"com.donlinks.MKTodyExtension.MKTodayTarget"];
-}
-~~~
-
-当 group 数据更新了，扩展会调用 `NCWidgetProviding` 协议，实现该协议的两个方法
-
-~~~objc
-- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    [self loadContents];
-    completionHandler(NCUpdateResultNewData);
-}
-
-- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{
-    return UIEdgeInsetsMake(0, 27, 0, 0);
-}
-~~~
-第一个方法是系统通知扩展要更新时，扩展调用的方法；第二个方法返回一个内补大小，如果不实现，默认情况视图左侧会有一定的缩进。
-<br>
-
-扩展获取同步数据
-
-~~~objc
-NSUserDefaults *infoDic = [[NSUserDefaults alloc] initWithSuiteName: GROUP_ID];
-todoList = [infoDic objectForKey: TODO_LIST_ID];
-~~~
-
-OK, 演示一遍：
-<br>
-![截图13]({{ site.url }}/images/MKTodayExtension/img12.gif)
-<br>
-
-### 5. 扩展调起主应用
-首先，给主应用注册一个 URL Scheme
-![截图14]({{ site.url }}/images/MKTodayExtension/img13.png)
-<br>
-
-点击今日面板时打开主应用
-
-~~~objc
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //2. 从 NSExtensionItem 获取 NSItemProvider 数组
+    NSExtensionItem *item = itemArray.firstObject;
+    NSArray<NSItemProvider *> *providerArray = item.attachments;
     
-    NSString *text = todoList[indexPath.row];
-    if([text isEqualToString:@"添加ToDo"]){
-        text = @"new_item";
-    }else{
-        NSUserDefaults *infoDic = [[NSUserDefaults alloc] initWithSuiteName: GROUP_ID];
-        NSArray *array = [infoDic objectForKey: TODO_LIST_ID];
-        
-        text = [NSString stringWithFormat:@"%@", @([array indexOfObject:text])];
+    //3. 加载、获取数据
+    NSItemProvider *itemProvider = providerArray.firstObject;
+    if([itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypePlainText]){
+        [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypePlainText options:nil completionHandler:^(NSString *text, NSError *error) {
+            if(text) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    originalTextView.text = text;
+                    
+                    //4. 翻译
+                    [self youdaoTranslate:text complate:^(NSString *translateText) {
+                        translateTextView.text = translateText;
+                    }];
+                }];
+            }
+        }];
     }
+}
+~~~
+
+介绍几个属性和方法：
+
+* [NSExtensionContext](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionContext_Class/index.html#//apple_ref/occ/cl/NSExtensionContext)， 扩展上下文，可以获取进入扩展时的数据 ——inputItems， 元素类型为 NSExtensionItem 的数组。
+<br>
+* [NSExtensionItem](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSExtensionItem_Class/index.html#//apple_ref/occ/cl/NSExtensionItem)， 扩展数据项，包含附件数组 —— attachments，元素类型为 NSItemProvider 的数组。
+<br>
+* [NSItemProvider](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSItemProvider_Class/index.html#//apple_ref/occ/cl/NSItemProvider)，数据项的附件都封装在里面，要获取数据就要根据数据的 [UTI](https://developer.apple.com/library/ios/documentation/MobileCoreServices/Reference/UTTypeRef/index.html#//apple_ref/doc/constant_group/UTI_Text_Types) 类型来加载获取附件。
+<br>
+* `NSItemProvider` 的 `- (void)loadItemForTypeIdentifier:(NSString *)typeIdentifier options:(NSDictionary *)options completionHandler:(NSItemProviderCompletionHandler)completionHandler`， 根据 [UTI](https://developer.apple.com/library/ios/documentation/MobileCoreServices/Reference/UTTypeRef/index.html#//apple_ref/doc/constant_group/UTI_Text_Types) 类型来加载获取附件，
+
+## 5. 翻译
+
+利用 [有道 API](http://fanyi.youdao.com/openapi?path=data-mode) 提供的接口。
+
+~~~objc
+- (void)youdaoTranslate:(NSString *)text complate:(void (^)(NSString *))complate{
+    NSURLSession *shareSession = [NSURLSession sharedSession];
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=%@&key=%@&type=data&doctype=json&version=1.1&q=%@", Keyfrom, YouDaoAPIkey, text];
     
-    NSString *urlStr = [@"MKToday://" stringByAppendingString: text];
-    
-    //打开主应用
-    [self.extensionContext openURL:[NSURL URLWithString:urlStr] completionHandler:nil];
+    NSURLSessionDataTask *task = [shareSession dataTaskWithURL:[NSURL URLWithString: urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSArray *resultArray = dic[@"translation"];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            complate(resultArray[0]);
+        }];
+    }];
+    [task resume];
 }
 ~~~
 
 演示：
-<br>
-![截图15]({{ site.url }}/images/MKTodayExtension/img14.gif)
-<br>
+滚回最顶看图 -.-
 
-OK, 打完收工，Demo在此：[MKTodyExtension](https://github.com/monkey19911021/MKTodyExtension)
-<br>
-
-参考链接：
-<br>
-[苹果官方文档](https://developer.apple.com/library/ios/documentation/NotificationCenter/Reference/NotificationCenter_Framework/index.html)
-<br>
-[App Extension编程指南](http://www.cocoachina.com/ios/20140904/9527.html)
+Demo：[MKActionExtension](https://github.com/monkey19911021/MKActionExtension)
 <br>
 
 P.S. 喜欢就分享或者点个赞呗
 
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="TodayExtension" data-title="TodayExtension" data-url="http://mkapple.cn/2016/06/20/TodayExtension"></div>
+<div class="ds-thread" data-thread-key="ActionExtension" data-title="ActionExtension" data-url="http://mkapple.cn/2016/07/05/ActionExtension"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

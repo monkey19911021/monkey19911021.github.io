@@ -7,6 +7,8 @@ tags: [DocumentProviderExtension, Extension]
 ---
 ![截图1]({{ site.url }}/images/MKDocumentProvider/img1.png)
 
+转载请注明出处：[http://mkapple.cn/2016/07/01/DocumentProvider](http://mkapple.cn/2016/07/01/DocumentProvider)
+
 ## 1. 开发流程梗概
 
 ### 1.1. 创建一个文件编辑器 App，具有打开、导入其它 App 的文件；移动、导出、保存文件到其它 App 的 功能。
