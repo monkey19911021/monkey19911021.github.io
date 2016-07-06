@@ -54,7 +54,7 @@ CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier:@"MK
 {
     NSString *identifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];
     
-    if([identifier isEqualToString:@"打开MKApple"]){
+    if([identifier isEqualToString:@"MKUnique"]){
         
         UIViewController *rootViewCtrl = self.window.rootViewController;
         
