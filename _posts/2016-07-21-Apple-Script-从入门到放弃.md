@@ -150,6 +150,7 @@ end try
 ~~~
 
 ## 5. if ... else
+
 ### 5.1. 一般形式
 ~~~AppleScript
 if 条件 then  
