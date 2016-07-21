@@ -28,6 +28,7 @@ get someValue
 ## 3. 变量类型
 ---
 ### 3.1 number 数字
+
 ~~~AppleScript
 set x to 10
 
@@ -150,6 +151,7 @@ end try
 
 ## 5. if ... else
 1. 一般形式
+
 ~~~AppleScript
 if 条件 then  
     ...  
@@ -161,6 +163,7 @@ end if
 ~~~
 
 2. 至简形式
+
 ~~~AppleScript
 -- 都写在一行
 if 条件 then ...  
@@ -175,6 +178,7 @@ if 条件 then ...
 - /= 不等于
 
 4. 字符串比较
+
 ~~~AppleScript
 -- str1 是否以 str2 开头
 str1 begins with (或者 starts with) str2 
