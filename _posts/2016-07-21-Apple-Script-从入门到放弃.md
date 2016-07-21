@@ -150,9 +150,7 @@ end try
 ~~~
 
 ## 5. if ... else
-
-1. 一般形式
-
+### 5.1. 一般形式
 ~~~AppleScript
 if 条件 then  
     ...  
@@ -163,14 +161,13 @@ else
 end if  
 ~~~
 
-2. 至简形式
-
+### 5.2. 至简形式
 ~~~AppleScript
 -- 都写在一行
 if 条件 then ...  
 ~~~
 
-3. 数字比较
+### 5.3. 数字比较
 - = 等于
 - \> 大于
 - < 小于
@@ -178,8 +175,7 @@ if 条件 then ...
 - <= 小于等于
 - /= 不等于
 
-4. 字符串比较
-
+### 5.4. 字符串比较
 ~~~AppleScript
 -- str1 是否以 str2 开头
 str1 begins with (或者 starts with) str2 
