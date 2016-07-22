@@ -1,20 +1,20 @@
 ---
 permalink: /2016/07/21/AppleScriptStart
 header:
-  teaser: ""
+  teaser: "AppleScriptStart/img0.png"
 categories: [AppleScript]
 tags: [AppleScript]
 ---
 
 ## 1. hello, world
-~~~AppleScript
+```applescript
 display dialog "hello, world" (* 1 *)
 display alert "hello, world" (* 2 *)
 say "hello, world" (* 3 *)
-~~~
+```
 
 ## 2. 变量
-~~~AppleScript
+```applescript
 -- 声明，可以直接 set someValue to "" 来声明 someValue
 property someValue : ""
 
@@ -23,21 +23,21 @@ set someValue to "MKApple"
 
 -- 取值
 get someValue
-~~~
+```
 
 ## 3. 变量类型
 ---
 
 ### 3.1 number 数字
-~~~AppleScript
+```applescript
 set x to 10
 
 -- 字符串转整型
 set x to "10" as number 
-~~~
+```
 
 ### 3.2 string 字符串
-~~~AppleScript
+```applescript
 set str to "hello, world"
 
 -- 使用 the length of 获取字符串长度 
@@ -68,10 +68,10 @@ set AppleScript's text item delimiters to ","
 set restoredStr to {"hello", "world"} as string
 set AppleScript's text item delimiters to defaultDelimiters
 get restoredStr
-~~~
+```
 
 ### 3.3 list 集合
-~~~AppleScript
+```applescript
 set list1 to {10, "value1", "value2"}
 
 -- 使用 the length of 或者 the count of 获取集合长度 
@@ -108,10 +108,10 @@ set reverseList to reverse of list2
 
 -- 将变量转换成集合 
 set list3 to "value6" as list 
-~~~
+```
 
 ### 3.4 record 字典
-~~~AppleScript
+```applescript
 set record1 to {key1: "value1", key2: "value2"}
 
 -- 使用 the length/count 获取字典 key/value 対数目
@@ -125,19 +125,19 @@ get the key1 of record1
 
 -- 使用 the items of 获取由字典所有值组成的数组
 get the items of record1
-~~~
+```
 
 ### 3.5 copy
-~~~AppleScript
+```applescript
 set record1 to {key1:"value1", key2:"value2"}
 copy the result as list to {text_returned, button_pressed}
 get text_returned
-~~~
+```
 
 ---
 
 ## 4. 捕捉错误
-~~~AppleScript
+```applescript
 try
     set x to 1 / 0
 on error the error_message number the error_number
@@ -147,13 +147,12 @@ on error the error_message number the error_number
     *)
     display alert "出错: " & the error_number & "   详细：" & the error_message
 end try
-~~~
+```
 
 ## 5. if ... else
 
 ### 5.1. 一般形式
-
-~~~AppleScript
+```applescript
 if 条件 then  
     ...  
 else if 条件 then   
@@ -161,13 +160,13 @@ else if 条件 then
 else  
     ...  
 end if  
-~~~
+```
 
 ### 5.2. 至简形式
-~~~AppleScript
+```applescript
 -- 都写在一行
 if 条件 then ...  
-~~~
+```
 
 ### 5.3. 数字比较
 - = 等于
@@ -178,7 +177,7 @@ if 条件 then ...
 - /= 不等于
 
 ### 5.4. 字符串比较
-~~~AppleScript
+```applescript
 -- str1 是否以 str2 开头
 str1 begins with (或者 starts with) str2 
 
@@ -211,10 +210,10 @@ str1 contains str2
 
 -- str1 是否不包含 str2
 str1 does not contain str2
-~~~
+```
 
 ## 6. 循环语句
-~~~AppleScript
+```applescript
 -- repeat x times
 set num to 0
 repeat 3 times
@@ -248,16 +247,16 @@ set num to 0
 repeat with temp in {1, 2, 3}
 	set num to num + temp
 end repeat
-~~~
+```
 
 ## 7. 定义函数
-~~~AppleScript
+```applescript
 displayDialog("hello" & ", world") (* &为连接字符串 *)
 
 on displayDialog(str)
 	display dialog str as string
 end displayDialog
-~~~
+```
 
 P.S. 喜欢就分享或者点个赞呗
 

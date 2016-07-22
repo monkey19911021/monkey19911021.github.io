@@ -42,7 +42,7 @@ tags: [ActionExtension, Extension]
 
 ## 4. 获取输入数据
 
-~~~objc
+```objc
 - (void)loadInputItems
 {
     //1. 从扩展上下文获取 NSExtensionItem 数组
@@ -69,7 +69,7 @@ tags: [ActionExtension, Extension]
         }];
     }
 }
-~~~
+```
 
 介绍几个属性和方法：
 

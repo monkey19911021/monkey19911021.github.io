@@ -1,0 +1,804 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Apple Script 从入门到放弃 - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="Apple Script 从入门到放弃">
+
+
+
+
+  <meta property="og:description" content="1. hello, worlddisplay dialog &quot;hello, world&quot; (* 1 *)display alert &quot;hello, world&quot; (* 2 *)say &quot;hello, world&quot; (* 3 *)">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="Apple Script 从入门到放弃">
+  <meta name="twitter:description" content="1. hello, worlddisplay dialog &quot;hello, world&quot; (* 1 *)display alert &quot;hello, world&quot; (* 2 *)say &quot;hello, world&quot; (* 3 *)">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-07-21T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="/2016/07/05/ActionExtension" title="`ios` 应用扩展—— Action Extension">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+  <meta name="baidu-site-verification" content="afziIIFBbd" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Apple Script 从入门到放弃">
+    <meta itemprop="description" content="1. hello, worlddisplay dialog &quot;hello, world&quot; (* 1 *)display alert &quot;hello, world&quot; (* 2 *)say &quot;hello, world&quot; (* 3 *)">
+    <meta itemprop="datePublished" content="July 21, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Apple Script 从入门到放弃
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  7 秒钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="hello-world">1. hello, world</h2>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">display dialog</span><span class="w"> </span><span class="s2">"hello, world"</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="nb">display alert</span><span class="w"> </span><span class="s2">"hello, world"</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="nb">say</span><span class="w"> </span><span class="s2">"hello, world"</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="section">2. 变量</h2>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="c1">-- 声明，可以直接 set someValue to "" 来声明 someValue</span><span class="w">
+</span><span class="k">property</span><span class="w"> </span><span class="nv">someValue</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+
+</span><span class="c1">-- 设值 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">someValue</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"MKApple"</span><span class="w">
+
+</span><span class="c1">-- 取值</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nv">someValue</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="section-1">3. 变量类型</h2>
+<hr />
+
+<h3 id="number-">3.1 number 数字</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">set</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span><span class="w">
+
+</span><span class="c1">-- 字符串转整型</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"10"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nv">number</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<h3 id="string-">3.2 string 字符串</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">set</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"hello, world"</span><span class="w">
+
+</span><span class="c1">-- 使用 the length of 获取字符串长度 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">strLength</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="s2">"hello"</span><span class="w"> 
+
+</span><span class="c1">-- 使用 &amp; 连接字符串 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"hello,"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">" world"</span><span class="w"> 
+
+</span><span class="c1">-- 使用 \ 来转义 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"\"hello\""</span><span class="w"> 
+
+</span><span class="c1">-- 整型转字符串 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">as </span><span class="nc">string</span><span class="w"> 
+
+</span><span class="c1">-- 使用 every character of  把字符串转成字符数组 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">strList</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">every</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="s2">"String"</span><span class="w">
+
+</span><span class="c1">-- 根据指定字符分割字符串 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">defaultDelimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="err">先保存默认字符分割符</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">","</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="err">使用</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="err">来指定分割符</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">strList</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">every</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="s2">"1,12,321,cdsa"</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">defaultDelimiters</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="err">分割完之后需要还原分割符</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nv">strList</span><span class="w">
+
+</span><span class="c1">-- 将数组按照指定分割符组成一段字符串 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">defaultDelimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">","</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">restoredStr</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="s2">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s2">"world"</span><span class="p">}</span><span class="w"> </span><span class="k">as </span><span class="nc">string</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">AppleScript</span>'s <span class="nb">text</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">defaultDelimiters</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nv">restoredStr</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="list-">3.3 list 集合</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">set</span><span class="w"> </span><span class="nv">list1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s2">"value1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value2"</span><span class="p">}</span><span class="w">
+
+</span><span class="c1">-- 使用 the length of 或者 the count of 获取集合长度 </span><span class="w">
+</span><span class="nb">the</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list1</span><span class="w">
+
+</span><span class="c1">-- 使用 &amp; 连接集合 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">list2</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">list1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="s2">"value4"</span><span class="p">}</span><span class="w"> 
+
+</span><span class="c1">-- 使用 &amp; 连接集合和其他类型变量，&amp; 左边的值的类型决定连接后的值的类型 </span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="s2">"valueX"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">list1</span><span class="w">
+
+</span><span class="cm">(*</span><span class="w"> </span><span class="err">使用</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="err">获取</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="err">第</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="err">个元素，</span><span class="w">
+</span><span class="err">若</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="err">为正数则从第一个向后第</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="err">个元素，</span><span class="w">
+</span><span class="err">若</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="err">为负数则从最后一个向前第</span><span class="w"> </span><span class="na">index</span><span class="w"> </span><span class="err">个元素</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="nb">item</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w"> 
+
+</span><span class="c1">-- 更改集合元素 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"value3"</span><span class="w"> 
+
+</span><span class="c1">-- 使用 the end of 为集合从末尾添加元素 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"value5"</span><span class="w">
+
+</span><span class="c1">-- 使用 some item of 来随机获取 list2 中元素 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">randomItem</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">some</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w"> 
+
+</span><span class="c1">-- 使用 the last item of 获取 list2 最后的元素, 同理可以使用 first、second 等 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">lastItem</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nb">last</span><span class="w"> </span><span class="nb">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w">
+
+</span><span class="c1">-- 使用 items begin through end of 获取 list2 的子集合</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">shotList</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">items</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nb">through</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w">
+
+</span><span class="c1">-- 使用 reverse of 反转集合 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">reverseList</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">reverse</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list2</span><span class="w">
+
+</span><span class="c1">-- 将变量转换成集合 </span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">list3</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"value6"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nv">list</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<h3 id="record-">3.4 record 字典</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">set</span><span class="w"> </span><span class="nv">record1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="nv">key1</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="p">,</span><span class="w"> </span><span class="nv">key2</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="p">}</span><span class="w">
+
+</span><span class="c1">-- 使用 the length/count 获取字典 key/value 対数目</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">record1</span><span class="w">
+
+</span><span class="c1">-- 使用 the key of record 为字典改变值</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">key1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">record1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s2">"changedValue"</span><span class="w">
+
+</span><span class="c1">-- 使用 the key of record 根据 key 获取字典值</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">key1</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">record1</span><span class="w">
+
+</span><span class="c1">-- 使用 the items of 获取由字典所有值组成的数组</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nb">items</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">record1</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="copy">3.5 copy</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">set</span><span class="w"> </span><span class="nv">record1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="nv">key1</span><span class="p">:</span><span class="s2">"value1"</span><span class="p">,</span><span class="w"> </span><span class="nv">key2</span><span class="p">:</span><span class="s2">"value2"</span><span class="p">}</span><span class="w">
+</span><span class="nb">copy</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="k">as </span><span class="nc">list </span><span class="k">to</span><span class="w"> </span><span class="p">{</span><span class="nv">text_returned</span><span class="p">,</span><span class="w"> </span><span class="nv">button_pressed</span><span class="p">}</span><span class="w">
+</span><span class="k">get</span><span class="w"> </span><span class="nv">text_returned</span><span class="w">
+</span></code></pre>
+</div>
+
+<hr />
+
+<h2 id="section-2">4. 捕捉错误</h2>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">try</span><span class="w">
+    </span><span class="k">set</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">on</span> <span class="k">error</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">error_message</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">error_number</span><span class="w">
+    </span><span class="cm">(*</span><span class="w">
+      </span><span class="err">error_message记录了出错信息，是一个String类型。</span><span class="w">
+      </span><span class="err">error_number记录了错误代号，是一个number类型。</span><span class="w">
+    </span><span class="o">*</span><span class="p">)</span><span class="w">
+    </span><span class="nb">display alert</span><span class="w"> </span><span class="s2">"出错: "</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">error_number</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">"   详细："</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">error_message</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">try</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="if--else">5. if … else</h2>
+
+<h3 id="section-3">5.1. 一般形式</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="err">条件</span><span class="w"> </span><span class="k">then</span><span class="w">  
+    </span><span class="p">...</span><span class="w">  
+</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="err">条件</span><span class="w"> </span><span class="k">then</span><span class="w">   
+    </span><span class="p">...</span><span class="w">  
+</span><span class="k">else</span><span class="w">  
+    </span><span class="p">...</span><span class="w">  
+</span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">  
+</span></code></pre>
+</div>
+
+<h3 id="section-4">5.2. 至简形式</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="c1">-- 都写在一行</span><span class="w">
+</span><span class="k">if</span><span class="w"> </span><span class="err">条件</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="p">...</span><span class="w">  
+</span></code></pre>
+</div>
+
+<h3 id="section-5">5.3. 数字比较</h3>
+<ul>
+  <li>= 等于</li>
+  <li>&gt; 大于</li>
+  <li>&lt; 小于</li>
+  <li>&gt;= 大于等于</li>
+  <li>&lt;= 小于等于</li>
+  <li>/= 不等于</li>
+</ul>
+
+<h3 id="section-6">5.4. 字符串比较</h3>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="c1">-- str1 是否以 str2 开头</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">begins with</span><span class="w"> </span><span class="p">(</span><span class="err">或者</span><span class="w"> </span><span class="ow">starts with</span><span class="p">)</span><span class="w"> </span><span class="nv">str2</span><span class="w"> 
+
+</span><span class="c1">-- str1 是否不以 str2 开头</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">start with</span><span class="w"> </span><span class="nv">str2</span><span class="w"> 
+
+</span><span class="c1">-- str2 是否以 str2 结尾</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">ends with</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str2 是否不以 str2 结尾</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">end with</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- 是否一致</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">is equal</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str1 是否在 str2 之前</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">comes before</span><span class="w"> </span><span class="nv">str2</span><span class="w"> 
+
+</span><span class="c1">-- str1 是否在 str2 之后</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">comes after</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str1 是否在 str2 里</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">is in</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str1 是否不在 str2 里</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">is not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str1 是否包含 str2</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+
+</span><span class="c1">-- str1 是否不包含 str2</span><span class="w">
+</span><span class="nv">str1</span><span class="w"> </span><span class="ow">does not contain</span><span class="w"> </span><span class="nv">str2</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="section-7">6. 循环语句</h2>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="c1">-- repeat x times</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">repeat</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">times</span><span class="w">
+	</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+
+</span><span class="c1">-- repeat with 计数变量 from 起始值 to 结束值 by 增长值</span><span class="w">
+</span><span class="c1">-- by 增长值 缺省为1</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">startValue</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">endValue</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">stepValue</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="k">repeat</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="nv">startValue</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">endValue</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nv">stepValue</span><span class="w">
+	</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">temp</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+
+</span><span class="c1">-- repeat while 循环条件</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">repeat</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="w">
+	</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+
+</span><span class="c1">-- repeat until 循环结束条件</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">repeat</span><span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">
+	</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+
+</span><span class="c1">-- repeat with 单个元素 in 集合</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="k">repeat</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">
+	</span><span class="k">set</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">temp</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">repeat</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="section-8">7. 定义函数</h2>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nv">displayDialog</span><span class="p">(</span><span class="s2">"hello"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">", world"</span><span class="p">)</span><span class="w"> </span><span class="cm">(*</span><span class="w"> </span><span class="o">&amp;</span><span class="err">为连接字符串</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+
+</span><span class="k">on</span> <span class="nv">displayDialog</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span><span class="w">
+	</span><span class="nb">display dialog</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="k">as </span><span class="nc">string</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="nv">displayDialog</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>P.S. 喜欢就分享或者点个赞呗</p>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="AppleScriptStart" data-title="AppleScriptStart" data-url="http://mkapple.cn/2016/07/21/AppleScriptStart"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mkapple"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+<!-- 多说公共JS代码 end -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-07-21T00:00:00+08:00">July 21, 2016</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=/2016/07/21/AppleScriptStart" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/07/21/AppleScriptStart" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=/2016/07/21/AppleScriptStart" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/07/21/AppleScriptStart" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="/2016/07/05/ActionExtension" class="pagination--pager" title="ios 应用扩展—— Action Extension
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">你也许喜欢以下</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/07/05/ActionExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKActionExtension/img1.gif"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Action Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/07/01/DocumentProvider">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKDocumentProvider/img1.png"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Document Provider Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  7 秒钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/27/PhotoEditingExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/MKPhotoExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Photo Editing Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  
+    <a href="/2016/06/23/ShareExtension">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+        <div class="archive__item-teaser">
+          <img src=
+            
+              "/images/ShareExtension/img1.PNG"
+            
+            alt="">
+        </div>
+      
+      <h2 class="archive__item-title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Share Extension
+</h2>
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  1 分钟阅读
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+
+</p>
+    </article>
+  </a>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
