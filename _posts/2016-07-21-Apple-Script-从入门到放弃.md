@@ -249,13 +249,20 @@ repeat with temp in {1, 2, 3}
 end repeat
 ```
 
-## 7. 定义函数
+## 7. Handler 函数
 ```applescript
-displayDialog("hello" & ", world") (* &为连接字符串 *)
+-- 带参数和返回值的函数
+on charactersOfStr(str)	return every character of strend charactersOfStrget charactersOfStr("hello,world")
+```
 
-on displayDialog(str)
-	display dialog str as string
-end displayDialog
+```applescript
+-- 如果要在其他应用内调用本文件中的 Handler，要在调用后加 of me 来指定该 Handler 所在文件
+on warnFunc()	display dialog "将要清空废纸篓" buttons {"OK"} default button "OK"	return button returned of result as stringend warnFunctell application "Finder"	if warnFunc() of me is equal to "OK" then empty the trashend tell
+```
+
+```applescript
+-- 调用文件外部的脚本使用 load script
+tell application "Finder"	try		set scriptPath to choose file		set warnScript to (load script scriptPath)		tell warnScript						try				set resultWarn to warnFunc()								try					if resultWarn is equal to "OK" then empty the trash				on error					display alert "废纸篓没东西"				end try							on error				display alert "没有找到该Handler"			end try					end tell	on error		display alert "请选择文件"	end try	end tell
 ```
 
 P.S. 喜欢就分享或者点个赞呗
