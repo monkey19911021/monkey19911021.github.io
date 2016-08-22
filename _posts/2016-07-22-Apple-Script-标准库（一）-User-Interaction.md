@@ -9,7 +9,7 @@ tags: [AppleScript]
 不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。
 {: .notice--info}
 
-注意！转载请注明出处和作者，谢谢
+注意！转载请注明[出处](http://mkapple.cn/2016/07/22/ACUserInteraction)和[作者](http://mkapple.cn)，谢谢
 {: .notice--danger}
 
 ### 1. beep 咚！

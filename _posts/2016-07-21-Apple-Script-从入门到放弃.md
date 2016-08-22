@@ -68,6 +68,18 @@ set AppleScript's text item delimiters to ","
 set restoredStr to {"hello", "world"} as string
 set AppleScript's text item delimiters to defaultDelimiters
 get restoredStr
+
+-- 数字转 ASCII码
+ASCII character 65
+返回：A
+
+-- ASCII 码转数字
+ASCII number "A"
+返回：65
+
+-- 取出一段字符串在另一段字符串的位置
+offset of "el" in "hello"
+返回：2
 ```
 
 ### 3.3 list 集合
