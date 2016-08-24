@@ -250,7 +250,7 @@
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  7 秒钟阅读
+  8 秒钟阅读
 </p>
           
         </header>
@@ -302,10 +302,28 @@
 </span><span class="err">[</span><span class="nv">replacing</span><span class="w"> </span><span class="nv">ask</span><span class="o">/</span><span class="err">‌</span><span class="nv">yes</span><span class="o">/</span><span class="err">‌</span><span class="nv">no</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">是否替换已有文件</span><span class="w">
 </span></code></pre>
 </div>
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="cm">(*</span><span class="w"> </span><span class="err">例子：</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">filePath</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">(</span><span class="nv">POSIX</span><span class="w"> </span><span class="na">path</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">(</span><span class="nb">path to</span><span class="w"> </span><span class="nv">desktop</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">"xxx.scpt"</span><span class="w">
+
+</span><span class="c1">-- 声明 script 对象</span><span class="w">
+</span><span class="k">script</span> <span class="nv">DemoStore</span><span class="w">
+	</span><span class="k">property</span><span class="w"> </span><span class="nv">Red</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="w">
+	</span><span class="k">property</span><span class="w"> </span><span class="nv">Green</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="w">
+	</span><span class="k">property</span><span class="w"> </span><span class="nv">Blue</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="w">
+	</span><span class="nb">on</span><span class="w"> </span><span class="nv">returnRGB</span><span class="p">()</span><span class="w">
+		</span><span class="k">return</span><span class="w"> </span><span class="nv">Red</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">Green</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">Blue</span><span class="w">
+	</span><span class="k">end</span><span class="w"> </span><span class="nv">returnRGB</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="nv">script</span><span class="w">
+
+</span><span class="nb">store script</span><span class="w"> </span><span class="nv">DemoStore</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">filePath</span><span class="w">
+</span></code></pre>
+</div>
 
 <h3 id="run-script-">3. run script 运行脚本文件</h3>
-<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">scripting components</span><span class="w">
-</span><span class="err">→</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">脚本组件数组</span><span class="w">
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">run script</span><span class="w"> </span><span class="nv">script</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">运行脚本的文件或者对象</span><span class="w">
+</span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="nv">parameters</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">any</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">参数数组</span><span class="w">
+</span><span class="err">[</span><span class="k">in</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">运行脚本的语言，默认是当前脚本，</span><span class="w">
+</span><span class="err">→</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">运行结果</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -319,14 +337,21 @@
 </span><span class="k">set</span><span class="w"> </span><span class="na">target</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">load script</span><span class="w"> </span><span class="p">(</span><span class="nb">choose file</span><span class="p">)</span><span class="w">
 </span><span class="nb">run script</span><span class="w"> </span><span class="na">target</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">parameters</span><span class="w"> </span><span class="p">{</span><span class="s2">"hello"</span><span class="p">,</span><span class="w"> </span><span class="s2">", world"</span><span class="p">}</span><span class="w">
 </span><span class="nb">scripting components</span><span class="w">
+
+</span><span class="c1">--本示例运行脚本 beep 3，导致警告声音响三次</span><span class="w">
+</span><span class="nb">run script</span><span class="w"> </span><span class="s2">"beep 3"</span><span class="w">
+
+</span><span class="c1">--本示例确保 AppleScript 脚本编写组件运行脚本 beep 3。</span><span class="w">
+</span><span class="nb">run script</span><span class="w"> </span><span class="s2">"beep 3"</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"AppleScript"</span><span class="w">
+
+</span><span class="c1">--本示例运行 MyScript 脚本文件中的 Run 处理程序。</span><span class="w">
+</span><span class="nb">run script</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="s2">"MyVolume:MyDirectory:MyScript"</span><span class="w">
 </span></code></pre>
 </div>
 
 <h3 id="scripting-components-">4. scripting components 脚本组件</h3>
-<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">run script</span><span class="w"> </span><span class="nv">script</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">运行脚本的文件或者对象</span><span class="w">
-</span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="nv">parameters</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">any</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">参数数组</span><span class="w">
-</span><span class="err">[</span><span class="k">in</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">scripting</span><span class="w"> </span><span class="nv">component</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">use</span><span class="err">;</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="nv">scripting</span><span class="w"> </span><span class="nv">component</span><span class="w">
-</span><span class="err">→</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">运行结果</span><span class="w">
+<div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">scripting components</span><span class="w">
+</span><span class="err">→</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">脚本组件数组</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -337,7 +362,7 @@
 </span><span class="err">[</span><span class="nv">user</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">用户鉴权的用户名，如果指定了用户名，必须指定用户密码</span><span class="w">
 </span><span class="err">[</span><span class="nv">password</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">用户鉴权的用户密码</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">用户鉴权提示框的提示</span><span class="w">
-</span><span class="err">[</span><span class="nv">altering</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">endings</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">change</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">endings</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">Mac</span><span class="o">-</span><span class="nv">style</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">trim</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">trailing</span><span class="w"> </span><span class="nv">one</span><span class="w"> </span><span class="p">(</span><span class="nv">default</span><span class="w"> </span><span class="nv">true</span><span class="p">)</span><span class="w">
+</span><span class="err">[</span><span class="nv">altering</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">endings</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">将全部行尾更改为</span><span class="w"> </span><span class="nv">Mac</span><span class="w"> </span><span class="err">样式并裁截尾行（默认设定为</span><span class="w"> </span><span class="nv">true</span><span class="err">）</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">命令输出</span><span class="w">
 </span></code></pre>
 </div>
@@ -345,6 +370,10 @@
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="cm">(*</span><span class="w"> </span><span class="err">例子：</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
 </span><span class="nb">do shell script</span><span class="w"> </span><span class="s2">"echo hello"</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="s2">"DONLINKS"</span><span class="w"> </span><span class="nv">password</span><span class="w"> </span><span class="s2">"11"</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">administrator</span><span class="w"> </span><span class="nv">privileges</span><span class="w">
 </span><span class="c1">-- hello</span><span class="w">
+
+</span><span class="c1">-- 下载文件</span><span class="w">
+</span><span class="k">set</span><span class="w"> </span><span class="nv">filePath</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">(</span><span class="nv">POSIX</span><span class="w"> </span><span class="na">path</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">(</span><span class="nb">path to</span><span class="w"> </span><span class="nv">desktop</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">"xxx.jpg"</span><span class="w">
+</span><span class="nb">do shell script</span><span class="w"> </span><span class="s2">"curl -L "</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">"http://5191e.com/Public/home/images/banner_02.jpg"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">" -o "</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">filePath</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -445,7 +474,7 @@
 
 <h3 id="section-4">6. 系统信息</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">system info</span><span class="w">
-</span><span class="err">→</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">information</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">系统信息数组</span><span class="w">
+</span><span class="err">→</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">information</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">系统信息字典</span><span class="w">
 
 </span><span class="nv">system</span><span class="w"> </span><span class="nv">information</span><span class="err"> </span><span class="nv">n</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">system info</span><span class="w"> </span><span class="err">命令的结果</span><span class="w">
 </span><span class="nv">AppleScript</span><span class="w"> </span><span class="na">version</span><span class="w"> </span><span class="p">(</span><span class="nb">text</span><span class="p">,</span><span class="w"> </span><span class="nv">r</span><span class="o">/</span><span class="nv">o</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">AppleScript</span><span class="w"> </span><span class="err">版本</span><span class="w">
@@ -468,17 +497,14 @@
 </div>
 
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="cm">(*</span><span class="w"> </span><span class="err">例子：</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
-</span><span class="nb">system attribute</span><span class="w">
-</span><span class="c1">-- {"TMPDIR", "__CF_USER_TEXT_ENCODING", "SHELL", "HOME", "Apple_PubSub_Socket_Render", "SSH_AUTH_SOCK", "PATH", "LOGNAME", "XPC_SERVICE_NAME", "USER", "XPC_FLAGS"}</span><span class="w">
-
-</span><span class="nb">system attribute</span><span class="w"> </span><span class="s2">"SHELL"</span><span class="w">
-</span><span class="c1">-- "/bin/bash"</span><span class="w">
+</span><span class="nv">CPU</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">(</span><span class="nb">system info</span><span class="p">)</span><span class="w">
+</span><span class="c1">-- "Intel 80486"</span><span class="w">
 </span></code></pre>
 </div>
 
 <h3 id="time-to-gmt">7. time to GMT</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">time to GMT</span><span class="w">
-</span><span class="err">→</span><span class="w"> </span><span class="nv">integer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">当地时间与格林威治标准时间差</span><span class="w">
+</span><span class="err">→</span><span class="w"> </span><span class="nv">integer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">当地时间与格林威治标准时间差，单位：秒</span><span class="w">
 </span></code></pre>
 </div>
 

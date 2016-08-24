@@ -26,11 +26,20 @@ store script [script] : 保存脚本
 [in file] : 位置
 [replacing ask/‌yes/‌no] : 是否替换已有文件
 ```
+```applescript
+(* 例子： *)
+set filePath to (POSIX path of (path to desktop)) & "xxx.scpt"
+
+-- 声明 script 对象
+script DemoStore	property Red : 127	property Green : 128	property Blue : 127	on returnRGB()		return Red & Green & Blue	end returnRGBend scriptstore script DemoStore in filePath
+```
 
 ### 3. run script 运行脚本文件
 ```applescript
-scripting components
-→ list of text : 脚本组件数组
+run script script : 运行脚本的文件或者对象
+[with parameters list of any] : 参数数组
+[in text] : 运行脚本的语言，默认是当前脚本，
+→ any : 运行结果
 ```
 
 ```applescript
@@ -40,14 +49,21 @@ on run {para1, para2} -- 外部参数	display alert para1 & para2end run
 
 -- 内部脚本代码：
 set target to load script (choose file)run script target with parameters {"hello", ", world"}scripting components
+
+--本示例运行脚本 beep 3，导致警告声音响三次
+run script "beep 3"
+
+--本示例确保 AppleScript 脚本编写组件运行脚本 beep 3。
+run script "beep 3" in "AppleScript"
+
+--本示例运行 MyScript 脚本文件中的 Run 处理程序。
+run script file "MyVolume:MyDirectory:MyScript"
 ```
 
 ### 4. scripting components 脚本组件
 ```applescript
-run script script : 运行脚本的文件或者对象
-[with parameters list of any] : 参数数组
-[in text] : the scripting component to use; default is the current scripting component
-→ any : 运行结果
+scripting components
+→ list of text : 脚本组件数组
 ```
 
 ### 3. do shell script 运行 shell 脚本命令
@@ -58,7 +74,7 @@ do shell script text : shell 脚本命令
 [user name text] : 用户鉴权的用户名，如果指定了用户名，必须指定用户密码
 [password text] : 用户鉴权的用户密码
 [with prompt text] : 用户鉴权提示框的提示
-[altering line endings boolean] : change all line endings to Mac-style and trim a trailing one (default true)
+[altering line endings boolean] : 将全部行尾更改为 Mac 样式并裁截尾行（默认设定为 true）
 → text : 命令输出
 ```
 
@@ -66,6 +82,9 @@ do shell script text : shell 脚本命令
 (* 例子： *)
 do shell script "echo hello" user name "DONLINKS" password "11" with administrator privileges
 -- hello
+
+-- 下载文件
+set filePath to (POSIX path of (path to desktop)) & "xxx.jpg"do shell script "curl -L " & "http://5191e.com/Public/home/images/banner_02.jpg" & " -o " & filePath
 ```
 
 ## 二、 各种命令
@@ -166,7 +185,7 @@ system attribute "SHELL"
 ### 6. 系统信息
 ```applescript
 system info
-→ system information : 系统信息数组
+→ system information : 系统信息字典
 
 system information n : system info 命令的结果
 AppleScript version (text, r/o) : AppleScript 版本
@@ -189,17 +208,14 @@ physical memory (integer, r/o) : 内存，单位 MB
 
 ```applescript
 (* 例子： *)
-system attribute
--- {"TMPDIR", "__CF_USER_TEXT_ENCODING", "SHELL", "HOME", "Apple_PubSub_Socket_Render", "SSH_AUTH_SOCK", "PATH", "LOGNAME", "XPC_SERVICE_NAME", "USER", "XPC_FLAGS"}
-
-system attribute "SHELL"
--- "/bin/bash"
+CPU type of (system info)
+-- "Intel 80486"
 ```
 
 ### 7. time to GMT 
 ```applescript
 time to GMT
-→ integer : 当地时间与格林威治标准时间差
+→ integer : 当地时间与格林威治标准时间差，单位：秒
 ```
 
 ### 8. POSIX file 可移植操作系统接口
@@ -225,7 +241,6 @@ open location [text] : 要打开的URL
 -- 打开谷歌浏览器里所有书签的地址
 tell application "Google Chrome"	reopen	activate	set tag to bookmarks bar	set otherTag to other bookmarks		set marks to ((get bookmark items of otherTag) & (get bookmark items of tag))		repeat with temp in marks		open location (URL of temp as string)	end repeat	end tell
 ```
-
 
 
 <!-- 多说评论框 start -->
