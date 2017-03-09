@@ -32,6 +32,9 @@
 <meta property="og:title" content="ios 应用扩展—— Photo Editing Extension">
 
 
+  <link rel="canonical" href="http://localhost:4000/2016/06/27/PhotoEditingExtension">
+  <meta property="og:url" content="http://localhost:4000/2016/06/27/PhotoEditingExtension">
+
 
 
   <meta property="og:description" content="">
@@ -41,7 +44,7 @@
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="ios 应用扩展—— Photo Editing Extension">
   <meta name="twitter:description" content="">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2016/06/27/PhotoEditingExtension">
 
   
     <meta name="twitter:card" content="summary">
@@ -65,10 +68,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-06-27T00:00:00+08:00">
   
-    <link rel="next" href="/2016/07/01/DocumentProvider" title="`ios` 应用扩展—— Document Provider Extension">
+    <link rel="next" href="http://localhost:4000/2016/07/01/DocumentProvider" title="`ios` 应用扩展—— Document Provider Extension">
   
   
-    <link rel="prev" href="/2016/06/23/ShareExtension" title="`ios` 应用扩展—— Share Extension">
+    <link rel="prev" href="http://localhost:4000/2016/06/23/ShareExtension" title="`ios` 应用扩展—— Share Extension">
   
 
 
@@ -80,7 +83,7 @@
       "@context" : "http://schema.org",
       "@type" : "person",
       "name" : "MKApple",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -97,7 +100,7 @@
 
 <!-- end SEO -->
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -109,7 +112,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -132,16 +135,16 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -169,7 +172,7 @@
 
   <div class="author__avatar">
     
-    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
     
   </div>
 
@@ -193,7 +196,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -258,37 +261,37 @@
 
       <section class="page__content" itemprop="text">
         
-<p><img src="/images/MKPhotoExtension/img1.PNG" alt="截图1" /></p>
+<p><img src="http://localhost:4000/images/MKPhotoExtension/img1.PNG" alt="截图1" /></p>
 
 <p>转载请注明出处：<a href="http://mkapple.cn/2016/06/27/PhotoEditingExtension">http://mkapple.cn/2016/06/27/PhotoEditingExtension</a></p>
 
-<h2 id="section">1. 开发流程梗概</h2>
+<h2 id="1-开发流程梗概">1. 开发流程梗概</h2>
 
-<h3 id="section-1">1.1. 创建扩展</h3>
+<h3 id="11-创建扩展">1.1. 创建扩展</h3>
 
-<h3 id="startcontenteditingwithinput">1.2. 处理开始编辑照片时的事件（startContentEditingWithInput）</h3>
+<h3 id="12-处理开始编辑照片时的事件startcontenteditingwithinput">1.2. 处理开始编辑照片时的事件（startContentEditingWithInput）</h3>
 
-<h3 id="section-2">1.3. 对预览照片进行编辑，添加滤镜、模糊，调整亮度、饱和度、对比度等</h3>
+<h3 id="13-对预览照片进行编辑添加滤镜模糊调整亮度饱和度对比度等">1.3. 对预览照片进行编辑，添加滤镜、模糊，调整亮度、饱和度、对比度等</h3>
 
-<h3 id="section-3">1.4. 处理完成编辑照片时的事件，对源图进行同样的编辑，把修改后的源图保存到某个位置。</h3>
+<h3 id="14-处理完成编辑照片时的事件对源图进行同样的编辑把修改后的源图保存到某个位置">1.4. 处理完成编辑照片时的事件，对源图进行同样的编辑，把修改后的源图保存到某个位置。</h3>
 
-<h2 id="section-4">2. 创建照片编辑扩展</h2>
+<h2 id="2-创建照片编辑扩展">2. 创建照片编辑扩展</h2>
 <p>关于如何创建一个扩展请参考<a href="http://mkapple.cn/2016/06/20/TodayExtension">这里</a>的第二步骤, 我们要创建的是 Photo Editing Extension 。
 <br />
-<img src="/images/MKPhotoExtension/img2.png" alt="截图2" /></p>
+<img src="http://localhost:4000/images/MKPhotoExtension/img2.png" alt="截图2" /></p>
 
 <p>创建完后，我们直接运行扩展。
 <br />
-<img src="/images/MKPhotoExtension/img3.gif" alt="截图3" /></p>
+<img src="http://localhost:4000/images/MKPhotoExtension/img3.gif" alt="截图3" /></p>
 
 <p>出现了一个 Hello World 界面。</p>
 
-<h2 id="section-5">3. 设置可编辑数据类型</h2>
+<h2 id="3-设置可编辑数据类型">3. 设置可编辑数据类型</h2>
 <p>在扩展的 Info.plist 文件中找到 NSExtension 属性，该属性结构如下：
 <br />
-<img src="/images/MKPhotoExtension/img4.png" alt="截图4" /></p>
+<img src="http://localhost:4000/images/MKPhotoExtension/img4.png" alt="截图4" /></p>
 
-<h2 id="section-6">4. 开始编辑前</h2>
+<h2 id="4-开始编辑前">4. 开始编辑前</h2>
 <p><code class="highlighter-rouge">- (BOOL)canHandleAdjustmentData:</code> ，当照片被编辑过时调用，方法有一个参数：<code class="highlighter-rouge">PHAdjustmentData</code>，里面包含了上次编辑时所使用的编辑器的数据：
 <br />
 4.1. <code class="highlighter-rouge">formatIdentifier</code>，编辑器的唯一ID <br />
@@ -313,10 +316,10 @@
 </code></pre>
 </div>
 
-<h2 id="section-7">5. 开始编辑</h2>
+<h2 id="5-开始编辑">5. 开始编辑</h2>
 <p><code class="highlighter-rouge">- (void)startContentEditingWithInput:placeholderImage:</code>，当进入到编辑界面时调用，<code class="highlighter-rouge">contentEditingInput</code> 属性包含了照片的类型、地理位置、预览图和原图位置等信息。</p>
 
-<h2 id="section-8">6. 完成编辑</h2>
+<h2 id="6-完成编辑">6. 完成编辑</h2>
 <p><code class="highlighter-rouge">- (void)finishContentEditingWithCompletionHandler:</code>，在这方法里主要需要完成两个任务：
 <br />
 6.1. 设置输出的 adjustmentData, 即把照片编辑的信息保存起来，放到 completionHandler 里处理。
@@ -330,7 +333,7 @@
         <span class="c1">//1. 设置输出的adjustmentData
 </span>        <span class="n">PHAdjustmentData</span> <span class="o">*</span><span class="n">adjustmentData</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PHAdjustmentData</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFormatIdentifier</span><span class="p">:</span><span class="n">formatIdentifier</span>
                                                                                 <span class="nf">formatVersion</span><span class="p">:</span><span class="n">formatVersion</span>
-                                                                                         <span class="nf">data</span><span class="p">:[</span><span class="n">currentFilterName</span> <span class="nf">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]];</span>
+                                                                                         <span class="nl">data:</span><span class="p">[</span><span class="n">currentFilterName</span> <span class="nf">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]];</span>
         <span class="n">output</span><span class="p">.</span><span class="n">adjustmentData</span> <span class="o">=</span> <span class="n">adjustmentData</span><span class="p">;</span>
         
         <span class="c1">//2. 对原图进行相同的编辑
@@ -352,7 +355,7 @@
 </code></pre>
 </div>
 
-<h2 id="section-9">7. 取消编辑</h2>
+<h2 id="7-取消编辑">7. 取消编辑</h2>
 <p><code class="highlighter-rouge">- (BOOL)shouldShowCancelConfirmation</code>, 返回 YES，则取消编辑是提醒用户是否取消。</p>
 
 <p><br />
@@ -361,7 +364,7 @@ Demo: <a href="https://github.com/monkey19911021/MKPhotoEditingExtension.git">MK
 <p><br />
 演示：
 <br />
-<img src="/images/MKPhotoExtension/img5.gif" alt="截图5" />
+<img src="http://localhost:4000/images/MKPhotoExtension/img5.gif" alt="截图5" />
 <br /></p>
 
 <p>参考链接：
@@ -411,13 +414,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/2016/06/27/PhotoEditingExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/06/27/PhotoEditingExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/06/27/PhotoEditingExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/06/27/PhotoEditingExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/2016/06/27/PhotoEditingExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2016/06/27/PhotoEditingExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/06/27/PhotoEditingExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/06/27/PhotoEditingExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -425,11 +428,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/2016/06/23/ShareExtension" class="pagination--pager" title="ios 应用扩展—— Share Extension
+      <a href="http://localhost:4000/2016/06/23/ShareExtension" class="pagination--pager" title="ios 应用扩展—— Share Extension
 ">上一章</a>
     
     
-      <a href="/2016/07/01/DocumentProvider" class="pagination--pager" title="ios 应用扩展—— Document Provider Extension
+      <a href="http://localhost:4000/2016/07/01/DocumentProvider" class="pagination--pager" title="ios 应用扩展—— Document Provider Extension
 ">下一章</a>
     
   </nav>
@@ -440,119 +443,6 @@ var duoshuoQuery = {short_name:"mkapple"};
   </article>
 
   
-  
-    <div class="page__related">
-      
-        <h4 class="page__related-title">你也许喜欢以下</h4>
-      
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/08/11/InstanceByExtension">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">使用扩展实现单例
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/24/ACUserInteraction3">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（三） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  8 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/23/ACUserInteraction2">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（二） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/22/ACUserInteraction">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（一） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。
-
-</p>
-    </article>
-  </a>
-</div>
-        
-      </div>
-    </div>
   
 </div>
 
@@ -575,15 +465,15 @@ var duoshuoQuery = {short_name:"mkapple"};
       <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 

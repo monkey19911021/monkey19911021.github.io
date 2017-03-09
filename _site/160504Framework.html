@@ -32,6 +32,9 @@
 <meta property="og:title" content="基于 xcode7 的 framework 开发技术">
 
 
+  <link rel="canonical" href="http://localhost:4000/160504Framework">
+  <meta property="og:url" content="http://localhost:4000/160504Framework">
+
 
 
   <meta property="og:description" content="注意！转载请注明出处和作者，谢谢转载请注明出处：">
@@ -41,7 +44,7 @@
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="基于 xcode7 的 framework 开发技术">
   <meta name="twitter:description" content="注意！转载请注明出处和作者，谢谢转载请注明出处：">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/160504Framework">
 
   
     <meta name="twitter:card" content="summary">
@@ -65,10 +68,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-05-04T00:00:00+08:00">
   
-    <link rel="next" href="/2016/06/17/CoreSpotlight" title="`ios` 应用内搜索 —— Core Spotlight">
+    <link rel="next" href="http://localhost:4000/2016/06/17/CoreSpotlight" title="`ios` 应用内搜索 —— Core Spotlight">
   
   
-    <link rel="prev" href="/160504exception" title="`ios` 的异常处理">
+    <link rel="prev" href="http://localhost:4000/160504exception" title="`ios` 的异常处理">
   
 
 
@@ -80,7 +83,7 @@
       "@context" : "http://schema.org",
       "@type" : "person",
       "name" : "MKApple",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -97,7 +100,7 @@
 
 <!-- end SEO -->
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -109,7 +112,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -132,16 +135,16 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -169,7 +172,7 @@
 
   <div class="author__avatar">
     
-    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
     
   </div>
 
@@ -193,7 +196,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -264,41 +267,41 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-gears"></i> 目录</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">1.  静态库和动态库</a>    <ul>
-      <li><a href="#section-1" id="markdown-toc-section-1">1.1  什么是静态库</a></li>
-      <li><a href="#section-2" id="markdown-toc-section-2">1.2  什么是动态库</a></li>
-      <li><a href="#section-3" id="markdown-toc-section-3">1.3  选择哪种库</a></li>
+  <li><a href="#1--静态库和动态库" id="markdown-toc-1--静态库和动态库">1.  静态库和动态库</a>    <ul>
+      <li><a href="#11--什么是静态库" id="markdown-toc-11--什么是静态库">1.1  什么是静态库</a></li>
+      <li><a href="#12--什么是动态库" id="markdown-toc-12--什么是动态库">1.2  什么是动态库</a></li>
+      <li><a href="#13--选择哪种库" id="markdown-toc-13--选择哪种库">1.3  选择哪种库</a></li>
     </ul>
   </li>
-  <li><a href="#section-4" id="markdown-toc-section-4">2.  制作动态库</a>    <ul>
-      <li><a href="#framework" id="markdown-toc-framework">2.1  选择framework项目</a></li>
-      <li><a href="#section-5" id="markdown-toc-section-5">2.2  创建通用集合</a></li>
-      <li><a href="#section-6" id="markdown-toc-section-6">2.3  添加项目依赖</a></li>
-      <li><a href="#section-7" id="markdown-toc-section-7">2.4  添加运行脚本</a></li>
-      <li><a href="#section-8" id="markdown-toc-section-8">2.5  设置证书</a></li>
-      <li><a href="#section-9" id="markdown-toc-section-9">2.6  编译</a></li>
+  <li><a href="#2--制作动态库" id="markdown-toc-2--制作动态库">2.  制作动态库</a>    <ul>
+      <li><a href="#21--选择framework项目" id="markdown-toc-21--选择framework项目">2.1  选择framework项目</a></li>
+      <li><a href="#22--创建通用集合" id="markdown-toc-22--创建通用集合">2.2  创建通用集合</a></li>
+      <li><a href="#23--添加项目依赖" id="markdown-toc-23--添加项目依赖">2.3  添加项目依赖</a></li>
+      <li><a href="#24--添加运行脚本" id="markdown-toc-24--添加运行脚本">2.4  添加运行脚本</a></li>
+      <li><a href="#25--设置证书" id="markdown-toc-25--设置证书">2.5  设置证书</a></li>
+      <li><a href="#26--编译" id="markdown-toc-26--编译">2.6  编译</a></li>
     </ul>
   </li>
-  <li><a href="#section-10" id="markdown-toc-section-10">3.  动态库工程联编</a>    <ul>
-      <li><a href="#section-11" id="markdown-toc-section-11">3.1  导入动态库项目</a></li>
-      <li><a href="#section-12" id="markdown-toc-section-12">3.2  设置项目依赖</a></li>
-      <li><a href="#section-13" id="markdown-toc-section-13">3.3  项目设置</a></li>
+  <li><a href="#3--动态库工程联编" id="markdown-toc-3--动态库工程联编">3.  动态库工程联编</a>    <ul>
+      <li><a href="#31--导入动态库项目" id="markdown-toc-31--导入动态库项目">3.1  导入动态库项目</a></li>
+      <li><a href="#32--设置项目依赖" id="markdown-toc-32--设置项目依赖">3.2  设置项目依赖</a></li>
+      <li><a href="#33--项目设置" id="markdown-toc-33--项目设置">3.3  项目设置</a></li>
     </ul>
   </li>
-  <li><a href="#section-14" id="markdown-toc-section-14">4.  制作静态库</a>    <ul>
-      <li><a href="#section-15" id="markdown-toc-section-15">4.1  项目设置</a></li>
-      <li><a href="#section-16" id="markdown-toc-section-16">4.2  设置开放头文件</a></li>
-      <li><a href="#section-17" id="markdown-toc-section-17">4.3  制作资源包</a></li>
+  <li><a href="#4--制作静态库" id="markdown-toc-4--制作静态库">4.  制作静态库</a>    <ul>
+      <li><a href="#41--项目设置" id="markdown-toc-41--项目设置">4.1  项目设置</a></li>
+      <li><a href="#42--设置开放头文件" id="markdown-toc-42--设置开放头文件">4.2  设置开放头文件</a></li>
+      <li><a href="#43--制作资源包" id="markdown-toc-43--制作资源包">4.3  制作资源包</a></li>
     </ul>
   </li>
-  <li><a href="#section-18" id="markdown-toc-section-18">5.  静态库工程联编</a>    <ul>
-      <li><a href="#section-19" id="markdown-toc-section-19">5.1  把资源包放到项目中</a></li>
-      <li><a href="#section-20" id="markdown-toc-section-20">5.2  设置连接方式</a></li>
+  <li><a href="#5--静态库工程联编" id="markdown-toc-5--静态库工程联编">5.  静态库工程联编</a>    <ul>
+      <li><a href="#51--把资源包放到项目中" id="markdown-toc-51--把资源包放到项目中">5.1  把资源包放到项目中</a></li>
+      <li><a href="#52--设置连接方式" id="markdown-toc-52--设置连接方式">5.2  设置连接方式</a></li>
     </ul>
   </li>
-  <li><a href="#section-21" id="markdown-toc-section-21">6.  静态库一秒变动态库</a>    <ul>
-      <li><a href="#section-22" id="markdown-toc-section-22">6.1  基本设置</a></li>
-      <li><a href="#section-23" id="markdown-toc-section-23">6.2  设置静态库的编译类型为动态</a></li>
+  <li><a href="#6--静态库一秒变动态库" id="markdown-toc-6--静态库一秒变动态库">6.  静态库一秒变动态库</a>    <ul>
+      <li><a href="#61--基本设置" id="markdown-toc-61--基本设置">6.1  基本设置</a></li>
+      <li><a href="#62--设置静态库的编译类型为动态" id="markdown-toc-62--设置静态库的编译类型为动态">6.2  设置静态库的编译类型为动态</a></li>
     </ul>
   </li>
 </ul>
@@ -306,7 +309,7 @@
   </nav>
 </aside>
 
-<h2 id="section">1.  静态库和动态库</h2>
+<h2 id="1--静态库和动态库">1.  静态库和动态库</h2>
 <ul>
   <li>Static Library （.a）</li>
   <li>Dynamic Library (.dylib)</li>
@@ -314,42 +317,42 @@
   <li>Dynamic Framework (.framework)</li>
 </ul>
 
-<h3 id="section-1">1.1  什么是静态库</h3>
+<h3 id="11--什么是静态库">1.1  什么是静态库</h3>
 <p>程序编译一般需经预处理、编译、汇编和链接几个步骤。在我们的应用中，有一些公共代码是需要反复使用，就把这些代码编译为“库”文件；在链接步骤中，连接器将从库文件取得所需的代码，复制到生成的可执行文件中。这种库称为静态库，其特点是可执行文件中包含了库代码的一份完整拷贝；缺点就是被多次使用就会有多份冗余拷贝。</p>
 
-<h3 id="section-2">1.2  什么是动态库</h3>
+<h3 id="12--什么是动态库">1.2  什么是动态库</h3>
 <p>动态库功能跟静态库类似，也是为了代码复用。静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的复本，因此节省了很多内存。</p>
 
-<h3 id="section-3">1.3  选择哪种库</h3>
+<h3 id="13--选择哪种库">1.3  选择哪种库</h3>
 <p>由于Appstore不支持上传包含动态库的app（其原因百度之），所以我们在开发app之前我们需要考虑好，app上架到哪里，动态更新功能是否必不可少。如果只上架到AppStore则只能是用静态库；如果只上架到本地服务器则可以使用动态库和静态库；如果不但要上架到而且还要上架到本地服务器让它具有动态更新功能的，则这个库则需要做得想静态库一样的动态库，我们只需要为静态库做一点小改动则可以变成动态库。</p>
 
-<h2 id="section-4">2.  制作动态库</h2>
+<h2 id="2--制作动态库">2.  制作动态库</h2>
 
-<h3 id="framework">2.1  选择framework项目</h3>
+<h3 id="21--选择framework项目">2.1  选择framework项目</h3>
 <p>framework一般用于开发动态库
-<img src="/images/MKExceptionImg/MKExceptionImg1.png" alt="截图2.1.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg1.png" alt="截图2.1.1" /></p>
 
 <p>命名为：FrameworkTest
-<img src="/images/MKExceptionImg/MKExceptionImg2.png" alt="截图2.1.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg2.png" alt="截图2.1.2" /></p>
 
-<h3 id="section-5">2.2  创建通用集合</h3>
-<p><img src="/images/MKExceptionImg/MKExceptionImg3.png" alt="截图2.2.1" /></p>
+<h3 id="22--创建通用集合">2.2  创建通用集合</h3>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg3.png" alt="截图2.2.1" /></p>
 
 <p>命名为项目名+Aggregate：FrameworkTestAggregate
-<img src="/images/MKExceptionImg/MKExceptionImg4.png" alt="截图2.2.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg4.png" alt="截图2.2.2" /></p>
 
-<h3 id="section-6">2.3  添加项目依赖</h3>
+<h3 id="23--添加项目依赖">2.3  添加项目依赖</h3>
 <p>Build Phases ——&gt; Target Dependencies ——&gt; +
-<img src="/images/MKExceptionImg/MKExceptionImg5.png" alt="截图2.3.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg5.png" alt="截图2.3.1" /></p>
 
 <p>选择本项目
-<img src="/images/MKExceptionImg/MKExceptionImg6.png" alt="截图2.3.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg6.png" alt="截图2.3.2" /></p>
 
-<h3 id="section-7">2.4  添加运行脚本</h3>
+<h3 id="24--添加运行脚本">2.4  添加运行脚本</h3>
 <p>Build Phases ——&gt; + ——&gt; New Run Script Phase
-<img src="/images/MKExceptionImg/MKExceptionImg7.png" alt="截图2.4.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg7.png" alt="截图2.4.1" /></p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg8.png" alt="截图2.4.2" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg8.png" alt="截图2.4.2" /></p>
 
 <p>添加如下脚本代码：</p>
 
@@ -386,113 +389,113 @@ lipo -create <span class="s2">"</span><span class="k">${</span><span class="nv">
 rm -r <span class="s2">"</span><span class="k">${</span><span class="nv">WRK_DIR</span><span class="k">}</span><span class="s2">"</span>
 </code></pre>
 </div>
-<p><img src="/images/MKExceptionImg/MKExceptionImg9.png" alt="截图2.4.3" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg9.png" alt="截图2.4.3" /></p>
 
 <p>作用是把编译后的库代码的模拟器版本和真机版本合并成一个通用版本，使此库能运行在模拟器和真机上。并且把生成的库放在项目文件夹里的Products文件夹。</p>
 
-<h3 id="section-8">2.5  设置证书</h3>
+<h3 id="25--设置证书">2.5  设置证书</h3>
 <p>为了此动态库能运行在普通的iPhone上，需要为动态库像app一样设置开发证书和发布证书。
-<img src="/images/MKExceptionImg/MKExceptionImg10.png" alt="截图2.5.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg10.png" alt="截图2.5.1" /></p>
 
-<h3 id="section-9">2.6  编译</h3>
-<p><img src="/images/MKExceptionImg/MKExceptionImg11.png" alt="截图2.6.1" />
+<h3 id="26--编译">2.6  编译</h3>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg11.png" alt="截图2.6.1" />
 选择通用库编译。</p>
 
 <p>Build：
-<img src="/images/MKExceptionImg/MKExceptionImg12.png" alt="截图2.6.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg12.png" alt="截图2.6.2" /></p>
 
-<h2 id="section-10">3.  动态库工程联编</h2>
+<h2 id="3--动态库工程联编">3.  动态库工程联编</h2>
 
-<h3 id="section-11">3.1  导入动态库项目</h3>
+<h3 id="31--导入动态库项目">3.1  导入动态库项目</h3>
 <p>我们新建一个普通app项目来测试此动态库,命名为：<code class="highlighter-rouge">TestDynamicFramework</code>。引入我们刚才的动态库项目</p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg13.png" alt="截图3.1.1" />——&gt;<img src="/images/MKExceptionImg/MKExceptionImg14.png" alt="截图3.1.2" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg13.png" alt="截图3.1.1" />——&gt;<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg14.png" alt="截图3.1.2" /></p>
 
-<h3 id="section-12">3.2  设置项目依赖</h3>
+<h3 id="32--设置项目依赖">3.2  设置项目依赖</h3>
 <p>导入动态库后可以在添加项目依赖处找到动态库通用集合
-<img src="/images/MKExceptionImg/MKExceptionImg15.png" alt="截图3.2.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg15.png" alt="截图3.2.1" /></p>
 
 <p>把动态库生成的framework文件拖进项目
-<img src="/images/MKExceptionImg/MKExceptionImg16.png" alt="截图3.2.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg16.png" alt="截图3.2.2" /></p>
 
 <p>注意不要选上Copy items if needed</p>
 
-<h3 id="section-13">3.3  项目设置</h3>
+<h3 id="33--项目设置">3.3  项目设置</h3>
 <p>删除Build Phases ——&gt; Link Binary With Libraries下因为刚才拉进来的framework而产生的库连接
-<img src="/images/MKExceptionImg/MKExceptionImg17.png" alt="截图3.3.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg17.png" alt="截图3.3.1" /></p>
 
 <p>在Build Phases ——&gt; Copy Bundle Resources ——&gt; + ；把动态库添加进来，让app编译的时候把动态复制进main bundle。
-<img src="/images/MKExceptionImg/MKExceptionImg18.png" alt="截图3.3.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg18.png" alt="截图3.3.2" /></p>
 
 <p>这样子每次运行app项目的时候都会重新编译动态库，达到可以快速查看动态库的修改。但是每次这样运行app就要重新编译动态库会很耗费时间，所以在不需要修改动态库的时候把项目的动态库依赖给删除。</p>
 
 <p>*关于如何动态加载动态库以及动态库如何定位资源文件请看Demo。</p>
 
-<h2 id="section-14">4.  制作静态库</h2>
+<h2 id="4--制作静态库">4.  制作静态库</h2>
 <p>静态库与动态库的制作方法前5个步骤跟第2节1~6点所讲述的一样，但是静态库需要多执行以下步骤：</p>
 
-<h3 id="section-15">4.1  项目设置</h3>
+<h3 id="41--项目设置">4.1  项目设置</h3>
 <p>打开Build Settings ——&gt; 搜索mach， 在Mach-O Type一栏中选择Static Library
-<img src="/images/MKExceptionImg/MKExceptionImg19.png" alt="截图4.1.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg19.png" alt="截图4.1.1" /></p>
 
-<h3 id="section-16">4.2  设置开放头文件</h3>
+<h3 id="42--设置开放头文件">4.2  设置开放头文件</h3>
 <p>打开Build Phases ——&gt; Headers，把Project中的需要对外开放的头文件拖到Public中。
-<img src="/images/MKExceptionImg/MKExceptionImg20.png" alt="截图4.2.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg20.png" alt="截图4.2.1" /></p>
 
 <p>在与项目名相同的头文件中设置开放的头文件
-<img src="/images/MKExceptionImg/MKExceptionImg21.png" alt="截图4.2.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg21.png" alt="截图4.2.2" /></p>
 
-<h3 id="section-17">4.3  制作资源包</h3>
+<h3 id="43--制作资源包">4.3  制作资源包</h3>
 <p>由于静态库属于静态连接，资源文件都需要放到bundle中，让其他项目主动加载它，静态库中的对象才能找到这些资源文件。</p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg22.png" alt="截图4.3.1" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg22.png" alt="截图4.3.1" /></p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg23.png" alt="截图4.3.2" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg23.png" alt="截图4.3.2" /></p>
 
 <p>设置bundle的bitcode为No。
-<img src="/images/MKExceptionImg/MKExceptionImg24.png" alt="截图4.3.3" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg24.png" alt="截图4.3.3" /></p>
 
 <p>Base SDK 设置为iOS的。
-<img src="/images/MKExceptionImg/MKExceptionImg25.png" alt="截图4.3.4" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg25.png" alt="截图4.3.4" /></p>
 
 <p>把资源文件添加进Build Phases ——&gt; Copy Bundle Resources
-<img src="/images/MKExceptionImg/MKExceptionImg26.png" alt="截图4.3.5" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg26.png" alt="截图4.3.5" /></p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg27.png" alt="截图4.3.6" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg27.png" alt="截图4.3.6" /></p>
 
 <div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//获取该bundle对象代码：
 </span><span class="n">NSBundle</span> <span class="o">*</span><span class="n">bundle</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBundle</span> <span class="nf">bundleWithURL</span><span class="p">:[[</span><span class="n">NSBundle</span> <span class="nf">mainBundle</span><span class="p">]</span> <span class="nf">URLForResource</span><span class="p">:</span><span class="s">@"StaticFrameworkTestBundle"</span> <span class="nf">withExtension</span><span class="p">:</span><span class="s">@"bundle"</span><span class="p">]];</span>
 </code></pre>
 </div>
 
-<h2 id="section-18">5.  静态库工程联编</h2>
+<h2 id="5--静态库工程联编">5.  静态库工程联编</h2>
 <p>静态库工程联编方式跟动态库工程联编方式基本一样，参考第3节1~2点，但需要加上以下步骤：</p>
 
-<h3 id="section-19">5.1  把资源包放到项目中</h3>
+<h3 id="51--把资源包放到项目中">5.1  把资源包放到项目中</h3>
 <p>使用真机把资源包编译一下
-<img src="/images/MKExceptionImg/MKExceptionImg28.png" alt="截图5.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg28.png" alt="截图5.1" /></p>
 
-<p><img src="/images/MKExceptionImg/MKExceptionImg29.png" alt="截图5.2" /></p>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg29.png" alt="截图5.2" /></p>
 
 <p>把这资源包拖进项目但不要复制。</p>
 
-<h3 id="section-20">5.2  设置连接方式</h3>
+<h3 id="52--设置连接方式">5.2  设置连接方式</h3>
 <p>Build Setting ——&gt; 搜索other linker ——&gt; 在Other Linker Flags 中添加-all_load。目的是为了把静态库中所有的类包括没有直接使用的类创建连接符，让项目可以加载所有的类。
-<img src="/images/MKExceptionImg/MKExceptionImg30.png" alt="截图5.2.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg30.png" alt="截图5.2.1" /></p>
 
 <p>OK, Run！。</p>
 
-<h2 id="section-21">6.  静态库一秒变动态库</h2>
+<h2 id="6--静态库一秒变动态库">6.  静态库一秒变动态库</h2>
 
-<h3 id="section-22">6.1  基本设置</h3>
+<h3 id="61--基本设置">6.1  基本设置</h3>
 <p>在Build Settings ——&gt; 搜索Preprocessor Macros ——&gt; Debug和Release两项中分别都添加useStaticFramework=1。意思是useStaticFramework=1时使用静态库，useStaticFramework=0时使用动态库。
-<img src="/images/MKExceptionImg/MKExceptionImg31.png" alt="截图6.1.1" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg31.png" alt="截图6.1.1" /></p>
 
-<h3 id="section-23">6.2  设置静态库的编译类型为动态</h3>
-<p><img src="/images/MKExceptionImg/MKExceptionImg32.png" alt="截图6.2.1" /></p>
+<h3 id="62--设置静态库的编译类型为动态">6.2  设置静态库的编译类型为动态</h3>
+<p><img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg32.png" alt="截图6.2.1" /></p>
 
 <p>注意：动静并存时：
-<img src="/images/MKExceptionImg/MKExceptionImg33.png" alt="截图6.2.2" /></p>
+<img src="http://localhost:4000/images/MKExceptionImg/MKExceptionImg33.png" alt="截图6.2.2" /></p>
 
 <p>OK，现在只要修改库的编译类型以及app的useStaticFramework就可以让app项目加载动态库或者静态库了。</p>
 
@@ -538,13 +541,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/160504Framework" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/160504Framework" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/160504Framework" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/160504Framework" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/160504Framework" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/160504Framework" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/160504Framework" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/160504Framework" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -552,11 +555,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/160504exception" class="pagination--pager" title="ios 的异常处理
+      <a href="http://localhost:4000/160504exception" class="pagination--pager" title="ios 的异常处理
 ">上一章</a>
     
     
-      <a href="/2016/06/17/CoreSpotlight" class="pagination--pager" title="ios 应用内搜索 —— Core Spotlight
+      <a href="http://localhost:4000/2016/06/17/CoreSpotlight" class="pagination--pager" title="ios 应用内搜索 —— Core Spotlight
 ">下一章</a>
     
   </nav>
@@ -567,119 +570,6 @@ var duoshuoQuery = {short_name:"mkapple"};
   </article>
 
   
-  
-    <div class="page__related">
-      
-        <h4 class="page__related-title">你也许喜欢以下</h4>
-      
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/08/11/InstanceByExtension">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">使用扩展实现单例
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/24/ACUserInteraction3">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（三） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  8 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/23/ACUserInteraction2">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（二） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/22/ACUserInteraction">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（一） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。
-
-</p>
-    </article>
-  </a>
-</div>
-        
-      </div>
-    </div>
   
 </div>
 
@@ -702,15 +592,15 @@ var duoshuoQuery = {short_name:"mkapple"};
       <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 

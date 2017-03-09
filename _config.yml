@@ -15,6 +15,7 @@ url                      : # "https://monkey19911021.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : "mkapple.png"
+theme                    : minimal-mistakes-jekyll
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 100
 comments:
@@ -114,6 +115,7 @@ exclude:
   - CHANGELOG
   - config
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - gulpfile.js
   - LICENSE

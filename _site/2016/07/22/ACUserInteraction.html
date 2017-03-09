@@ -32,6 +32,9 @@
 <meta property="og:title" content="Apple Script 标准库（一） User Interaction">
 
 
+  <link rel="canonical" href="http://localhost:4000/2016/07/22/ACUserInteraction">
+  <meta property="og:url" content="http://localhost:4000/2016/07/22/ACUserInteraction">
+
 
 
   <meta property="og:description" content="不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。">
@@ -41,7 +44,7 @@
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="Apple Script 标准库（一） User Interaction">
   <meta name="twitter:description" content="不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2016/07/22/ACUserInteraction">
 
   
     <meta name="twitter:card" content="summary">
@@ -65,10 +68,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-07-22T00:00:00+08:00">
   
-    <link rel="next" href="/2016/07/23/ACUserInteraction2" title="Apple Script 标准库（二） User Interaction">
+    <link rel="next" href="http://localhost:4000/2016/07/23/ACUserInteraction2" title="Apple Script 标准库（二） User Interaction">
   
   
-    <link rel="prev" href="/2016/07/21/AppleScriptStart" title="Apple Script 从入门到放弃">
+    <link rel="prev" href="http://localhost:4000/2016/07/21/AppleScriptStart" title="Apple Script 从入门到放弃">
   
 
 
@@ -80,7 +83,7 @@
       "@context" : "http://schema.org",
       "@type" : "person",
       "name" : "MKApple",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -97,7 +100,7 @@
 
 <!-- end SEO -->
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -109,7 +112,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -132,16 +135,16 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -169,7 +172,7 @@
 
   <div class="author__avatar">
     
-    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
     
   </div>
 
@@ -193,7 +196,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -261,7 +264,7 @@
 
 <p class="notice--danger">注意！转载请注明<a href="http://mkapple.cn/2016/07/22/ACUserInteraction">出处</a>和<a href="http://mkapple.cn">作者</a>，谢谢</p>
 
-<h3 id="beep-">1. beep 咚！</h3>
+<h3 id="1-beep-咚">1. beep 咚！</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">beep</span><span class="w"> </span><span class="err">[</span><span class="nv">integer</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">咚的</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="err">声！</span><span class="w">
 </span></code></pre>
 </div>
@@ -272,7 +275,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-application-">2. choose application 选择应用程序</h3>
+<h3 id="2-choose-application-选择应用程序">2. choose application 选择应用程序</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose application</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">title</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择框标题</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择框提示</span><span class="w">
@@ -294,7 +297,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-remote--application-">3. choose remote  application 选择远程应用程序</h3>
+<h3 id="3-choose-remote--application-选择远程应用程序">3. choose remote  application 选择远程应用程序</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose remote application</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">title</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">标题</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">提示</span><span class="w">
@@ -302,14 +305,14 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-color-">4. choose color 选择颜色</h3>
+<h3 id="4-choose-color-选择颜色">4. choose color 选择颜色</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose color</span><span class="w">
 </span><span class="err">[</span><span class="nv">default</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="nv">RGB</span><span class="w"> </span><span class="nv">color</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">默认颜色</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">RGB</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">返回选择的颜色，类型为组合</span><span class="w">
 </span></code></pre>
 </div>
 
-<h3 id="choose-file-">5. choose file 选择文件</h3>
+<h3 id="5-choose-file-选择文件">5. choose file 选择文件</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose file</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择框提示</span><span class="w">
 </span><span class="err">[</span><span class="k">of</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择文件的类型的集合</span><span class="w">
@@ -327,7 +330,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-file-name-">5. choose file name 选择文件保存的路径</h3>
+<h3 id="5-choose-file-name-选择文件保存的路径">5. choose file name 选择文件保存的路径</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose file name</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">路径选择框路径</span><span class="w">
 </span><span class="err">[</span><span class="nv">default</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">默认文件名</span><span class="w">
@@ -342,7 +345,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-file-folder-">6. choose file folder 选择文件夹</h3>
+<h3 id="6-choose-file-folder-选择文件夹">6. choose file folder 选择文件夹</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose folder</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">文件夹选择框标题</span><span class="w">
 </span><span class="err">[</span><span class="nv">default</span><span class="w"> </span><span class="na">location</span><span class="w"> </span><span class="nv">alias</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">默认路径</span><span class="w">
@@ -353,7 +356,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-from-list-">7. choose from list 选择框</h3>
+<h3 id="7-choose-from-list-选择框">7. choose from list 选择框</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose from list</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">进行选择的文本或者数字集合</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">title</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择框标题</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">prompt</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">选择框提示</span><span class="w">
@@ -372,7 +375,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="display-notification-">8. display notification 系统消息框</h3>
+<h3 id="8-display-notification-系统消息框">8. display notification 系统消息框</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">display</span><span class="w"> </span><span class="nv">notification</span><span class="w"> </span><span class="err">[</span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">消息内容</span><span class="w">
 </span><span class="err">[</span><span class="nv">with</span><span class="w"> </span><span class="na">title</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">消息标题（默认是应用的名称）</span><span class="w">
 </span><span class="err">[</span><span class="nv">subtitle</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">子标题</span><span class="w">
@@ -385,7 +388,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="choose-url--url">9. choose URL 选择 URL</h3>
+<h3 id="9-choose-url-选择-url">9. choose URL 选择 URL</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">choose URL</span><span class="w">
 </span><span class="err">[</span><span class="nv">showing</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">Web</span><span class="w"> </span><span class="nv">servers</span><span class="o">/</span><span class="err">‌</span><span class="nv">FTP</span><span class="w"> </span><span class="nv">Servers</span><span class="o">/</span><span class="err">‌</span><span class="nv">Telnet</span><span class="w"> </span><span class="nv">hosts</span><span class="o">/</span><span class="err">‌</span><span class="nv">File</span><span class="w"> </span><span class="nv">servers</span><span class="o">/</span><span class="err">‌</span><span class="nv">News</span><span class="w"> </span><span class="nv">servers</span><span class="o">/</span><span class="err">‌</span><span class="nv">Directory</span><span class="w"> </span><span class="nv">services</span><span class="o">/</span><span class="err">‌</span><span class="nv">Media</span><span class="w"> </span><span class="nv">servers</span><span class="o">/</span><span class="err">‌</span><span class="nv">Remote</span><span class="w"> </span><span class="nb">applications</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">which</span><span class="w"> </span><span class="nv">network</span><span class="w"> </span><span class="nv">services</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">show</span><span class="w">
 </span><span class="err">[</span><span class="na">editable</span><span class="w"> </span><span class="nv">URL</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">Allow</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">URL</span><span class="err">?</span><span class="w">
@@ -393,7 +396,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="delay-">10. delay 延迟执行下一个命令</h3>
+<h3 id="10-delay-延迟执行下一个命令">10. delay 延迟执行下一个命令</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">delay</span><span class="w"> </span><span class="err">[</span><span class="nv">number</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">延迟</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="err">秒</span><span class="w">
 </span></code></pre>
 </div>
@@ -418,7 +421,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="display-alert-">11. display alert 警告框</h3>
+<h3 id="11-display-alert-警告框">11. display alert 警告框</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">display alert</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">标题</span><span class="w">
 </span><span class="err">[</span><span class="nv">message</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">内容</span><span class="w">
 </span><span class="err">[</span><span class="k">as</span><span class="w"> </span><span class="nv">critical</span><span class="o">/</span><span class="err">‌</span><span class="nv">informational</span><span class="o">/</span><span class="err">‌</span><span class="nv">warning</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">警告框类型</span><span class="w">
@@ -435,7 +438,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="display-dialog-">12. display dialog 对话框</h3>
+<h3 id="12-display-dialog-对话框">12. display dialog 对话框</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">display dialog</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">对话内容</span><span class="w">
 </span><span class="err">[</span><span class="nv">default</span><span class="w"> </span><span class="nv">answer</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">默认文本框内容</span><span class="w">
 </span><span class="err">[</span><span class="na">hidden</span><span class="w"> </span><span class="nv">answer</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">是否把文本加密?</span><span class="w"> </span><span class="p">(</span><span class="err">默认</span><span class="w"> </span><span class="nv">false</span><span class="p">)</span><span class="w">
@@ -458,7 +461,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="say-">13. say 说</h3>
+<h3 id="13-say-说">13. say 说</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">say</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">说话内容</span><span class="w">
 </span><span class="err">[</span><span class="nv">displaying</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">把说话的内容反馈到窗口</span><span class="w">
 </span><span class="err">[</span><span class="nv">using</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">用什么嗓音，嗓音可以到系统偏好设置</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">听写与语音</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">文本至语音</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">系统嗓音</span><span class="w"> </span><span class="err">查找</span><span class="w">
@@ -525,13 +528,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/2016/07/22/ACUserInteraction" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/07/22/ACUserInteraction" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/07/22/ACUserInteraction" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/07/22/ACUserInteraction" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/2016/07/22/ACUserInteraction" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2016/07/22/ACUserInteraction" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/07/22/ACUserInteraction" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/07/22/ACUserInteraction" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -539,11 +542,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/2016/07/21/AppleScriptStart" class="pagination--pager" title="Apple Script 从入门到放弃
+      <a href="http://localhost:4000/2016/07/21/AppleScriptStart" class="pagination--pager" title="Apple Script 从入门到放弃
 ">上一章</a>
     
     
-      <a href="/2016/07/23/ACUserInteraction2" class="pagination--pager" title="Apple Script 标准库（二） User Interaction
+      <a href="http://localhost:4000/2016/07/23/ACUserInteraction2" class="pagination--pager" title="Apple Script 标准库（二） User Interaction
 ">下一章</a>
     
   </nav>
@@ -554,132 +557,6 @@ var duoshuoQuery = {short_name:"mkapple"};
   </article>
 
   
-  
-    <div class="page__related">
-      
-        <h4 class="page__related-title">你也许喜欢以下</h4>
-      
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/08/11/InstanceByExtension">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">使用扩展实现单例
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/24/ACUserInteraction3">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（三） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  8 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/23/ACUserInteraction2">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（二） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/21/AppleScriptStart">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-        <div class="archive__item-teaser">
-          <img src=
-            
-              "/images/AppleScriptStart/img0.png"
-            
-            alt="">
-        </div>
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 从入门到放弃
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  9 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">1. hello, world
-display dialog "hello, world" (* 1 *)
-display alert "hello, world" (* 2 *)
-say "hello, world" (* 3 *)
-
-
-
-</p>
-    </article>
-  </a>
-</div>
-        
-      </div>
-    </div>
   
 </div>
 
@@ -702,15 +579,15 @@ say "hello, world" (* 3 *)
       <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 

@@ -32,6 +32,9 @@
 <meta property="og:title" content="ios 应用扩展—— Share Extension">
 
 
+  <link rel="canonical" href="http://localhost:4000/2016/06/23/ShareExtension">
+  <meta property="og:url" content="http://localhost:4000/2016/06/23/ShareExtension">
+
 
 
   <meta property="og:description" content="">
@@ -41,7 +44,7 @@
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="ios 应用扩展—— Share Extension">
   <meta name="twitter:description" content="">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2016/06/23/ShareExtension">
 
   
     <meta name="twitter:card" content="summary">
@@ -65,10 +68,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-06-23T00:00:00+08:00">
   
-    <link rel="next" href="/2016/06/27/PhotoEditingExtension" title="`ios` 应用扩展—— Photo Editing Extension">
+    <link rel="next" href="http://localhost:4000/2016/06/27/PhotoEditingExtension" title="`ios` 应用扩展—— Photo Editing Extension">
   
   
-    <link rel="prev" href="/2016/06/20/TodayExtension" title="`ios` 应用扩展—— Today Extension">
+    <link rel="prev" href="http://localhost:4000/2016/06/20/TodayExtension" title="`ios` 应用扩展—— Today Extension">
   
 
 
@@ -80,7 +83,7 @@
       "@context" : "http://schema.org",
       "@type" : "person",
       "name" : "MKApple",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -97,7 +100,7 @@
 
 <!-- end SEO -->
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -109,7 +112,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -132,16 +135,16 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -169,7 +172,7 @@
 
   <div class="author__avatar">
     
-    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
     
   </div>
 
@@ -193,7 +196,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -258,11 +261,11 @@
 
       <section class="page__content" itemprop="text">
         
-<p><img src="/images/ShareExtension/img1.PNG" alt="截图1" /></p>
+<p><img src="http://localhost:4000/images/ShareExtension/img1.PNG" alt="截图1" /></p>
 
 <p>转载请注明出处：<a href="http://mkapple.cn/2016/06/23/ShareExtension">http://mkapple.cn/2016/06/23/ShareExtension</a></p>
 
-<h2 id="section">1. 先来介绍几个概念</h2>
+<h2 id="1-先来介绍几个概念">1. 先来介绍几个概念</h2>
 <p><strong>App Extension：</strong> 扩展</p>
 
 <p><strong>Containing app：</strong> 提供扩展的应用称之为容器应用</p>
@@ -271,35 +274,35 @@
 
 <p>容器应用可以同时是载体应用，即容器容器应用也可以调用自身的扩展。
 <br />
-<img src="/images/ShareExtension/img6.png" alt="截图6" />
+<img src="http://localhost:4000/images/ShareExtension/img6.png" alt="截图6" />
 <br /></p>
 
-<h2 id="section-1">2. 创建分享扩展</h2>
+<h2 id="2-创建分享扩展">2. 创建分享扩展</h2>
 <p>关于如何创建一个扩展请参考<a href="http://mkapple.cn/2016/06/20/TodayExtension">这里</a>的第二步骤, 我们要创建的是 Share Extension 。
 <br /></p>
 
 <p><strong>P.S.</strong> 分享扩展除了用在分享之外，还可以实现 host app 拷贝文件到 containing app 的共享文件夹里。共享文件夹的用法可以参考 <a href="http://mkapple.cn/2016/07/01/DocumentProvider">MKDocumentProvider</a>。</p>
 
 <p><br />
-<img src="/images/ShareExtension/img2.png" alt="截图2" /></p>
+<img src="http://localhost:4000/images/ShareExtension/img2.png" alt="截图2" /></p>
 
 <p>创建完后，我们运行扩展。然后用 Safari 打开：http://mkapple.cn。点击 Safari 的分享按钮。发现扩展出现在分享选择栏里了。
 <br />
-<img src="/images/ShareExtension/img3.png" alt="截图3" />
+<img src="http://localhost:4000/images/ShareExtension/img3.png" alt="截图3" />
 <br />
 <br />
-<img src="/images/ShareExtension/img4.png" alt="截图4" />
+<img src="http://localhost:4000/images/ShareExtension/img4.png" alt="截图4" />
 <br />
 可以发现苹果已经为你做好了一个基本的分享界面了。</p>
 
-<h2 id="section-2">3. 设置分享的数据类型</h2>
+<h2 id="3-设置分享的数据类型">3. 设置分享的数据类型</h2>
 <p>在扩展的 Info.plist 文件中找到 NSExtension 属性，该属性结构如下：
 <br />
-<img src="/images/ShareExtension/img5.png" alt="截图5" />
+<img src="http://localhost:4000/images/ShareExtension/img5.png" alt="截图5" />
 <br />
 各规则属性可以参考<a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/SystemExtensionKeys.html#//apple_ref/doc/uid/TP40014212-SW11">官方文档</a>，限制分享的图片、视频、网站地址的数量。</p>
 
-<h2 id="section-3">4. 验证用户输入</h2>
+<h2 id="4-验证用户输入">4. 验证用户输入</h2>
 <p><code class="highlighter-rouge">SLComposeServiceViewController</code> —— 默认提供的标准化分享界面，提供以下属性和方法：
 <br />
 <code class="highlighter-rouge">NSString *contentText</code> —— 分享文本编辑框的内容<br />
@@ -320,7 +323,7 @@
 </code></pre>
 </div>
 
-<h2 id="section-4">5. 提交分享</h2>
+<h2 id="5-提交分享">5. 提交分享</h2>
 <p>提交分享会调用 <code class="highlighter-rouge">- (void)didSelectPost</code></p>
 
 <div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didSelectPost</span> <span class="p">{</span>
@@ -334,12 +337,12 @@
 </code></pre>
 </div>
 
-<h2 id="section-5">6. 取消分享</h2>
+<h2 id="6-取消分享">6. 取消分享</h2>
 <p>取消分享会调用 <code class="highlighter-rouge">- (void)didSelectCancel</code></p>
 
 <div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didSelectCancel</span>
 <span class="p">{</span>
-    <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSError</span> <span class="nf">errorWithDomain</span><span class="p">:</span><span class="s">@"MK"</span> <span class="nf">code</span><span class="p">:</span><span class="mi">500</span> <span class="nf">userInfo</span><span class="p">:</span><span class="err">@</span><span class="p">{</span><span class="s">@"error"</span><span class="o">:</span> <span class="s">@"用户取消"</span><span class="p">}];</span>
+    <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSError</span> <span class="nf">errorWithDomain</span><span class="p">:</span><span class="s">@"MK"</span> <span class="nf">code</span><span class="p">:</span><span class="mi">500</span> <span class="n">userInfo</span><span class="o">:</span><span class="p">@{</span><span class="s">@"error"</span><span class="o">:</span> <span class="s">@"用户取消"</span><span class="p">}];</span>
     
     <span class="c1">//取消分享请求
 </span>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">extensionContext</span> <span class="nf">cancelRequestWithError</span><span class="p">:</span><span class="n">error</span><span class="p">];</span>
@@ -347,7 +350,7 @@
 </code></pre>
 </div>
 
-<h2 id="section-6">7. 上传数据前的提取数据</h2>
+<h2 id="7-上传数据前的提取数据">7. 上传数据前的提取数据</h2>
 <p>介绍几个属性和方法：</p>
 
 <ul>
@@ -383,20 +386,20 @@
 </span>            <span class="n">NSString</span> <span class="o">*</span><span class="n">dataType</span> <span class="o">=</span> <span class="n">provider</span><span class="p">.</span><span class="n">registeredTypeIdentifiers</span><span class="p">.</span><span class="n">firstObject</span><span class="p">;</span>
             <span class="k">if</span><span class="p">([</span><span class="n">dataType</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"public.image"</span><span class="p">]){</span>
                 
-                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="p">[</span><span class="n">attachImageArray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">image</span><span class="p">]</span><span class="err">;</span>
+                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="n">completionHandler</span><span class="o">:^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="n">attachImageArray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">image</span><span class="p">];</span>
                 <span class="p">}];</span>
                 
             <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">([</span><span class="n">dataType</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"public.plain-text"</span><span class="p">]){</span>
                 
-                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">plainStr</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="p">[</span><span class="n">attachStringArray</span> <span class="nf">addObject</span><span class="p">:</span> <span class="n">plainStr</span><span class="p">]</span><span class="err">;</span>
+                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="n">completionHandler</span><span class="o">:^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">plainStr</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="n">attachStringArray</span> <span class="nf">addObject</span><span class="p">:</span> <span class="n">plainStr</span><span class="p">];</span>
                 <span class="p">}];</span>
                 
             <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">([</span><span class="n">dataType</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"public.url"</span><span class="p">]){</span>
                 
-                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="p">[</span><span class="n">attachURLArray</span> <span class="nf">addObject</span><span class="p">:</span> <span class="n">url</span><span class="p">]</span><span class="err">;</span>
+                <span class="p">[</span><span class="n">provider</span> <span class="nf">loadItemForTypeIdentifier</span><span class="p">:</span><span class="n">dataType</span> <span class="nf">options</span><span class="p">:</span><span class="nb">nil</span> <span class="n">completionHandler</span><span class="o">:^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="n">attachURLArray</span> <span class="nf">addObject</span><span class="p">:</span> <span class="n">url</span><span class="p">];</span>
                 <span class="p">}];</span>
                 
             <span class="p">}</span>
@@ -407,7 +410,7 @@
 </code></pre>
 </div>
 
-<h2 id="section-7">8. 上传数据</h2>
+<h2 id="8-上传数据">8. 上传数据</h2>
 <p>首先，当点击 post 发布之后，扩展就被终止了，但是上传任务仍然在后台工作，它的图片、视频等数据缓存在哪呢，这时就需要容器应用提供一个缓存容器了，这时，就需要 group 了。
 <br />
 <code class="highlighter-rouge">TARGETS</code> ——&gt; <code class="highlighter-rouge">主应用</code> ——&gt; <code class="highlighter-rouge">Capabilities</code> ——&gt; <code class="highlighter-rouge">App Group</code>
@@ -423,7 +426,7 @@
 
 <p>我把数据封装成 JSON 并上传到 <a href="http://requestb.in/">requestb.in</a> 。该网站不是 https 的，需要在扩展的 Info.plist 加上允许所有网络请求：
 <br />
-<img src="/images/ShareExtension/img8.png" alt="截图8" />
+<img src="http://localhost:4000/images/ShareExtension/img8.png" alt="截图8" />
 <br /></p>
 
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;key&gt;</span>NSAppTransportSecurity<span class="nt">&lt;/key&gt;</span>
@@ -437,13 +440,13 @@
 <p><br />
 演示：
 <br />
-<img src="/images/ShareExtension/img6.gif" alt="截图6" />
+<img src="http://localhost:4000/images/ShareExtension/img6.gif" alt="截图6" />
 <br /></p>
 
 <p>上传完成后到 requestb.in 可以看到
-<img src="/images/ShareExtension/img7.png" alt="截图7" /></p>
+<img src="http://localhost:4000/images/ShareExtension/img7.png" alt="截图7" /></p>
 
-<h2 id="section-8">9. 自定义分享界面思路</h2>
+<h2 id="9-自定义分享界面思路">9. 自定义分享界面思路</h2>
 <p>把 <code class="highlighter-rouge">SLComposeServiceViewController</code> 改为 <code class="highlighter-rouge">UIViewController</code> ，使用 <code class="highlighter-rouge">extensionContext</code> 属性的 <code class="highlighter-rouge">- (void)cancelRequestWithError:</code> 或者 `` 方法就可以让分享视图消失了。</p>
 
 <p>Demo: <a href="https://github.com/monkey19911021/MKShareExtension">MKShareExtension</a>
@@ -500,13 +503,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/2016/06/23/ShareExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/06/23/ShareExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/06/23/ShareExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/06/23/ShareExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/2016/06/23/ShareExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2016/06/23/ShareExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/06/23/ShareExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/06/23/ShareExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -514,11 +517,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/2016/06/20/TodayExtension" class="pagination--pager" title="ios 应用扩展—— Today Extension
+      <a href="http://localhost:4000/2016/06/20/TodayExtension" class="pagination--pager" title="ios 应用扩展—— Today Extension
 ">上一章</a>
     
     
-      <a href="/2016/06/27/PhotoEditingExtension" class="pagination--pager" title="ios 应用扩展—— Photo Editing Extension
+      <a href="http://localhost:4000/2016/06/27/PhotoEditingExtension" class="pagination--pager" title="ios 应用扩展—— Photo Editing Extension
 ">下一章</a>
     
   </nav>
@@ -529,119 +532,6 @@ var duoshuoQuery = {short_name:"mkapple"};
   </article>
 
   
-  
-    <div class="page__related">
-      
-        <h4 class="page__related-title">你也许喜欢以下</h4>
-      
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/08/11/InstanceByExtension">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">使用扩展实现单例
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/24/ACUserInteraction3">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（三） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  8 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/23/ACUserInteraction2">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（二） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/22/ACUserInteraction">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（一） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。
-
-</p>
-    </article>
-  </a>
-</div>
-        
-      </div>
-    </div>
   
 </div>
 
@@ -664,15 +554,15 @@ var duoshuoQuery = {short_name:"mkapple"};
       <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 

@@ -32,6 +32,9 @@
 <meta property="og:title" content="Apple Script 标准库（二） User Interaction">
 
 
+  <link rel="canonical" href="http://localhost:4000/2016/07/23/ACUserInteraction2">
+  <meta property="og:url" content="http://localhost:4000/2016/07/23/ACUserInteraction2">
+
 
 
   <meta property="og:description" content="注意！转载请注明出处和作者，谢谢">
@@ -41,7 +44,7 @@
   <meta name="twitter:site" content="@M0nk1y_">
   <meta name="twitter:title" content="Apple Script 标准库（二） User Interaction">
   <meta name="twitter:description" content="注意！转载请注明出处和作者，谢谢">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2016/07/23/ACUserInteraction2">
 
   
     <meta name="twitter:card" content="summary">
@@ -65,10 +68,10 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-07-23T00:00:00+08:00">
   
-    <link rel="next" href="/2016/07/24/ACUserInteraction3" title="Apple Script 标准库（三） User Interaction">
+    <link rel="next" href="http://localhost:4000/2016/07/24/ACUserInteraction3" title="Apple Script 标准库（三） User Interaction">
   
   
-    <link rel="prev" href="/2016/07/22/ACUserInteraction" title="Apple Script 标准库（一） User Interaction">
+    <link rel="prev" href="http://localhost:4000/2016/07/22/ACUserInteraction" title="Apple Script 标准库（一） User Interaction">
   
 
 
@@ -80,7 +83,7 @@
       "@context" : "http://schema.org",
       "@type" : "person",
       "name" : "MKApple",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -97,7 +100,7 @@
 
 <!-- end SEO -->
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -109,7 +112,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -132,16 +135,16 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">MK in Apple</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/aboutme">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/tags">标签</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/category">类别</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -169,7 +172,7 @@
 
   <div class="author__avatar">
     
-    	<img src="/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
     
   </div>
 
@@ -193,7 +196,7 @@
       
       
         <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
-        <li><img onclick="gotoWX()" src="/images/weiixin.jpg" id="wx_img"  hidden></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
       
       
         <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
@@ -263,29 +266,29 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> 目录</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#file-commands" id="markdown-toc-file-commands">一、 File Commands</a>    <ul>
-      <li><a href="#info-for-" id="markdown-toc-info-for-">1. info for 获取文件信息</a></li>
-      <li><a href="#list-disks-" id="markdown-toc-list-disks-">2. list disks 罗列磁盘</a></li>
-      <li><a href="#list-folder-" id="markdown-toc-list-folder-">3. list folder 罗列文件夹下的所有文件和文件夹</a></li>
-      <li><a href="#mount-volume-ftpsmb" id="markdown-toc-mount-volume-ftpsmb">4. mount volume 连接ftp、smb等服务器</a></li>
-      <li><a href="#path-to-" id="markdown-toc-path-to-">5. path to 返回指定规定应用或者脚本的地址</a></li>
-      <li><a href="#path-to--1" id="markdown-toc-path-to--1">6. path to 返回指定规定的文件夹的路径</a></li>
-      <li><a href="#path-to-resource-resources" id="markdown-toc-path-to-resource-resources">7. path to resource 返回该应用的资源文件夹（Resources）下的文件的绝对路径</a></li>
+  <li><a href="#一-file-commands" id="markdown-toc-一-file-commands">一、 File Commands</a>    <ul>
+      <li><a href="#1-info-for-获取文件信息" id="markdown-toc-1-info-for-获取文件信息">1. info for 获取文件信息</a></li>
+      <li><a href="#2-list-disks-罗列磁盘" id="markdown-toc-2-list-disks-罗列磁盘">2. list disks 罗列磁盘</a></li>
+      <li><a href="#3-list-folder-罗列文件夹下的所有文件和文件夹" id="markdown-toc-3-list-folder-罗列文件夹下的所有文件和文件夹">3. list folder 罗列文件夹下的所有文件和文件夹</a></li>
+      <li><a href="#4-mount-volume-连接ftpsmb等服务器" id="markdown-toc-4-mount-volume-连接ftpsmb等服务器">4. mount volume 连接ftp、smb等服务器</a></li>
+      <li><a href="#5-path-to-返回指定规定应用或者脚本的地址" id="markdown-toc-5-path-to-返回指定规定应用或者脚本的地址">5. path to 返回指定规定应用或者脚本的地址</a></li>
+      <li><a href="#6-path-to-返回指定规定的文件夹的路径" id="markdown-toc-6-path-to-返回指定规定的文件夹的路径">6. path to 返回指定规定的文件夹的路径</a></li>
+      <li><a href="#7-path-to-resource-返回该应用的资源文件夹resources下的文件的绝对路径" id="markdown-toc-7-path-to-resource-返回该应用的资源文件夹resources下的文件的绝对路径">7. path to resource 返回该应用的资源文件夹（Resources）下的文件的绝对路径</a></li>
     </ul>
   </li>
-  <li><a href="#clipboard-commands-" id="markdown-toc-clipboard-commands-">二、 Clipboard Commands 粘贴板命令</a>    <ul>
-      <li><a href="#set-the-clipboard-to-any-" id="markdown-toc-set-the-clipboard-to-any-">1. set the clipboard to any 把数据放到粘贴板里</a></li>
-      <li><a href="#the-clipboard-" id="markdown-toc-the-clipboard-">2. the clipboard 获取粘贴板里的数据</a></li>
-      <li><a href="#clipboard-info-" id="markdown-toc-clipboard-info-">3. clipboard info 粘贴板信息</a></li>
+  <li><a href="#二-clipboard-commands-粘贴板命令" id="markdown-toc-二-clipboard-commands-粘贴板命令">二、 Clipboard Commands 粘贴板命令</a>    <ul>
+      <li><a href="#1-set-the-clipboard-to-any-把数据放到粘贴板里" id="markdown-toc-1-set-the-clipboard-to-any-把数据放到粘贴板里">1. set the clipboard to any 把数据放到粘贴板里</a></li>
+      <li><a href="#2-the-clipboard-获取粘贴板里的数据" id="markdown-toc-2-the-clipboard-获取粘贴板里的数据">2. the clipboard 获取粘贴板里的数据</a></li>
+      <li><a href="#3-clipboard-info-粘贴板信息" id="markdown-toc-3-clipboard-info-粘贴板信息">3. clipboard info 粘贴板信息</a></li>
     </ul>
   </li>
-  <li><a href="#file-readwrite-" id="markdown-toc-file-readwrite-">三、 File Read/Write 文件读写命令</a>    <ul>
-      <li><a href="#open-for-access-file-" id="markdown-toc-open-for-access-file-">1. open for access file 打开文件通道</a></li>
-      <li><a href="#close-access-" id="markdown-toc-close-access-">2. close access 关闭通道</a></li>
-      <li><a href="#read-" id="markdown-toc-read-">3. read 读取文件信息</a></li>
-      <li><a href="#write-" id="markdown-toc-write-">4. write 写入文件数据</a></li>
-      <li><a href="#get-eof-" id="markdown-toc-get-eof-">5. get eof 获取文件字节数</a></li>
-      <li><a href="#set-eof-" id="markdown-toc-set-eof-">6. set eof 设置文件字节数</a></li>
+  <li><a href="#三-file-readwrite-文件读写命令" id="markdown-toc-三-file-readwrite-文件读写命令">三、 File Read/Write 文件读写命令</a>    <ul>
+      <li><a href="#1-open-for-access-file-打开文件通道" id="markdown-toc-1-open-for-access-file-打开文件通道">1. open for access file 打开文件通道</a></li>
+      <li><a href="#2-close-access-关闭通道" id="markdown-toc-2-close-access-关闭通道">2. close access 关闭通道</a></li>
+      <li><a href="#3-read-读取文件信息" id="markdown-toc-3-read-读取文件信息">3. read 读取文件信息</a></li>
+      <li><a href="#4-write-写入文件数据" id="markdown-toc-4-write-写入文件数据">4. write 写入文件数据</a></li>
+      <li><a href="#5-get-eof-获取文件字节数" id="markdown-toc-5-get-eof-获取文件字节数">5. get eof 获取文件字节数</a></li>
+      <li><a href="#6-set-eof-设置文件字节数" id="markdown-toc-6-set-eof-设置文件字节数">6. set eof 设置文件字节数</a></li>
     </ul>
   </li>
 </ul>
@@ -293,9 +296,9 @@
   </nav>
 </aside>
 
-<h2 id="file-commands">一、 File Commands</h2>
+<h2 id="一-file-commands">一、 File Commands</h2>
 
-<h3 id="info-for-">1. info for 获取文件信息</h3>
+<h3 id="1-info-for-获取文件信息">1. info for 获取文件信息</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">info for</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据文件路径获取文件信息</span><span class="w">
 </span><span class="err">[</span><span class="na">size</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">如果值为</span><span class="w"> </span><span class="nv">false</span><span class="err">，返回的</span><span class="w"> </span><span class="na">size</span><span class="w"> </span><span class="err">的值为</span><span class="w"> </span><span class="nv">missing</span><span class="w"> </span><span class="nv">value</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="nv">information</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">字典信息</span><span class="w">
@@ -334,7 +337,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="list-disks-">2. list disks 罗列磁盘</h3>
+<h3 id="2-list-disks-罗列磁盘">2. list disks 罗列磁盘</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">list disks</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">返回磁盘名称的数组</span><span class="w">
 </span></code></pre>
@@ -346,7 +349,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="list-folder-">3. list folder 罗列文件夹下的所有文件和文件夹</h3>
+<h3 id="3-list-folder-罗列文件夹下的所有文件和文件夹">3. list folder 罗列文件夹下的所有文件和文件夹</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">list folder</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据地址罗列</span><span class="w">
 </span><span class="err">[</span><span class="nv">invisibles</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">罗列中是否包含隐藏文件，默认为真</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">文件和文件夹名称数组</span><span class="w">
@@ -359,7 +362,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="mount-volume-ftpsmb">4. mount volume 连接ftp、smb等服务器</h3>
+<h3 id="4-mount-volume-连接ftpsmb等服务器">4. mount volume 连接ftp、smb等服务器</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">mount volume</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">要加载的名字或者地址</span><span class="w"> </span><span class="p">(</span><span class="nv">e</span><span class="p">.</span><span class="nv">g</span><span class="p">.</span><span class="w"> </span><span class="err">‘</span><span class="nv">afp</span><span class="p">:</span><span class="o">//</span><span class="nv">server</span><span class="o">/</span><span class="na">volume</span><span class="o">/</span><span class="err">’</span><span class="p">)</span><span class="w">
 </span><span class="k">on</span> <span class="nv">server</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">server</span><span class="w"> </span><span class="nb">on</span><span class="w"> </span><span class="nv">which</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="na">volume</span><span class="w"> </span><span class="nv">resides</span><span class="err">;</span><span class="w"> </span><span class="nv">omit</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">URL</span><span class="w"> </span><span class="na">path</span><span class="w"> </span><span class="nv">provided</span><span class="w">
 </span><span class="err">[</span><span class="k">in</span><span class="w"> </span><span class="nv">AppleTalk</span><span class="w"> </span><span class="nv">zone</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">AppleTalk</span><span class="w"> </span><span class="nv">zone</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">which</span><span class="w"> </span><span class="nb">the</span><span class="w"> </span><span class="nv">server</span><span class="w"> </span><span class="nv">resides</span><span class="err">;</span><span class="w"> </span><span class="nv">omit</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">URL</span><span class="w"> </span><span class="na">path</span><span class="w"> </span><span class="nv">provided</span><span class="w">
@@ -375,14 +378,14 @@
 </span></code></pre>
 </div>
 
-<h3 id="path-to-">5. path to 返回指定规定应用或者脚本的地址</h3>
+<h3 id="5-path-to-返回指定规定应用或者脚本的地址">5. path to 返回指定规定应用或者脚本的地址</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">path to</span><span class="w"> </span><span class="nv">n</span><span class="p">:</span><span class="w"> </span><span class="err">参数见截图，还有：</span><span class="nv">current</span><span class="w"> </span><span class="nb">application</span><span class="p">,</span><span class="w"> </span><span class="na">frontmost</span><span class="w"> </span><span class="nb">application</span><span class="p">,</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="err">“</span><span class="nv">AppName</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="k">me</span><span class="p">,</span><span class="w"> </span><span class="k">it</span><span class="w">
 </span><span class="err">[</span><span class="k">as</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="na">class</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">转换返回数据的类型，</span><span class="w"> </span><span class="nv">alias</span><span class="w"> </span><span class="err">或者</span><span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="p">(</span><span class="err">默认</span><span class="w"> </span><span class="nv">alias</span><span class="p">)</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">alias</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">规定项目的路径</span><span class="w">
 </span></code></pre>
 </div>
 
-<p><img src="/images/AppleScriptAddition/img.png" alt="截图1" class="align-center" /></p>
+<p><img src="http://localhost:4000/images/AppleScriptAddition/img.png" alt="截图1" class="align-center" /></p>
 
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="cm">(*</span><span class="w"> </span><span class="err">例子：</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
 </span><span class="nb">path to</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"Terminal"</span><span class="w">
@@ -390,7 +393,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="path-to--1">6. path to 返回指定规定的文件夹的路径</h3>
+<h3 id="6-path-to-返回指定规定的文件夹的路径">6. path to 返回指定规定的文件夹的路径</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">path to</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="nv">support</span><span class="o">/</span><span class="err">‌</span><span class="nb">applications</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">desktop</span><span class="o">/</span><span class="err">‌</span><span class="nv">desktop</span><span class="w"> </span><span class="nv">pictures</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nb">documents</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">downloads</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">favorites</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">Folder</span><span class="w"> </span><span class="nv">Action</span><span class="w"> </span><span class="nv">scripts</span><span class="o">/</span><span class="err">‌</span><span class="nb">fonts</span><span class="o">/</span><span class="err">‌</span><span class="nv">help</span><span class="o">/</span><span class="err">‌</span><span class="nv">home</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">internet</span><span class="w"> </span><span class="nb">plugins</span><span class="o">/</span><span class="err">‌</span><span class="nv">keychain</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">library</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">modem</span><span class="w"> </span><span class="nv">scripts</span><span class="o">/</span><span class="err">‌</span><span class="nb">movies</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">music</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">pictures</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">preferences</span><span class="o">/</span><span class="err">‌</span><span class="nv">printer</span><span class="w"> </span><span class="nv">descriptions</span><span class="o">/</span><span class="err">‌</span><span class="nv">public</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">scripting</span><span class="w"> </span><span class="nv">additions</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">scripts</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">services</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">shared</span><span class="w"> </span><span class="nb">documents</span><span class="o">/</span><span class="err">‌</span><span class="nv">shared</span><span class="w"> </span><span class="nv">libraries</span><span class="o">/</span><span class="err">‌</span><span class="nv">sites</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">startup</span><span class="w"> </span><span class="nv">disk</span><span class="o">/</span><span class="err">‌</span><span class="nv">startup</span><span class="w"> </span><span class="nb">items</span><span class="o">/</span><span class="err">‌</span><span class="nv">system</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">system</span><span class="w"> </span><span class="nv">preferences</span><span class="o">/</span><span class="err">‌</span><span class="nv">temporary</span><span class="w"> </span><span class="nb">items</span><span class="o">/</span><span class="err">‌</span><span class="nv">trash</span><span class="o">/</span><span class="err">‌</span><span class="nv">users</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">utilities</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">workflows</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">voices</span><span class="o">/</span><span class="err">‌</span><span class="nv">apple</span><span class="w"> </span><span class="na">menu</span><span class="o">/</span><span class="err">‌</span><span class="nb">control</span><span class="w"> </span><span class="nb">panels</span><span class="o">/</span><span class="err">‌</span><span class="nb">control</span><span class="w"> </span><span class="nv">strip</span><span class="w"> </span><span class="nv">modules</span><span class="o">/</span><span class="err">‌</span><span class="nv">extensions</span><span class="o">/</span><span class="err">‌</span><span class="nv">launcher</span><span class="w"> </span><span class="nb">items</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">printer</span><span class="w"> </span><span class="nv">drivers</span><span class="o">/</span><span class="err">‌</span><span class="nv">printmonitor</span><span class="o">/</span><span class="err">‌</span><span class="nv">shutdown</span><span class="w"> </span><span class="nv">folder</span><span class="o">/</span><span class="err">‌</span><span class="nv">speakable</span><span class="w"> </span><span class="nb">items</span><span class="o">/</span><span class="err">‌</span><span class="nv">stationery</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">文件夹名称</span><span class="w">
 </span><span class="err">[</span><span class="k">from</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">domain</span><span class="o">/</span><span class="err">‌</span><span class="k">local</span><span class="w"> </span><span class="nv">domain</span><span class="o">/</span><span class="err">‌</span><span class="nv">network</span><span class="w"> </span><span class="nv">domain</span><span class="o">/</span><span class="err">‌</span><span class="nv">user</span><span class="w"> </span><span class="nv">domain</span><span class="o">/</span><span class="err">‌</span><span class="nv">Classic</span><span class="w"> </span><span class="nv">domain</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">在哪路寻找指定的文件夹</span><span class="w">
 </span><span class="err">[</span><span class="k">as</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="na">class</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">转换返回数据的类型，</span><span class="w"> </span><span class="nv">alias</span><span class="w"> </span><span class="err">或者</span><span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="p">(</span><span class="err">默认是</span><span class="w"> </span><span class="nv">alias</span><span class="p">)</span><span class="w">
@@ -405,7 +408,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="path-to-resource-resources">7. path to resource 返回该应用的资源文件夹（Resources）下的文件的绝对路径</h3>
+<h3 id="7-path-to-resource-返回该应用的资源文件夹resources下的文件的绝对路径">7. path to resource 返回该应用的资源文件夹（Resources）下的文件的绝对路径</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">path to</span><span class="w"> </span><span class="nv">resource</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">指定资源的名称</span><span class="w">
 </span><span class="err">[</span><span class="k">in</span><span class="w"> </span><span class="nb">bundle</span><span class="w"> </span><span class="nv">file</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">bundle</span><span class="w"> </span><span class="err">的名称</span><span class="w"> </span><span class="p">(</span><span class="err">默认是当前应用的</span><span class="w"> </span><span class="nb">bundle</span><span class="p">)</span><span class="w">
 </span><span class="err">[</span><span class="k">in</span><span class="w"> </span><span class="na">directory</span><span class="w"> </span><span class="nb">text</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">Resources</span><span class="w"> </span><span class="err">文件夹下的子文件夹</span><span class="w">
@@ -419,16 +422,16 @@
 </span></code></pre>
 </div>
 
-<h2 id="clipboard-commands-">二、 Clipboard Commands 粘贴板命令</h2>
+<h2 id="二-clipboard-commands-粘贴板命令">二、 Clipboard Commands 粘贴板命令</h2>
 
-<h3 id="set-the-clipboard-to-any-">1. set the clipboard to any 把数据放到粘贴板里</h3>
+<h3 id="1-set-the-clipboard-to-any-把数据放到粘贴板里">1. set the clipboard to any 把数据放到粘贴板里</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="cm">(*</span><span class="w"> </span><span class="err">例子：</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w">
 </span><span class="nb">set the clipboard to</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="w">
 </span><span class="c1">-- 按粘贴键就可以粘贴数据了</span><span class="w">
 </span></code></pre>
 </div>
 
-<h3 id="the-clipboard-">2. the clipboard 获取粘贴板里的数据</h3>
+<h3 id="2-the-clipboard-获取粘贴板里的数据">2. the clipboard 获取粘贴板里的数据</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">the clipboard</span><span class="w">
 </span><span class="err">[</span><span class="k">as</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="na">class</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">转换类型</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">数据</span><span class="w">
@@ -441,7 +444,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="clipboard-info-">3. clipboard info 粘贴板信息</h3>
+<h3 id="3-clipboard-info-粘贴板信息">3. clipboard info 粘贴板信息</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">clipboard info</span><span class="w">
 </span><span class="err">[</span><span class="nb">for</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="na">class</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">约束数据类型</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="p">:</span><span class="err">类型为</span><span class="w"> </span><span class="p">{</span><span class="nb">data</span><span class="w"> </span><span class="nv">type</span><span class="p">,</span><span class="w"> </span><span class="na">size</span><span class="p">}</span><span class="w"> </span><span class="err">的数组</span><span class="w">
@@ -454,9 +457,9 @@
 </span></code></pre>
 </div>
 
-<h2 id="file-readwrite-">三、 File Read/Write 文件读写命令</h2>
+<h2 id="三-file-readwrite-文件读写命令">三、 File Read/Write 文件读写命令</h2>
 
-<h3 id="open-for-access-file-">1. open for access file 打开文件通道</h3>
+<h3 id="1-open-for-access-file-打开文件通道">1. open for access file 打开文件通道</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">open for access</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据文件路径打开文件，如果文件不存在则自动创建</span><span class="w">
 </span><span class="err">[</span><span class="nb">write</span><span class="w"> </span><span class="nv">permission</span><span class="w"> </span><span class="nv">boolean</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">是否给写入权限</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">integer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">通道标记，整型，配合</span><span class="w"> </span><span class="err">‘</span><span class="nb">read</span><span class="err">’</span><span class="p">,</span><span class="w"> </span><span class="err">‘</span><span class="nb">write</span><span class="err">’</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="err">‘</span><span class="nb">close access</span><span class="err">’</span><span class="w"> </span><span class="err">命令使用</span><span class="w">
@@ -469,7 +472,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="close-access-">2. close access 关闭通道</h3>
+<h3 id="2-close-access-关闭通道">2. close access 关闭通道</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">close access</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据通道标记关闭通道</span><span class="w">
 </span></code></pre>
 </div>
@@ -479,7 +482,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="read-">3. read 读取文件信息</h3>
+<h3 id="3-read-读取文件信息">3. read 读取文件信息</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">read</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据通道标记、文件别名、文件路径名来读取文件</span><span class="w">
 </span><span class="err">[</span><span class="k">from</span><span class="w"> </span><span class="nv">integer</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">读取开始位置，默认为上次开始读取位置</span><span class="w">
 </span><span class="err">[</span><span class="nb">for</span><span class="w"> </span><span class="nv">integer</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">读取长度，默认读取到结尾</span><span class="w">
@@ -503,7 +506,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="write-">4. write 写入文件数据</h3>
+<h3 id="4-write-写入文件数据">4. write 写入文件数据</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">write</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">写入的数据</span><span class="w">
 </span><span class="k">to</span> <span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">根据通道标记、文件别名、文件路径名写入文件</span><span class="w">
 </span><span class="err">[</span><span class="nv">starting</span><span class="w"> </span><span class="nb">at</span><span class="w"> </span><span class="nv">integer</span><span class="err">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">从指定位置开始写入，默认从开头写入</span><span class="w">
@@ -519,7 +522,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="get-eof-">5. get eof 获取文件字节数</h3>
+<h3 id="5-get-eof-获取文件字节数">5. get eof 获取文件字节数</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">get eof</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">参数类型包括：通道标记、文件别名、文件路径名</span><span class="w">
 </span><span class="err">→</span><span class="w"> </span><span class="nv">integer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">文件字节数</span><span class="w">
 </span></code></pre>
@@ -535,7 +538,7 @@
 </span></code></pre>
 </div>
 
-<h3 id="set-eof-">6. set eof 设置文件字节数</h3>
+<h3 id="6-set-eof-设置文件字节数">6. set eof 设置文件字节数</h3>
 <div class="language-applescript highlighter-rouge"><pre class="highlight"><code><span class="nb">set eof</span><span class="w"> </span><span class="nv">any</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">参数类型包括：通道标记、文件别名、文件路径名</span><span class="w">
 </span><span class="k">to</span> <span class="nv">integer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">设置的新长度，任何数据超过这长度都会丢失</span><span class="w">
 </span></code></pre>
@@ -588,13 +591,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=/2016/07/23/ACUserInteraction2" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/07/23/ACUserInteraction2" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/2016/07/23/ACUserInteraction2" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/07/23/ACUserInteraction2" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/2016/07/23/ACUserInteraction2" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2016/07/23/ACUserInteraction2" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/2016/07/23/ACUserInteraction2" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/07/23/ACUserInteraction2" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -602,11 +605,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="/2016/07/22/ACUserInteraction" class="pagination--pager" title="Apple Script 标准库（一） User Interaction
+      <a href="http://localhost:4000/2016/07/22/ACUserInteraction" class="pagination--pager" title="Apple Script 标准库（一） User Interaction
 ">上一章</a>
     
     
-      <a href="/2016/07/24/ACUserInteraction3" class="pagination--pager" title="Apple Script 标准库（三） User Interaction
+      <a href="http://localhost:4000/2016/07/24/ACUserInteraction3" class="pagination--pager" title="Apple Script 标准库（三） User Interaction
 ">下一章</a>
     
   </nav>
@@ -617,132 +620,6 @@ var duoshuoQuery = {short_name:"mkapple"};
   </article>
 
   
-  
-    <div class="page__related">
-      
-        <h4 class="page__related-title">你也许喜欢以下</h4>
-      
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/08/11/InstanceByExtension">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">使用扩展实现单例
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  小于 1 分钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/24/ACUserInteraction3">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（三） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  8 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">注意！转载请注明出处和作者，谢谢
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/22/ACUserInteraction">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 标准库（一） User Interaction
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  10 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">不知道为啥，一看到 AppleScipt 标准库的 API 我就忍不住把他们都整理出来了。
-
-</p>
-    </article>
-  </a>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  
-    <a href="/2016/07/21/AppleScriptStart">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-        <div class="archive__item-teaser">
-          <img src=
-            
-              "/images/AppleScriptStart/img0.png"
-            
-            alt="">
-        </div>
-      
-      <h2 class="archive__item-title" itemprop="headline">Apple Script 从入门到放弃
-</h2>
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  9 秒钟阅读
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">1. hello, world
-display dialog "hello, world" (* 1 *)
-display alert "hello, world" (* 2 *)
-say "hello, world" (* 3 *)
-
-
-
-</p>
-    </article>
-  </a>
-</div>
-        
-      </div>
-    </div>
   
 </div>
 
@@ -765,15 +642,15 @@ say "hello, world" (* 3 *)
       <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <!-- <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2016 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 
