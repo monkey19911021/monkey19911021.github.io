@@ -19,7 +19,7 @@
 
 
 
-<title>使用扩展实现单例 - MK in Apple</title>
+<title>Magicalrecord 的使用例子 - MK in Apple</title>
 
 
 
@@ -29,11 +29,11 @@
 
 <meta property="og:locale" content="zh-cn">
 <meta property="og:site_name" content="MK in Apple">
-<meta property="og:title" content="使用扩展实现单例">
+<meta property="og:title" content="Magicalrecord 的使用例子">
 
 
-  <link rel="canonical" href="http://localhost:4000/2016/08/11/InstanceByExtension">
-  <meta property="og:url" content="http://localhost:4000/2016/08/11/InstanceByExtension">
+  <link rel="canonical" href="http://localhost:4000/2017/03/30/MagicalRecord_basic">
+  <meta property="og:url" content="http://localhost:4000/2017/03/30/MagicalRecord_basic">
 
 
 
@@ -42,9 +42,9 @@
 
 
   <meta name="twitter:site" content="@M0nk1y_">
-  <meta name="twitter:title" content="使用扩展实现单例">
+  <meta name="twitter:title" content="Magicalrecord 的使用例子">
   <meta name="twitter:description" content="注意！转载请注明出处和作者，谢谢">
-  <meta name="twitter:url" content="http://localhost:4000/2016/08/11/InstanceByExtension">
+  <meta name="twitter:url" content="http://localhost:4000/2017/03/30/MagicalRecord_basic">
 
   
     <meta name="twitter:card" content="summary">
@@ -66,12 +66,10 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2016-08-11T00:00:00+08:00">
-  
-    <link rel="next" href="http://localhost:4000/2017/03/30/MagicalRecord_basic" title="Magicalrecord 的使用例子">
+  <meta property="article:published_time" content="2017-03-30T00:00:00+08:00">
   
   
-    <link rel="prev" href="http://localhost:4000/2016/07/24/ACUserInteraction3" title="Apple Script 标准库（三） User Interaction">
+    <link rel="prev" href="http://localhost:4000/2016/08/11/InstanceByExtension" title="使用扩展实现单例">
   
 
 
@@ -239,15 +237,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="使用扩展实现单例">
+    <meta itemprop="headline" content="Magicalrecord 的使用例子">
     <meta itemprop="description" content="注意！转载请注明出处和作者，谢谢">
-    <meta itemprop="datePublished" content="August 11, 2016">
+    <meta itemprop="datePublished" content="March 30, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">使用扩展实现单例
+          <h1 class="page__title" itemprop="headline">Magicalrecord 的使用例子
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -260,50 +258,11 @@
       
 
       <section class="page__content" itemprop="text">
-        <p class="notice--danger">注意！转载请注明<a href="http://mkapple.cn/2016/08/11/InstanceByExtension">出处</a>和<a href="http://mkapple.cn">作者</a>，谢谢</p>
+        <p class="notice--danger">注意！转载请注明<a href="http://mkapple.cn/2017/03/30/MagicalRecord_basic">出处</a>和<a href="http://mkapple.cn">作者</a>，谢谢</p>
 
 <p class="notice--info">感谢 <a href="http://yerl.cn">yerl</a> 的指导。</p>
 
 <h2 id="1-oc篇">1. OC篇</h2>
-<p>基于万物继承于 NSObject 的思想，我们可以写一个 NSObject 的扩展来为它增加单例方法，就不需要我们每次要写单例的时候都撸一遍，不继承 NSObject 的类那就自己撸自己吧。</p>
-
-<p>使用运行时获取调用单例方法的类，然后取出此类的实例，如果实例为空则实例化。</p>
-
-<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#import "NSObject+MKInstance.h"
-#import &lt;objc/runtime.h&gt;
-</span>
-<span class="k">@implementation</span> <span class="nc">NSObject</span> <span class="p">(</span><span class="nl">MKInstance</span><span class="p">)</span>
-
-<span class="k">+</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">instance</span> <span class="p">{</span>
-    <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">INSTACE</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">INSTACE</span><span class="p">;</span>
-    <span class="n">__block</span> <span class="n">id</span> <span class="n">_instance_</span> <span class="o">=</span> <span class="n">objc_getAssociatedObject</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">INSTACE</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">_instance_</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">dispatch_semaphore_t</span> <span class="n">sema</span> <span class="o">=</span> <span class="n">dispatch_semaphore_create</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">_instance_</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">_instance_</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="nf">new</span><span class="p">];</span>
-                <span class="n">objc_setAssociatedObject</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">INSTACE</span><span class="p">,</span> <span class="n">_instance_</span><span class="p">,</span> <span class="n">OBJC_ASSOCIATION_RETAIN_NONATOMIC</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">dispatch_semaphore_signal</span><span class="p">(</span><span class="n">sema</span><span class="p">);</span>
-        <span class="p">});</span>
-        <span class="n">dispatch_semaphore_wait</span><span class="p">(</span><span class="n">sema</span><span class="p">,</span> <span class="n">DISPATCH_TIME_FOREVER</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">_instance_</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">@end</span>
-</code></pre>
-</div>
-
-<h2 id="2-swift篇">2. Swift篇</h2>
-<p>swift 跟 OC 不一样，它是面向协议编程，也是就是说它没有所谓的超级父类，所有的值类型、引用类型并没有统一的父类或者协议。所以要想 OC 一样写一个统一的单例方法是不行的，那么通过继承包含单例方法的类或者协议行吗？协议不能声明 static let 的属性，out！swift 的动态类型 AnyClass 不能动态实例化，也不行，只能在具体类里添加单例方法了：</p>
-
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MKInstance</span>  <span class="p">{</span>
-    <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">MKInstance</span><span class="p">()</span>
-    <span class="kd">private</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
 
 <p>断点运行看看：</p>
 
@@ -312,7 +271,7 @@
 <p>static let 是使用 dispatch_once 函数执行的，所以 sharedInstance 是一个单例对象。</p>
 
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="InstanceByExtension" data-title="InstanceByExtension" data-url="http://mkapple.cn/2016/08/11/InstanceByExtension"></div>
+<div class="ds-thread" data-thread-key="MagicalRecord_basic" data-title="MagicalRecord_basic" data-url="http://mkapple.cn/2017/03/30/MagicalRecord_basic"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -340,7 +299,7 @@ var duoshuoQuery = {short_name:"mkapple"};
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2016-08-11T00:00:00+08:00">August 11, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2017-03-30T00:00:00+08:00">March 30, 2017</time></p>
         
       </footer>
 
@@ -351,13 +310,13 @@ var duoshuoQuery = {short_name:"mkapple"};
     <h4 class="page__share-title">分享</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2016/08/11/InstanceByExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2017/03/30/MagicalRecord_basic" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016/08/11/InstanceByExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/30/MagicalRecord_basic" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://localhost:4000/2016/08/11/InstanceByExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2017/03/30/MagicalRecord_basic" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016/08/11/InstanceByExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017/03/30/MagicalRecord_basic" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -365,12 +324,11 @@ var duoshuoQuery = {short_name:"mkapple"};
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/2016/07/24/ACUserInteraction3" class="pagination--pager" title="Apple Script 标准库（三） User Interaction
+      <a href="http://localhost:4000/2016/08/11/InstanceByExtension" class="pagination--pager" title="使用扩展实现单例
 ">上一章</a>
     
     
-      <a href="http://localhost:4000/2017/03/30/MagicalRecord_basic" class="pagination--pager" title="Magicalrecord 的使用例子
-">下一章</a>
+      <a href="#" class="pagination--pager disabled">下一章</a>
     
   </nav>
 
