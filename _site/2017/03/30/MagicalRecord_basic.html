@@ -251,7 +251,7 @@
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  小于 1 分钟阅读
+  1 分钟阅读
 </p>
           
         </header>
@@ -260,15 +260,130 @@
       <section class="page__content" itemprop="text">
         <p class="notice--danger">注意！转载请注明<a href="http://mkapple.cn/2017/03/30/MagicalRecord_basic">出处</a>和<a href="http://mkapple.cn">作者</a>，谢谢</p>
 
-<p class="notice--info">感谢 <a href="http://yerl.cn">yerl</a> 的指导。</p>
+<h2 id="1-安装">1. 安装</h2>
+<p>源代码地址：<a href="https://github.com/magicalpanda/MagicalRecord">MagicalRecord</a></p>
 
-<h2 id="1-oc篇">1. OC篇</h2>
+<p>通过 CocoaPods 安装：</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">pod</span> <span class="s2">"MagicalRecord"</span>
+</code></pre>
+</div>
 
-<p>断点运行看看：</p>
+<h2 id="2-设置-coredata-堆栈">2. 设置 CoreData 堆栈</h2>
+<p>1.导入 CoreData.framework 框架。</p>
 
-<p><img src="http://localhost:4000/images/InstanceByExtension/img.png" alt="截图" /></p>
+<p>2.打开 AppDelegate.m 文件，增加以下方法：</p>
 
-<p>static let 是使用 dispatch_once 函数执行的，所以 sharedInstance 是一个单例对象。</p>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cp">#import "MagicalRecord.h" //导入头文件
+</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">MagicalRecord</span> <span class="nf">setupAutoMigratingCoreDataStack</span><span class="p">];</span> <span class="c1">//设置堆栈
+</span>    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">applicationWillTerminate</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">MagicalRecord</span> <span class="nf">cleanUp</span><span class="p">];</span> <span class="c1">//app退出时的清理工作
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>3.建立数据模型</p>
+
+<p><img src="http://localhost:4000/images/MagicalRecord/01.png" alt="截图" /></p>
+
+<p>我增加了一个 Person 类，在使用到该实体的类里导入 Model+CoreDataModel.h 文件，因为系统会帮你生成 Person 类文件，如果没自动生成则需要手动创建；选中模型文件 ——&gt; Editor ——&gt; Create NSManagedobject Subclass；com + b 编译一下，发现报文件重复错误，则把刚自动生成的文件删除，再使用 <strong>#import “Model+CoreDataModel.h”</strong> 就应该不会报错了，点进去也可以看到系统为你生成的类和属性。</p>
+
+<h2 id="3-增删改查">3. 增删改查</h2>
+
+<h3 id="31-添加数据">3.1 添加数据</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSManagedObjectContext</span> <span class="nf">MR_defaultContext</span><span class="p">];</span>
+<span class="n">Person</span> <span class="o">*</span><span class="n">per</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_createEntityInContext</span><span class="p">:</span> <span class="n">context</span><span class="p">];</span>
+<span class="n">per</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@"aaa"</span><span class="p">;</span>
+<span class="n">per</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="n">per</span><span class="p">.</span><span class="n">headImg</span> <span class="o">=</span> <span class="n">UIImagePNGRepresentation</span><span class="p">([</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span> <span class="s">@"delete"</span><span class="p">]);</span>
+<span class="n">per</span><span class="p">.</span><span class="n">date</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDate</span> <span class="nf">date</span><span class="p">];</span>
+<span class="p">[</span><span class="n">context</span> <span class="nf">MR_saveToPersistentStoreAndWait</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h3 id="32-删除数据">3.2 删除数据</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">Person</span> <span class="o">*</span><span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="n">muArray</span> <span class="nf">objectAtIndex</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+<span class="p">[</span><span class="n">person</span> <span class="nf">MR_deleteEntity</span><span class="p">];</span><span class="c1">//删除实体
+</span><span class="p">[[</span><span class="n">NSManagedObjectContext</span> <span class="nf">MR_defaultContext</span><span class="p">]</span> <span class="nf">MR_saveToPersistentStoreAndWait</span><span class="p">];</span>
+
+<span class="c1">//或者清空某个类的所有数据
+</span><span class="p">[</span><span class="n">Person</span> <span class="nf">MR_truncateAll</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h3 id="33-修改数据">3.3 修改数据</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">Person</span> <span class="o">*</span><span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="n">muArray</span> <span class="nf">objectAtIndex</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+<span class="n">person</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@"bbb"</span><span class="p">;</span>
+<span class="p">[[</span><span class="n">NSManagedObjectContext</span> <span class="nf">MR_defaultContext</span><span class="p">]</span> <span class="nf">MR_saveToPersistentStoreAndWait</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h3 id="34-查询数据">3.4 查询数据</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//从持久化存储（PersistantStore）中查询出所有的Person实体
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAll</span><span class="p">];</span>
+
+<span class="c1">//查询出所有的Person实体并按照 lastName 升序（ascending）排列
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">peopleSorted</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAllSortedBy</span><span class="p">:</span><span class="s">@"lastName"</span> <span class="nf">ascending</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+
+<span class="c1">//查询出所有的Person实体并按照 lastName 和 firstName 升序（ascending）排列
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">peopleSorted</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAllSortedBy</span><span class="p">:</span><span class="s">@"lastName,firstName"</span> <span class="nf">ascending</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+
+<span class="c1">//查询出所有的Person实体并按照 lastName 降序，firstName 升序（ascending）排列
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">peopleSorted</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAllSortedBy</span><span class="p">:</span><span class="s">@"lastName:NO,firstName"</span> <span class="nf">ascending</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="c1">//或者
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">peopleSorted</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAllSortedBy</span><span class="p">:</span><span class="s">@"lastName,firstName:YES"</span> <span class="nf">ascending</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+
+<span class="c1">//查询出所有的Person实体 firstName 为 Forrest 的实体
+</span><span class="n">Person</span> <span class="o">*</span><span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findFirstByAttribute</span><span class="p">:</span><span class="s">@"firstName"</span> <span class="nf">withValue</span><span class="p">:</span><span class="s">@"Forrest"</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h3 id="35-高级查询">3.5 高级查询</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//使用 NSPredicate 来实现高级查询。
+</span><span class="n">NSPredicate</span> <span class="o">*</span><span class="n">peopleFilter</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSPredicate</span> <span class="nf">predicateWithFormat</span><span class="p">:</span><span class="s">@"department IN %@"</span><span class="p">,</span> <span class="p">@[</span><span class="n">dept1</span><span class="p">,</span> <span class="n">dept2</span><span class="p">]];</span>
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_findAllWithPredicate</span><span class="p">:</span><span class="n">peopleFilter</span><span class="p">];</span>
+
+<span class="c1">//NSFetchRequest
+</span><span class="n">NSPredicate</span> <span class="o">*</span><span class="n">peopleFilter</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSPredicate</span> <span class="nf">predicateWithFormat</span><span class="p">:</span><span class="s">@"department IN %@"</span><span class="p">,</span> <span class="n">departments</span><span class="p">];</span>
+<span class="n">NSFetchRequest</span> <span class="o">*</span><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_requestAllWithPredicate</span><span class="p">:</span><span class="n">peopleFilter</span><span class="p">];</span>
+
+<span class="c1">//自定义 NSFetchRequest
+</span><span class="n">NSPredicate</span> <span class="o">*</span><span class="n">peopleFilter</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSPredicate</span> <span class="nf">predicateWithFormat</span><span class="p">:</span><span class="s">@"department IN %@"</span><span class="p">,</span> <span class="n">departments</span><span class="p">];</span>
+<span class="n">NSFetchRequest</span> <span class="o">*</span><span class="n">peopleRequest</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_requestAllWithPredicate</span><span class="p">:</span><span class="n">peopleFilter</span><span class="p">];</span>
+<span class="p">[</span><span class="n">peopleRequest</span> <span class="nf">setReturnsDistinctResults</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+<span class="p">[</span><span class="n">peopleRequest</span> <span class="nf">setReturnPropertiesNamed</span><span class="p">:@[</span><span class="s">@"firstName"</span><span class="p">,</span> <span class="s">@"lastName"</span><span class="p">]];</span>
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_executeFetchRequest</span><span class="p">:</span><span class="n">peopleRequest</span><span class="p">];</span>
+
+
+<span class="c1">//查询实体个数
+//返回的是 NSNumber 类型
+</span><span class="n">NSNumber</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_numberOfEntities</span><span class="p">];</span>
+
+<span class="c1">//基于 NSPredicate 查询条件过滤后的实体个数
+</span><span class="n">NSNumber</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span> <span class="nf">MR_numberOfEntitiesWithPredicate</span><span class="p">:...];</span>
+
+<span class="c1">//返回的是 NSUInteger 类型
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span> <span class="n">MR_countOfEntities</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span> <span class="nf">MR_countOfEntitiesWithContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span> <span class="nf">MR_countOfEntitiesWithPredicate</span><span class="p">:(</span><span class="n">NSPredicate</span> <span class="o">*</span><span class="p">)</span><span class="nv">searchFilter</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span> <span class="nf">MR_countOfEntitiesWithPredicate</span><span class="p">:(</span><span class="n">NSPredicate</span> <span class="o">*</span><span class="p">)</span><span class="nv">searchFilter</span> <span class="nf">inContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">;</span>
+
+
+<span class="c1">//合计操作
+</span><span class="n">NSInteger</span> <span class="n">totalFat</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CTFoodDiaryEntry</span> <span class="nf">MR_aggregateOperation</span><span class="p">:</span><span class="s">@"sum:"</span> <span class="nf">onAttribute</span><span class="p">:</span><span class="s">@"fatCalories"</span> <span class="nf">withPredicate</span><span class="p">:</span><span class="n">predicate</span><span class="p">]</span> <span class="n">integerValue</span><span class="p">];</span>
+
+<span class="n">NSInteger</span> <span class="n">fattest</span>  <span class="o">=</span> <span class="p">[[</span><span class="n">CTFoodDiaryEntry</span> <span class="nf">MR_aggregateOperation</span><span class="p">:</span><span class="s">@"max:"</span> <span class="nf">onAttribute</span><span class="p">:</span><span class="s">@"fatCalories"</span> <span class="nf">withPredicate</span><span class="p">:</span><span class="n">predicate</span><span class="p">]</span> <span class="n">integerValue</span><span class="p">];</span>
+
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">caloriesByMonth</span> <span class="o">=</span> <span class="p">[</span><span class="n">CTFoodDiaryEntry</span> <span class="nf">MR_aggregateOperation</span><span class="p">:</span><span class="s">@"sum:"</span> <span class="nf">onAttribute</span><span class="p">:</span><span class="s">@"fatCalories"</span> <span class="n">withPredicate</span><span class="o">:</span><span class="n">predicate</span> <span class="n">groupBy</span><span class="o">:</span><span class="s">@"month"</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h3 id="36-demo地址">3.6 Demo地址</h3>
+<p><a href="https://github.com/monkey19911021/MagicalRecord_basic">MagicalRecord_basic</a></p>
 
 <!-- 多说评论框 start -->
 <div class="ds-thread" data-thread-key="MagicalRecord_basic" data-title="MagicalRecord_basic" data-url="http://mkapple.cn/2017/03/30/MagicalRecord_basic"></div>
