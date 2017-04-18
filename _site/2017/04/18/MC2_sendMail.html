@@ -1,0 +1,539 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>【mailcore2】——邮件发送 - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="【mailcore2】——邮件发送">
+
+
+  <link rel="canonical" href="http://localhost:4000/2017/04/18/MC2_sendMail">
+  <meta property="og:url" content="http://localhost:4000/2017/04/18/MC2_sendMail">
+
+
+
+  <meta property="og:description" content="注意！转载请注明出处和作者，谢谢">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="【mailcore2】——邮件发送">
+  <meta name="twitter:description" content="注意！转载请注明出处和作者，谢谢">
+  <meta name="twitter:url" content="http://localhost:4000/2017/04/18/MC2_sendMail">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-04-18T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="http://localhost:4000/2017/03/30/MagicalRecord_basic" title="Magicalrecord 的使用例子">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+  <meta name="baidu-site-verification" content="afziIIFBbd" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="【mailcore2】——邮件发送">
+    <meta itemprop="description" content="注意！转载请注明出处和作者，谢谢">
+    <meta itemprop="datePublished" content="April 18, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">【mailcore2】——邮件发送
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  3 秒钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p class="notice--danger">注意！转载请注明<a href="http://mkapple.cn/2017/04/18/MC2_sendMail">出处</a>和<a href="http://mkapple.cn">作者</a>，谢谢</p>
+
+<h2 id="1-目标">1. 目标</h2>
+<p>制作一个邮箱发送邮件的功能，具有添加删除联系人、图文混排的富文本。主要材料有：</p>
+
+<p>①. 第三方邮件SDK: <em><a href="https://github.com/MailCore/mailcore2">MailCore2</a></em>，使用 CocoaPods 安装: <code class="highlighter-rouge">pod 'mailcore2-ios'</code>, 它是一个200M 大的 .a 文件，所以下载要好久。如果不想等也可以用工程依赖的方法导入，步骤如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. 从 MailCore2 仓库中下载代码到本地。
+2. 把build-mac/mailcore2.xcodeproj拖进工程
+3. 添加项目依赖，Build Phases ——&gt; Target Dependencies ——&gt; 添加 static mailcore2 ios(mailcore2)
+4. 项目添加静态库链接，Build Phases ——&gt; Link Binary With Libraries ——&gt; 添加 libMailCore-ios.a、CFNetwork.framework、Security.framework
+5. 设置Flags，Build Setting ——&gt; Other Linker Flags -&gt; -lctemplate-ios -letpan-ios -lxml2 -lsasl2 -liconv -ltidy -lz -lc++ -lresolv -stdlib=libc++ -ObjC
+</code></pre>
+</div>
+
+<p>②. 富文本工具：<em><a href="https://github.com/nnhubbard/ZSSRichTextEditor">ZSSRichTextEditor</a></em>, 可以使用 CocoaPods 安装：<code class="highlighter-rouge">pod 'ZSSRichTextEditor'</code></p>
+
+<p><img src="https://camo.githubusercontent.com/3f9c01eba9c69d030a69faaa1a2e01a733244627/687474703a2f2f636c2e6c792f696d6167652f3369343134303367323030422f64656d6f2e676966" alt="图例" /></p>
+
+<h2 id="2-使用-zssrichtexteditor-设置邮件编辑页面">2. 使用 ZSSRichTextEditor 设置邮件编辑页面</h2>
+<p>视图控制器 viewController 继承 ZSSRichTextEditor： <code class="highlighter-rouge">@interface ViewController : ZSSRichTextEditor</code></p>
+
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">self</span><span class="p">.</span><span class="n">alwaysShowToolbar</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">//是否一直显示工具栏
+</span><span class="n">self</span><span class="p">.</span><span class="n">receiveEditorDidChangeEvents</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span> <span class="c1">//是否接收编辑器事件，YES的话可以通过实现父类方法操作
+</span>
+<span class="n">self</span><span class="p">.</span><span class="n">shouldShowKeyboard</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">//是否自动显示键盘
+</span><span class="n">self</span><span class="p">.</span><span class="n">enabledToolbarItems</span> <span class="o">=</span> <span class="p">@[</span><span class="n">ZSSRichTextEditorToolbarInsertImage</span><span class="p">,</span> <span class="c1">//插入网络图片
+</span>                             <span class="n">ZSSRichTextEditorToolbarInsertImageFromDevice</span><span class="p">,</span> <span class="c1">//插入本地图片
+</span>                             <span class="n">ZSSRichTextEditorToolbarInsertLink</span><span class="p">,</span> <span class="c1">//插入连接
+</span>                             <span class="n">ZSSRichTextEditorToolbarBold</span><span class="p">,</span> <span class="c1">//字体加粗
+</span>                             <span class="n">ZSSRichTextEditorToolbarStrikeThrough</span><span class="p">,</span> <span class="c1">//删除线
+</span>                             <span class="n">ZSSRichTextEditorToolbarUnderline</span><span class="p">,</span> <span class="c1">//下划线
+</span>                             <span class="n">ZSSRichTextEditorToolbarParagraph</span><span class="p">,</span> <span class="c1">//自然段，默认的文字排版方式
+</span>                             <span class="n">ZSSRichTextEditorToolbarH1</span><span class="p">,</span> <span class="c1">//h1标题
+</span>                             <span class="n">ZSSRichTextEditorToolbarH2</span><span class="p">,</span> <span class="c1">//h2标题
+</span>                             <span class="n">ZSSRichTextEditorToolbarH3</span><span class="p">,</span> <span class="c1">//h3标题
+</span>                             <span class="n">ZSSRichTextEditorToolbarTextColor</span><span class="p">,</span> <span class="c1">//字体颜色
+</span>                             <span class="n">ZSSRichTextEditorToolbarBackgroundColor</span><span class="p">,</span> <span class="c1">//字体背景色
+</span>                             <span class="n">ZSSRichTextEditorToolbarUnorderedList</span><span class="p">,</span> <span class="c1">//排序不加序号
+</span>                             <span class="n">ZSSRichTextEditorToolbarOrderedList</span><span class="p">,</span> <span class="c1">//加序号
+</span>                             <span class="n">ZSSRichTextEditorToolbarHorizontalRule</span> <span class="c1">//分割线]; //工具栏加载的工具，默认加载所有工具
+</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">html</span> <span class="o">=</span> <span class="s">@"&lt;br&gt;&lt;br&gt;"</span>
+<span class="s">"&lt;p&gt;来自凌云App&lt;/p&gt;"</span><span class="err">;</span>
+<span class="p">[</span><span class="n">self</span> <span class="nf">setHTML</span><span class="p">:</span><span class="n">html</span><span class="p">]</span><span class="err">;</span> <span class="c1">//设置内容
+</span></code></pre>
+</div>
+<p>除了以上这些基本用法还有很多其他有用的方法提供使用。因为该工具使用本地化字符串，所以我们需要做一个本地化文本，新建一个 <code class="highlighter-rouge">Localizable.strings</code> 文件：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nt">"Image scale, 0.5 by default"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U7f29\U653e\U56fe\U7247\Uff0c\U9ed8\U8ba40.5"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"Insert Image From Device"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U4ece\U76f8\U518c\U9009\U62e9\U56fe\U7247"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"Pick New Image"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U9009\U62e9\U65b0\U56fe\U7247"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"Pick Image"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U9009\U62e9\U56fe\U7247"</span><span class="err">;</span><span class="w">
+	</span><span class="err">Cancel</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U53d6\U6d88"</span><span class="err">;</span><span class="w">
+	</span><span class="err">Title</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U6807\U9898"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"URL (required)"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"http://"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"Insert Link"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U63d2\U5165\U8fde\U63a5"</span><span class="err">;</span><span class="w">
+	</span><span class="err">Update</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U66f4\U65b0"</span><span class="err">;</span><span class="w">
+	</span><span class="err">Insert</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U63d2\U5165"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"BG Color"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U80cc\U666f\U8272"</span><span class="err">;</span><span class="w"> 
+	</span><span class="nt">"Text Color"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U6587\U5b57\U989c\U8272"</span><span class="err">;</span><span class="w">
+	</span><span class="err">Alt</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U66ff\U4ee3\U6587\U5b57"</span><span class="err">;</span><span class="w">
+	</span><span class="nt">"Insert Image"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"\U63d2\U5165\U56fe\U7247\U5730\U5740"</span><span class="err">;</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+<p><img src="http://localhost:4000/images/mc2_sendmail/01.png" alt="截图" /></p>
+
+<h2 id="3-使用-imap-发送邮件">3. 使用 IMAP 发送邮件</h2>
+
+<h3 id="31-登录-imap">3.1 登录 IMAP</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">MCOSMTPSession</span> <span class="o">*</span><span class="n">smtpSession</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MCOSMTPSession</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>  
+<span class="n">smtpSession</span><span class="p">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s">@"smtp.exmail.qq.com"</span><span class="p">;</span>  <span class="c1">//使用 QQ 的企业邮箱
+</span><span class="n">smtpSession</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">;</span>   <span class="c1">//加密传输端口
+</span><span class="n">smtpSession</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="s">@"hello@qq.com"</span><span class="p">;</span>  
+<span class="n">smtpSession</span><span class="p">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">@"passward"</span><span class="p">;</span>  
+<span class="n">smtpSession</span><span class="p">.</span><span class="n">connectionType</span> <span class="o">=</span> <span class="n">MCOConnectionTypeTLS</span><span class="p">;</span>  <span class="c1">//加密传输
+</span>  
+<span class="n">MCOSMTPOperation</span> <span class="o">*</span><span class="n">smtpOperation</span> <span class="o">=</span> <span class="p">[</span><span class="n">smtpSession</span> <span class="nf">loginOperation</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">smtpOperation</span> <span class="nf">start</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"login account successed"</span><span class="p">);</span>  
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"login account failure: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>  
+    <span class="p">}</span>  
+<span class="p">}];</span>
+</code></pre>
+</div>
+
+<h3 id="32-构建邮件内容">3.2 构建邮件内容</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">MCOMessageBuilder</span> <span class="o">*</span><span class="n">messageBuilder</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MCOMessageBuilder</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>  
+<span class="n">messageBuilder</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">from</span> <span class="o">=</span> <span class="p">[</span><span class="n">MCOAddress</span> <span class="nf">addressWithDisplayName</span><span class="p">:</span><span class="s">@"张三"</span> <span class="nf">mailbox</span><span class="p">:</span><span class="s">@"111111@qq.com"</span><span class="p">];</span>   <span class="c1">// 发送人  
+</span><span class="n">messageBuilder</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">to</span> <span class="o">=</span> <span class="p">@[[</span><span class="n">MCOAddress</span> <span class="nf">addressWithMailbox</span><span class="p">:</span><span class="s">@"222222@qq.com"</span><span class="p">]];</span>       <span class="c1">// 收件人（多人）  
+</span><span class="n">messageBuilder</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">cc</span> <span class="o">=</span> <span class="p">@[[</span><span class="n">MCOAddress</span> <span class="nf">addressWithMailbox</span><span class="p">:</span><span class="s">@"@333333qq.com"</span><span class="p">]];</span>      <span class="c1">// 抄送（多人）  
+</span><span class="n">messageBuilder</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">bcc</span> <span class="o">=</span> <span class="p">@[[</span><span class="n">MCOAddress</span> <span class="nf">addressWithMailbox</span><span class="p">:</span><span class="s">@"444444@qq.com"</span><span class="p">]];</span>    <span class="c1">// 密送（多人）  
+</span><span class="n">messageBuilder</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s">@"测试邮件"</span><span class="p">;</span>    <span class="c1">// 邮件标题  
+</span><span class="n">messageBuilder</span><span class="p">.</span><span class="n">htmlBody</span> <span class="o">=</span> <span class="s">@"hello world"</span><span class="p">;</span>           <span class="c1">// 邮件正文, 富文本可以导出 html 内容
+</span>
+<span class="cm">/*  
+ 如果邮件是回复或者转发，原邮件中往往有附件以及正文中有其他图片资源， 
+ 如果有需要你可将原文原封不动的也带过去，这里发送的正文就可以如下配置  
+ */</span>  
+<span class="n">NSString</span> <span class="o">*</span> <span class="n">bodyHtml</span> <span class="o">=</span> <span class="s">@"&lt;p&gt;我是原邮件正文&lt;/p&gt;"</span><span class="p">;</span>  
+<span class="n">NSString</span> <span class="o">*</span><span class="n">body</span> <span class="o">=</span> <span class="s">@"我是邮件回复的内容"</span><span class="p">;</span>  
+<span class="n">NSMutableString</span><span class="o">*</span><span class="n">fullBodyHtml</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableString</span> <span class="nf">stringWithFormat</span><span class="p">:</span><span class="s">@"%@&lt;br/&gt;-------------原始邮件-------------&lt;br/&gt;%@"</span><span class="p">,[</span><span class="n">body</span> <span class="nf">stringByReplacingOccurrencesOfString</span><span class="p">:</span><span class="s">@"</span><span class="se">\n</span><span class="s">"</span><span class="nf">withString</span><span class="p">:</span><span class="s">@"&lt;br/&gt;"</span><span class="p">],</span><span class="n">bodyHtml</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">messageBuilder</span> <span class="nf">setHTMLBody</span><span class="p">:</span><span class="n">fullBodyHtml</span><span class="p">];</span>  
+  
+<span class="c1">// 添加正文里的附加资源  
+</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">inattachments</span> <span class="o">=</span> <span class="n">msgPaser</span><span class="p">.</span><span class="n">htmlInlineAttachments</span><span class="p">;</span>  
+<span class="k">for</span> <span class="p">(</span><span class="n">MCOAttachment</span> <span class="o">*</span><span class="n">attachment</span> <span class="k">in</span> <span class="n">inattachments</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="p">[</span><span class="n">messageBuilder</span> <span class="nf">addRelatedAttachment</span><span class="p">:</span><span class="n">attachment</span><span class="p">];</span>    <span class="c1">//添加html正文里的附加资源（图片）  
+</span><span class="p">}</span>  
+  
+<span class="c1">// 添加邮件附件  
+</span><span class="k">for</span> <span class="p">(</span><span class="n">MCOAttachment</span> <span class="o">*</span><span class="n">attachment</span> <span class="k">in</span> <span class="n">attachments</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="p">[</span><span class="n">messageBuilder</span> <span class="nf">addAttachment</span><span class="p">:</span><span class="n">attachment</span><span class="p">];</span>    <span class="c1">//添加附件  
+</span><span class="p">}</span> 
+</code></pre>
+</div>
+
+<h3 id="33-发送邮件">3.3 发送邮件</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">NSData</span> <span class="o">*</span> <span class="n">rfc822Data</span> <span class="o">=</span><span class="p">[</span><span class="n">messageBuilder</span> <span class="nf">data</span><span class="p">];</span>  
+<span class="n">MCOSMTPSendOperation</span> <span class="o">*</span><span class="n">sendOperation</span> <span class="o">=</span> <span class="p">[</span><span class="n">smtpSession</span> <span class="nf">sendOperationWithData</span><span class="p">:</span><span class="n">rfc822Data</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">sendOperation</span> <span class="nf">start</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"send message successed"</span><span class="p">);</span>  
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"send message failure: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>  
+    <span class="p">}</span>  
+<span class="p">}];</span>
+</code></pre>
+</div>
+
+<h3 id="36-demo地址">3.6 Demo地址</h3>
+<p><a href="https://github.com/monkey19911021/MKNewMail">MKNewMail</a></p>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="MC2_sendMail" data-title="MC2_sendMail" data-url="http://mkapple.cn/2017/04/18/MC2_sendMail"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mkapple"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+<!-- 多说公共JS代码 end -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2017-04-18T00:00:00+08:00">April 18, 2017</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2017/04/18/MC2_sendMail" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/04/18/MC2_sendMail" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2017/04/18/MC2_sendMail" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017/04/18/MC2_sendMail" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/2017/03/30/MagicalRecord_basic" class="pagination--pager" title="Magicalrecord 的使用例子
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
