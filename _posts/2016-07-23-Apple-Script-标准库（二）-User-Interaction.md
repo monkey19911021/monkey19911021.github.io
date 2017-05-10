@@ -254,19 +254,15 @@ to integer : 设置的新长度，任何数据超过这长度都会丢失
 set accessNum to open for access (choose file) with write permissionset eof accessNum to 180close access accessNum
 ```
 
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="ACUserInteraction2" data-title="ACUserInteraction2" data-url="http://mkapple.cn/2016/07/23/ACUserInteraction2"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"mkapple"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
+<!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+

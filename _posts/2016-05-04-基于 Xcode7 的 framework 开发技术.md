@@ -35,19 +35,14 @@ tags: [Framework]
 
 ![截图5.2]({{ site.url }}/images/MKExceptionImg/MKExceptionImg29.png)把这资源包拖进项目但不要复制。### 5.2  设置连接方式Build Setting ——> 搜索other linker ——> 在Other Linker Flags 中添加-all_load。目的是为了把静态库中所有的类包括没有直接使用的类创建连接符，让项目可以加载所有的类。![截图5.2.1]({{ site.url }}/images/MKExceptionImg/MKExceptionImg30.png)OK, Run！。	## 6.  静态库一秒变动态库
 ### 6.1  基本设置在Build Settings ——> 搜索Preprocessor Macros ——> Debug和Release两项中分别都添加useStaticFramework=1。意思是useStaticFramework=1时使用静态库，useStaticFramework=0时使用动态库。![截图6.1.1]({{ site.url }}/images/MKExceptionImg/MKExceptionImg31.png)### 6.2  设置静态库的编译类型为动态![截图6.2.1]({{ site.url }}/images/MKExceptionImg/MKExceptionImg32.png)注意：动静并存时：![截图6.2.2]({{ site.url }}/images/MKExceptionImg/MKExceptionImg33.png)OK，现在只要修改库的编译类型以及app的useStaticFramework就可以让app项目加载动态库或者静态库了。
-*具体代码参考Demo<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="160504Framework" data-title="基于Xcode7的Framework开发技术" data-url="http://mkapple.cn/160504Framework"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"mkapple"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
+*具体代码参考Demo<!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>

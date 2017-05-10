@@ -202,19 +202,15 @@ say text : 说话内容
 display dialog "输入你想说的话" default answer "I don't know what to say!"set sayContent to text returned of resultchoose from list {"Ting-Ting", "Alex", "Zarvox", "Agnes", "Victoria"} with title "选择说话的声音" with prompt "Ting-Ting是说中文的但是需要另外下载" default items {"Zarvox"} OK button name "选好了" cancel button name "用默认的吧"set sayVoice to result as stringif sayVoice is equal to "false" then set sayVoice to "Victoria"say sayContent using sayVoicesay sayContent using sayVoice saving to choose file name default name "什么鬼声音.AIFF"
 ```
 
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="ACUserInteraction" data-title="ACUserInteraction" data-url="http://mkapple.cn/2016/07/22/ACUserInteraction"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"mkapple"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
+<!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+
