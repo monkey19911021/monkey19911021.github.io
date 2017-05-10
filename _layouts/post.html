@@ -1,0 +1,26 @@
+---
+layout: default</html>
+
+<hr/>
+
+<html><article class="post"></html>
+
+<p>  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header></p>
+
+<p>  <div class="post-content">
+    {{ content }}
+  </div>
+  <!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+</article>
