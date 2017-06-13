@@ -1,0 +1,522 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>ios 应用扩展—— Keyboard Extension - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="ios 应用扩展—— Keyboard Extension">
+
+
+  <link rel="canonical" href="http://localhost:4000/2017/04/20/KeyboardExtension">
+  <meta property="og:url" content="http://localhost:4000/2017/04/20/KeyboardExtension">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="ios 应用扩展—— Keyboard Extension">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2017/04/20/KeyboardExtension">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-04-20T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="http://localhost:4000/2017/04/19/Tip_NavBack" title="拦截导航栏返回事件">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+  <meta name="baidu-site-verification" content="afziIIFBbd" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="ios 应用扩展—— Keyboard Extension">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="April 20, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline"><code class="highlighter-rouge">ios</code> 应用扩展—— Keyboard Extension
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  小于 1 分钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+<p><img src="http://localhost:4000/images/KeyboardExtension/img0.PNG" alt="截图1" /></p>
+
+<p>转载请注明出处：<a href="http://mkapple.cn/2017/04/20/KeyboardExtension">http://mkapple.cn/2017/04/20/KeyboardExtension</a></p>
+
+<h2 id="自定义键盘扩展">自定义键盘扩展</h2>
+<p>我们来做一个可以进行科学运算的计算器键盘吧。</p>
+
+<h3 id="2-创建-keyboard-extension-扩展">2. 创建 Keyboard Extension 扩展</h3>
+<p><img src="http://localhost:4000/images/KeyboardExtension/img2.png" alt="截图3" />
+<br />
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img3.png" alt="截图4" />
+<br />
+下一步，命名，完成。
+<br /></p>
+
+<p>修改运行时执行的主应用
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img5.png" alt="截图6" />
+<br /></p>
+
+<p>在 Run 一项里选择运行时执行的主应用, 勾上 Debug executable：<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img6.png" alt="截图7" />
+<br /></p>
+
+<p>在 info.plist 文件修改自定义键盘的标题：
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img8.png" alt="截图9" />
+<br /></p>
+
+<p>以及其他的默认设置：
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img9.png" alt="截图10" />
+<br /></p>
+
+<font color="orange">IsASCIICapable</font>
+<p>–布尔值，默认为NO,表示第三方输入法是否可以向文档中插入ASCII字符串。如果您的第三方输入法专门提供<a href="https://developer.apple.com/documentation/uikit/uitextinputtraits#//apple_ref/c/econst/UIKeyboardTypeASCIICapable">UIKeyboardTypeASCIICapable</a>输入法特性，那么将这个选项设置为YES。</p>
+
+<font color="orange">PrefersRightToLeft</font>
+<p>–布尔值，默认为NO,表示第三方输入法使用的是否是一个从右到左的语言。如果您的输入法主语言是从右到左书写的，那么讲这个选项设置为YES。</p>
+
+<font color="orange">PrimaryLanguage</font>
+<p>–字符串值，默认为en-US（美国英语），用以表示您输入法的主语言，使用模式为<语言>-<地区>。您可以在[这个页面](https://opensource.apple.com/source/CF/CF-476.14/CFLocaleIdentifier.c)找到某一语言和地区所对应的字符串。</地区></语言></p>
+
+<font color="orange">RequestsOpenAccess</font>
+<p>–布尔值，默认为NO，表示第三方输入法是否要扩展到已满足基本输入法需求的沙箱之外。如果开放存取功能，您的输入法将获得如下特性，但每一个都有相应的责任：</p>
+
+<p>1.访问位置服务和地址本数据库，每一个都需在第一次访问时获得授权。</p>
+
+<p>2.可选择与容纳该输入法的应用的共享容器，使得在应用中可以定制词汇表。</p>
+
+<p>3.能够将输入的字符和其他输入事件上传至服务器进行处理。</p>
+
+<p>4.访问iCloud，例如，能够确保输入法的设置以及您的自动修正词汇能够在所有用户设备上同步。</p>
+
+<p>5.通过包含还输入法的应用，能够访问Game Center和应用内购买。</p>
+
+<p>6.能够和受控应用进行协同，如果您使用来设计该输入法以支持移动设备管理(MDM)。</p>
+
+<h3 id="3-开始写代码">3. 开始写代码</h3>
+<p>刚创建项目的时候系统会帮你创建一个继承于 <strong>UIInputViewController</strong> 的类：KeyboardViewController。我们直接在里面添加视图就可以构建键盘页面了。</p>
+
+<h4 id="31-构建键盘">3.1. 构建键盘</h4>
+<p>我还是喜欢用 xib 来创建视图。
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img10.png" alt="截图9" />
+<br /></p>
+
+<p>添加到视图控制器：</p>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">keyBoardView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UINib</span> <span class="nf">nibWithNibName</span><span class="p">:</span> <span class="s">@"Keyboard"</span> <span class="nf">bundle</span><span class="p">:</span> <span class="nf">nil</span><span class="p">]</span>  <span class="n">instantiateWithOwner</span><span class="o">:</span> <span class="nb">nil</span> <span class="n">options</span><span class="o">:</span> <span class="nb">nil</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">keyBoardView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="nf">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">220</span><span class="p">);</span> <span class="c1">//控制键盘的尺寸
+</span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span> <span class="n">keyBoardView</span><span class="p">];</span> <span class="c1">//直接添加到视图控制器
+</span></code></pre>
+</div>
+
+<p>为每个按钮设置方法</p>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="n">UIButton</span> <span class="o">*</span><span class="n">btn</span> <span class="k">in</span> <span class="p">[</span><span class="n">keyBoardView</span> <span class="nf">subviews</span><span class="p">]){</span>
+    <span class="k">if</span><span class="p">([</span><span class="n">btn</span> <span class="nf">isKindOfClass</span><span class="p">:</span> <span class="p">[</span><span class="n">UIButton</span> <span class="nf">class</span><span class="p">]]){</span>
+        <span class="p">[</span><span class="n">btn</span> <span class="nf">addTarget</span><span class="p">:</span><span class="n">self</span> <span class="nf">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">keyDidClick</span><span class="o">:</span><span class="p">)</span> <span class="n">forControlEvents</span><span class="o">:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">keyDidClick</span><span class="o">:</span><span class="p">(</span><span class="n">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="n">btn</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">116</span><span class="p">:</span>
+            <span class="p">[</span><span class="n">self</span> <span class="nf">advanceToNextInputMode</span><span class="p">];</span> <span class="c1">//切换输入法
+</span>            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">115</span><span class="p">:</span>
+            <span class="p">[</span><span class="n">self</span> <span class="nf">dismissKeyboard</span><span class="p">];</span><span class="c1">//键盘隐藏
+</span>            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">119</span><span class="p">:{</span>
+            <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">textDocumentProxy</span> <span class="nf">deleteBackward</span><span class="p">];</span><span class="c1">//删除上个输入
+</span>        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">120</span><span class="p">:{</span>
+            <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">textDocumentProxy</span> <span class="nf">insertText</span><span class="p">:</span> <span class="s">@"</span><span class="se">\n</span><span class="s">"</span><span class="p">];</span> <span class="c1">//按下发送键，即 returnKey
+</span>        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+            
+        <span class="k">default</span><span class="o">:</span>
+        <span class="p">{</span>
+            <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">textDocumentProxy</span> <span class="nf">insertText</span><span class="p">:</span> <span class="p">[</span><span class="n">btn</span> <span class="nf">titleForState</span><span class="p">:</span> <span class="n">UIControlStateNormal</span><span class="p">]];</span> <span class="c1">//插入文本
+</span>            <span class="k">if</span><span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">tag</span> <span class="o">==</span> <span class="mi">114</span><span class="p">){</span>
+                <span class="c1">//TODO: 计算
+</span>                
+            <span class="p">}</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="32-运行">3.2. 运行</h4>
+<p>运行之后，我们到手机的设置 -&gt; 通用 -&gt; 键盘 -&gt; 添加第三方键盘，然后打开微信，切换输入法到我们创建的键盘。
+<br />
+<img src="http://localhost:4000/images/KeyboardExtension/img.gif" alt="截图6" /></p>
+
+<p>Demo：<a href="https://github.com/monkey19911021/MKCustomKeyboard">https://github.com/monkey19911021/MKCustomKeyboard</a>
+<br /></p>
+
+<p>P.S. 喜欢就分享或者点个赞呗</p>
+
+<!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2017-04-20T00:00:00+08:00">April 20, 2017</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2017/04/20/KeyboardExtension" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/04/20/KeyboardExtension" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2017/04/20/KeyboardExtension" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017/04/20/KeyboardExtension" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/2017/04/19/Tip_NavBack" class="pagination--pager" title="拦截导航栏返回事件
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
