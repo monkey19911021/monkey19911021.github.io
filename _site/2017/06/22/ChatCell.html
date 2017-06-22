@@ -1,0 +1,666 @@
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>【felxboxlayout】制作即时通讯聊天框 - MK in Apple</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="zh-cn">
+<meta property="og:site_name" content="MK in Apple">
+<meta property="og:title" content="【felxboxlayout】制作即时通讯聊天框">
+
+
+  <link rel="canonical" href="http://localhost:4000/2017/06/22/ChatCell">
+  <meta property="og:url" content="http://localhost:4000/2017/06/22/ChatCell">
+
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta name="twitter:site" content="@M0nk1y_">
+  <meta name="twitter:title" content="【felxboxlayout】制作即时通讯聊天框">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/2017/06/22/ChatCell">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+    <meta property="fb:app_id" content="M0nk1y">
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-06-22T00:00:00+08:00">
+  
+  
+    <link rel="prev" href="http://localhost:4000/2017/04/20/KeyboardExtension" title="`ios` 应用扩展—— Keyboard Extension">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "person",
+      "name" : "MKApple",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="vs_ZEby3Fqlw_QNdrwd2UBJgfl3toUioiZiB9XI-PWQ" />
+
+
+  <meta name="baidu-site-verification" content="afziIIFBbd" />
+
+
+
+
+<!-- end SEO -->
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="MK in Apple Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">MK in Apple</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/aboutme">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags">标签</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/category">类别</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/bio-photo.jpg" class="author__avatar" alt="M0nk1y">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">M0nk1y</h3>
+    <p class="author__bio">iOS开发攻城狮，程序猿</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 广州天河</li>
+      
+      
+      
+        <li><a href="mailto:monkey19911021@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> 邮箱</a></li>
+      
+      
+        <li><a href="tel:15918721858"><i class="fa fa-fw fa-mobile-phone" aria-hidden="true"></i> 15918721858</a></li>
+      
+      
+        <li><a onclick="showWX()"><i class="fa fa-fw fa-wechat" aria-hidden="true"></i> 微信 扫一扫</a></li>
+        <li><img onclick="gotoWX()" src="http://localhost:4000/images/weiixin.jpg" id="wx_img"  hidden></li>
+      
+      
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=457870936&site=qq&menu=yes" alt="Q我吧" title="Q我吧"><i class="fa fa-fw fa-qq" aria-hidden="true"></i> 点我 Q我^_^</a></li>
+      
+      
+      
+        <li><a href="http://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+        <li><a href="http://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="【felxboxlayout】制作即时通讯聊天框">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="June 22, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">【felxboxlayout】制作即时通讯聊天框
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  5 秒钟阅读
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+<p><img src="http://localhost:4000/images/ChatCell/img.gif" alt="截图1" /></p>
+
+<p>转载请注明出处：<a href="http://mkapple.cn/2017/06/22/ChatCell">http://mkapple.cn/2017/06/22/ChatCell</a></p>
+
+<h2 id="即时通讯聊天框">即时通讯聊天框</h2>
+<p>我们来做一个像QQ、微信那样的即时通讯应用的聊天框吧。所用的库有：</p>
+
+<ol>
+  <li><a href="https://github.com/LPD-iOS/FlexBoxLayout">FlexBoxLayout</a>，它是一个基于 Yoga 开源库进行开发的布局工具，用的是 Frame 布局，比约束布局性能高出很多，特别是支持自动高度、布局缓存，contentView 缓存，和自动 cache 失效机制。这里是中文教程：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">www.ruanyifeng.com</a></li>
+  <li><a href="https://github.com/liuzhiyi1992/ZYCornerRadius">CornerRadiusCategory</a>，解决圆角带来的离屏渲染导致帧数下降的问题。</li>
+  <li><a href="https://github.com/monkey19911021/MKImageReview">MKImagesReViewController</a>，我自己开发的图片浏览器，支持多图浏览，放大无缝，保存图片到手机，最重要的是支持查看 gif 格式的图片。</li>
+</ol>
+
+<h3 id="1-封装消息-model">1. 封装消息 Model</h3>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">fromUserName</span><span class="p">;</span>  <span class="c1">//发送人名字
+</span><span class="k">@property</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">toUserName</span><span class="p">;</span>    <span class="c1">//接收人名字, 群聊里是房间名
+</span><span class="k">@property</span><span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">MSGDirectionType</span> <span class="n">msgDirectionType</span><span class="p">;</span> <span class="c1">//是发送还是接受
+</span><span class="k">@property</span><span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">sendDate</span><span class="p">;</span>   <span class="c1">//发送时间，时间毫秒数
+</span><span class="k">@property</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">content</span><span class="p">;</span>   <span class="c1">//文字内容
+</span><span class="k">@property</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">attachFilePath</span><span class="p">;</span>    <span class="c1">//附件数据位置
+</span><span class="k">@property</span><span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">MSGAttachType</span> <span class="n">attachType</span><span class="p">;</span>  <span class="c1">//附件类型，0: 文字，1: 图片, 2: 音频, 3: 视频, 4: 文本文件（如word、ppt） 5: URL地址
+</span></code></pre>
+</div>
+
+<p>注意：因为考虑到服务器和安卓端的时间戳是毫秒为单位的，而iOS是秒为时间戳单位，所以我们的时间使用毫秒为单位。</p>
+
+<h3 id="2-封装聊天框uitableviwcell-的内容视图">2. 封装聊天框，UITableViwCell 的内容视图</h3>
+
+<h4 id="21-协议方法">2.1. 协议方法</h4>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ 下载数据
+ 
+ @param indexPath indexPath
+ @param completeHandler 下载完成处理块
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">downLoadData</span><span class="p">:</span> <span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span>
+    <span class="nf">completeHandler</span><span class="p">:</span> <span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BOOL</span> <span class="n">success</span><span class="p">))</span><span class="nv">completeHandler</span><span class="p">;</span>
+
+<span class="cm">/**
+ 获取聊天框的头像
+ 
+ @param indexPath indexPath
+ @return 头像图片
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">headImageForIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="p">;</span>
+
+<span class="cm">/**
+ 点击头像查看人员信息
+ 
+ @param indexPath indexPath
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">reviewMemberInfo</span><span class="p">:</span> <span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="p">;</span>
+
+<span class="cm">/**
+ 该聊天记录里所有的图片附件所在的位置，用于浏览聊天记录里的所有图片
+ 
+ @return 附件ID数组
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">allImageAttachFileParths</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>下载的协议方法用于当滑动到某个非文本内容的聊天框时，需要加载附件，但是本地没有缓存需要进行下载，则可以调用此方法进行下载。</p>
+
+<h4 id="22-内部成员变量">2.2. 内部成员变量</h4>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="n">ChatingMsg</span> <span class="o">*</span><span class="n">chatMsg</span><span class="p">;</span>
+
+<span class="c1">//头像
+</span><span class="n">UIImageView</span> <span class="o">*</span><span class="n">headImageView</span><span class="p">;</span>
+
+<span class="c1">//名字
+</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">nameLabel</span><span class="p">;</span>
+<span class="c1">//消息时间
+</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">msgTimeLable</span><span class="p">;</span>
+<span class="c1">//背景图，即对话泡
+</span><span class="n">UIImageView</span> <span class="o">*</span><span class="n">backgroundImageView</span><span class="p">;</span>
+
+<span class="c1">//文本内容
+</span><span class="n">UITextView</span> <span class="o">*</span><span class="n">contentTextView</span><span class="p">;</span>
+
+<span class="c1">//图片内容
+</span><span class="n">UIImageView</span> <span class="o">*</span><span class="n">contentImageView</span><span class="p">;</span>
+
+<span class="c1">//音频内容
+</span><span class="n">UIButton</span> <span class="o">*</span><span class="n">audioBtn</span><span class="p">;</span>
+<span class="c1">//音频时间
+</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">audioTimeLabel</span><span class="p">;</span>
+<span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">UIImage</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">leftVoiceImages</span><span class="p">;</span>
+<span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">UIImage</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">rightVoiceImages</span><span class="p">;</span>
+<span class="n">AVAudioPlayer</span> <span class="o">*</span><span class="n">audioPlayer</span><span class="p">;</span>
+
+<span class="c1">//活动指示图
+</span><span class="n">UIActivityIndicatorView</span> <span class="o">*</span><span class="n">activityIndicatorView</span><span class="p">;</span>
+
+<span class="n">BOOL</span> <span class="n">isSend</span><span class="p">;</span> <span class="c1">//聊天框是发送样式还是接受样式
+</span><span class="n">NSDateFormatter</span> <span class="o">*</span><span class="n">dateFormatter</span><span class="p">;</span>
+
+<span class="n">UIImage</span> <span class="o">*</span><span class="n">rightImg</span><span class="p">;</span>
+<span class="n">UIImage</span> <span class="o">*</span><span class="n">leftImg</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h4 id="23-重点100多行代码搞掂布局">2.3. 重点，100多行代码搞掂布局</h4>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="c1">//------------------
+</span><span class="p">[</span><span class="n">headImageView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">equalToSize</span><span class="p">(</span><span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)).</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">isSend</span><span class="p">?</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">isSend</span><span class="p">?</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">2</span><span class="p">)).</span><span class="n">wrapContent</span><span class="p">();</span>
+<span class="p">}];</span>
+
+<span class="c1">//------------------
+</span><span class="p">[</span><span class="n">nameLabel</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">().</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)).</span><span class="n">alignItems</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBAlignFlexStart</span><span class="p">));</span>
+<span class="p">}];</span>
+<span class="p">[</span><span class="n">msgTimeLable</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">();</span>
+<span class="p">}];</span>
+<span class="n">FBLayoutDiv</span> <span class="o">*</span><span class="n">titleDiv</span> <span class="o">=</span> <span class="p">[</span><span class="n">FBLayoutDiv</span> <span class="nf">layoutDivWithFlexDirection</span><span class="p">:</span> <span class="n">isSend</span><span class="p">?</span> <span class="n">FBFlexDirectionRowReverse</span><span class="p">:</span> <span class="n">FBFlexDirectionRow</span>
+                                                 <span class="nf">justifyContent</span><span class="p">:</span> <span class="n">FBJustifyFlexStart</span>
+                                                     <span class="n">alignItems</span><span class="o">:</span> <span class="n">FBAlignCenter</span>
+                                                       <span class="n">children</span><span class="o">:</span><span class="p">(@[</span><span class="n">nameLabel</span><span class="p">,</span> <span class="n">msgTimeLable</span><span class="p">])];</span>
+<span class="c1">//------------------
+</span><span class="p">[</span><span class="n">activityIndicatorView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">();</span>
+<span class="p">}];</span>
+
+<span class="p">[</span><span class="n">contentImageView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">flexDirection</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBFlexDirectionRow</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">justifyContent</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBJustifyCenter</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">alignItems</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBAlignCenter</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">children</span><span class="p">(@[</span><span class="n">activityIndicatorView</span><span class="p">]);</span>
+<span class="p">}];</span>
+
+<span class="c1">//------------------
+</span><span class="n">UIView</span> <span class="o">*</span><span class="n">showView</span> <span class="o">=</span> <span class="n">contentTextView</span><span class="p">;</span>
+<span class="n">UIEdgeInsets</span> <span class="n">insets</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">isSend</span><span class="p">?</span> <span class="n">ContentBehindMargin</span><span class="p">:</span> <span class="n">ContentFrontMargin</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">isSend</span><span class="p">?</span> <span class="n">ContentFrontMargin</span><span class="p">:</span> <span class="n">ContentBehindMargin</span><span class="p">);</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">chatMsg</span><span class="p">.</span><span class="n">attachType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeString</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">contentTextView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">()</span>
+            <span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">insets</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">maxWidth</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">ContentWidth</span><span class="p">));</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeImage</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">showView</span> <span class="o">=</span> <span class="n">contentImageView</span><span class="p">;</span>
+        <span class="p">[</span><span class="n">contentImageView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="n">contentImageView</span><span class="p">.</span><span class="n">image</span><span class="p">;</span>
+            <span class="n">CGSize</span> <span class="n">imageSize</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+            <span class="n">CGFloat</span> <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="nf">mainScreen</span><span class="p">].</span><span class="n">scale</span><span class="p">;</span>
+            <span class="n">CGFloat</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">/</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="nf">mainScreen</span><span class="p">].</span><span class="n">scale</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">imageSize</span><span class="p">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">imageSize</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="o">*</span><span class="n">imageSize</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="n">imageSize</span><span class="p">.</span><span class="n">width</span><span class="p">);</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="n">imageSize</span><span class="p">.</span><span class="n">width</span><span class="p">;</span>
+                <span class="n">height</span> <span class="o">=</span> <span class="n">imageSize</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="n">layout</span><span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">insets</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">width</span><span class="p">))</span>
+            <span class="p">.</span><span class="n">height</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">height</span><span class="p">));</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeAudio</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="n">showView</span> <span class="o">=</span> <span class="n">audioBtn</span><span class="p">;</span>
+        <span class="p">[</span><span class="n">audioBtn</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">CGFloat</span> <span class="n">width</span> <span class="o">=</span> <span class="n">audioPlayer</span><span class="p">.</span><span class="n">duration</span><span class="o">/</span><span class="mi">13</span><span class="p">.</span><span class="mi">0</span> <span class="o">*</span> <span class="n">ContentWidth</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">width</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">.</span><span class="mi">0</span><span class="p">){</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="mi">40</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="k">if</span><span class="p">(</span><span class="n">width</span> <span class="o">&gt;</span> <span class="n">ContentWidth</span><span class="p">){</span>
+                <span class="n">width</span> <span class="o">=</span> <span class="n">ContentWidth</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">layout</span><span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">insets</span><span class="p">.</span><span class="n">left</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">insets</span><span class="p">.</span><span class="n">right</span><span class="p">))</span>
+            <span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">width</span><span class="p">))</span>
+            <span class="p">.</span><span class="n">height</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="mi">32</span><span class="p">));</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeVideo</span><span class="p">:</span>
+        
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeTextFile</span><span class="p">:</span>
+        
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">MSGAttachTypeURL</span><span class="p">:</span>
+        
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">default</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">[</span><span class="n">backgroundImageView</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">flexDirection</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">isSend</span><span class="p">?</span> <span class="n">FBFlexDirectionRowReverse</span><span class="p">:</span> <span class="n">FBFlexDirectionRow</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">justifyContent</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBJustifyFlexStart</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">alignItems</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBAlignFlexStart</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">children</span><span class="p">(@[</span><span class="n">showView</span><span class="p">]);</span>
+    
+    <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">();</span>
+<span class="p">}];</span>
+
+<span class="p">[</span><span class="n">audioTimeLabel</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">wrapContent</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">alignSelf</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBAlignFlexEnd</span><span class="p">));</span>
+<span class="p">}];</span>
+
+<span class="n">FBLayoutDiv</span> <span class="o">*</span><span class="n">contentDiv</span> <span class="o">=</span> <span class="p">[</span><span class="n">FBLayoutDiv</span> <span class="nf">layoutDivWithFlexDirection</span><span class="p">:</span> <span class="n">isSend</span><span class="p">?</span> <span class="n">FBFlexDirectionRowReverse</span><span class="p">:</span> <span class="n">FBFlexDirectionRow</span>
+                                                   <span class="nf">justifyContent</span><span class="p">:</span> <span class="n">FBJustifyFlexStart</span>
+                                                       <span class="n">alignItems</span><span class="o">:</span> <span class="n">FBAlignFlexStart</span>
+                                                         <span class="n">children</span><span class="o">:</span> <span class="p">@[</span><span class="n">backgroundImageView</span><span class="p">,</span> <span class="n">audioTimeLabel</span><span class="p">]];</span>
+
+<span class="n">FBLayoutDiv</span> <span class="o">*</span><span class="n">bodyDiv</span> <span class="o">=</span> <span class="p">[</span><span class="n">FBLayoutDiv</span> <span class="nf">layoutDivWithFlexDirection</span><span class="p">:</span><span class="n">FBFlexDirectionColumn</span>
+                                                <span class="nf">justifyContent</span><span class="p">:</span><span class="n">FBJustifyCenter</span>
+                                                    <span class="n">alignItems</span><span class="o">:</span> <span class="n">isSend</span><span class="p">?</span> <span class="n">FBAlignFlexEnd</span><span class="p">:</span> <span class="n">FBAlignFlexStart</span>
+                                                      <span class="n">children</span><span class="o">:</span><span class="p">(@[</span><span class="n">titleDiv</span><span class="p">,</span> <span class="n">contentDiv</span><span class="p">])];</span>
+
+
+<span class="p">[</span><span class="n">self</span> <span class="nf">fb_makeLayout</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">FBLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">flexDirection</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">isSend</span><span class="p">?</span> <span class="err">@</span><span class="p">(</span><span class="n">FBFlexDirectionRowReverse</span><span class="p">):</span> <span class="err">@</span><span class="p">(</span><span class="n">FBFlexDirectionRow</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">justifyContent</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBJustifyFlexStart</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">alignItems</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="err">@</span><span class="p">(</span><span class="n">FBAlignFlexStart</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">margin</span><span class="p">.</span><span class="n">equalToEdgeInsets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">.</span><span class="n">children</span><span class="p">(@[</span><span class="n">headImageView</span><span class="p">,</span> <span class="n">bodyDiv</span><span class="p">]);</span>
+<span class="p">}];</span>
+</code></pre>
+</div>
+
+<p>看不懂以上代码没关系，先去看看<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">FlexBoxLayout中文教程</a>，其实并不难，理解好了就好用了。</p>
+
+<h4 id="24-uitableview-使用-flexboxlayout">2.4. UITableView 使用 FlexBoxLayout</h4>
+<div class="language-objc highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="n">chatTableView</span> <span class="nf">registerClass</span><span class="p">:</span> <span class="p">[</span><span class="n">UITableViewCell</span> <span class="nf">class</span><span class="p">]</span> <span class="nf">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">@"fb_kCellIdentifier"</span><span class="p">];</span> <span class="c1">//先去注册cell，identifier 一定要使用 fb_kCellIdentifier
+</span><span class="p">[</span><span class="n">chatTableView</span> <span class="nf">fb_setCellContnetViewBlockForIndexPath</span><span class="p">:</span><span class="o">^</span><span class="n">UIView</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">indexPath</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">MKChatCellContentView</span> <span class="o">*</span><span class="n">cellView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MKChatCellContentView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithChatMsg</span><span class="p">:</span> <span class="n">chatMsgArray</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="nf">row</span><span class="p">]</span>
+                                                                       <span class="nf">withIndexPath</span><span class="p">:</span> <span class="n">indexPath</span>
+                                                                            <span class="nl">delegate:</span> <span class="n">self</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">cellView</span><span class="p">;</span>
+<span class="p">}];</span>
+    
+<span class="cp">#pragma mark - UITableViewDelegate
+</span><span class="k">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">numberOfRowsInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">section</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">chatMsgArray</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">heightForRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">tableView</span> <span class="nf">fb_heightForIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">UITableViewCell</span> <span class="o">*</span><span class="p">)</span><span class="nf">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">cellForRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">tableView</span> <span class="nf">fb_cellForIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>tableView 的高度都是自动计算的，自己就不用操心了。</p>
+
+<p>Demo：<a href="https://github.com/monkey19911021/MKChatCell">https://github.com/monkey19911021/MKChatCell</a>
+<br /></p>
+
+<p>P.S. 喜欢就分享或者点个赞呗</p>
+
+<!-- 网易云跟帖 -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "ed9b8d43dc944e809d5c088decaffc0a",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> 更新:</strong> <time datetime="2017-06-22T00:00:00+08:00">June 22, 2017</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/2017/06/22/ChatCell" class="btn btn--twitter" title="分享 Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/06/22/ChatCell" class="btn btn--facebook" title="分享 Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/2017/06/22/ChatCell" class="btn btn--google-plus" title="分享 Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017/06/22/ChatCell" class="btn btn--linkedin" title="分享 LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/2017/04/20/KeyboardExtension" class="pagination--pager" title="ios 应用扩展—— Keyboard Extension
+">上一章</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">下一章</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/M0nk1y_"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://facebook.com/liujhapple"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="http://github.com/monkey19911021"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 MKApple. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259200899'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259200899%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77956034-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function showWX(){
+    var wxImg = document.getElementById('wx_img');
+    if(wxImg.getAttribute("hidden") != null){
+      wxImg.removeAttribute("hidden");
+    }else{
+      wxImg.setAttribute("hidden", true);
+    }
+  }
+  
+  function gotoWX(){
+    location.href="http://weixin.qq.com/r/aG1OVm-EvDLDrSs19zh6"
+  }
+</script>
+    <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+  </body>
+</html>
+
