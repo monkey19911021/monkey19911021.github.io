@@ -6,7 +6,8 @@ tags: [Extension]
 ---
 ![截图1]({{ site.url }}/images/ChatCell/img.gif)
 
-转载请注明出处：[http://mkapple.cn/2017/06/22/ChatCell](http://mkapple.cn/2017/06/22/ChatCell)
+注意！转载请注明[出处](http://mkapple.cn/2017/06/22/ChatCell)和[作者](http://mkapple.cn)，谢谢
+{: .notice--danger}
 
 ## 即时通讯聊天框
 我们来做一个像QQ、微信那样的即时通讯应用的聊天框吧。所用的库有：

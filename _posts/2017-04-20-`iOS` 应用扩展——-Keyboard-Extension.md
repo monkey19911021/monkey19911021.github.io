@@ -6,7 +6,8 @@ tags: [Extension]
 ---
 ![截图1]({{ site.url }}/images/KeyboardExtension/img0.PNG)
 
-转载请注明出处：[http://mkapple.cn/2017/04/20/KeyboardExtension](http://mkapple.cn/2017/04/20/KeyboardExtension)
+注意！转载请注明[出处](http://mkapple.cn/2017/04/20/KeyboardExtension)和[作者](http://mkapple.cn)，谢谢
+{: .notice--danger}
 
 ## 自定义键盘扩展
 我们来做一个可以进行科学运算的计算器键盘吧。
