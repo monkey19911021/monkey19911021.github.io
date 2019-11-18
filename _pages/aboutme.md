@@ -7,8 +7,6 @@ permalink: /aboutme
 author_profile: true
 ---
 你好~<br>
-我叫***(此处已和谐)，代号: <font color="red">M0nk1y</font>，缩写<font color="red"><strong>MK</strong></font>。M0nk1y来源于单词monkey，小时候伙伴们给的昵称。<br><br>
-平时喜欢浏览[CocoaChina](http://www.cocoachina.com/)，然后敲敲代码。特别喜欢手工技术活。不定期更新博客。<br><br>
-喜欢我的博客欢迎到Github：[<font color="lightblue">monkey19911021.github.io</font>](https://github.com/monkey19911021/monkey19911021.github.io)给个星，代码开源，谢谢~
+算了，详情不说了，这么多人想来偷我个人信息，这年代谁暴露自己信息谁就是傻逼！
 
-P.S. 。。。。我老婆是 JAVA 后台工程师，学霸呢！
+P.S. 。。。。我老婆是 AI工程师，厉害着呢！
